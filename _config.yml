@@ -26,9 +26,7 @@ repository               : "fafpinheiro/github-pages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             :  > 
-                        Frederico Alberto Franco |
-                        Pinheiro
+  name             :  > Frederico Alberto Franco \n Pinheiro
   pronouns         : # example: "she/her"  
   bio              : "Im a passionated dreamer!"
   location         : "Lisbon"
