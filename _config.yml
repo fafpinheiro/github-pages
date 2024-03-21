@@ -1,6 +1,6 @@
 locale: "en-US"
-tittle: Frederico Pinheiro personal Page
-author: fafpinheiro
+title: Frederico Pinheiro Personal Page
+#author: fafpinheiro
 email: fafpinheiro@campus.fct.unl.pt
 description: Bacon
 
@@ -17,7 +17,7 @@ description: Bacon
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Frederico Alberto Franco Pinheiro"
   pronouns         : # example: "she/her"  
   bio              : "Short biography for the left-hand sidebar"
   location         : "Earth"
