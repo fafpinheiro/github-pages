@@ -9,7 +9,7 @@ Bacon
 #baseurl                  : "" # the subpath of your site, e.g. "/blog"
 #repository               : "academicpages/academicpages.github.io"
 
-theme: minima
+#theme: minima
 
 
 # Site Author - The following control what appear as part of the author content on the side bar.
