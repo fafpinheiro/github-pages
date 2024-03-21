@@ -11,9 +11,9 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+#* Ph.D in Version Control Theory, GitHub University, 2018 (expected)+
+* M.S. in Computer science and Engineering, NOVA School of Science and Technology, 2023
+* B.S. in Computer science and Engineering, NOVA School of Science and Technology, 2020
 
 Work experience
 ======
