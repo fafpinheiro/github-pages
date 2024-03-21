@@ -26,12 +26,11 @@ repository               : "fafpinheiro/github-pages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             :  >- Frederico Alberto Franco \n Pinheiro
+  name             :  Frederico Alberto Franco Pinheiro
   pronouns         : # example: "she/her"  
   bio              : "Im a passionated dreamer!"
   location         : "Lisbon"
-  employer         : |
-  ETI - Simulation and Engineering
+  employer         : ETI - Simulation and Engineering
   Solutions
   uri              : # URL
   email            : "fredpinheiro98@gmail.com" 
