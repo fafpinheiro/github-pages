@@ -15,7 +15,11 @@ locale                   : "en-US"
 title                    : "Frederico Pinheiro Personal Page"
 title_separator          : "-"
 name                     : &name "Frederico Pinheiro"
-description              : &description "I am passionated about the art of game design/creation!"
+description              : &description >-#"I am passionated about the art of game design/creation!"
+    As an enthusiastic Game Developer, deeply passionate about video games and their power to captivate and inspire,
+    I'm in continuous search to understand the art of storytelling and technical aspects that makes video games an
+    unique form of entertainment. With this in mind, I'm highly motivated to collaborate as a Game Developer with
+    a team that also have this passion for the craft of exceptional interactive experiences.
 url                      : https://fafpinheiro.github.io/github-pages/ # the base hostname & protocol for your site e.g. "#https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "fafpinheiro/github-pages.github.io"
