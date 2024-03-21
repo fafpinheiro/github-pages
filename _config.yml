@@ -2,8 +2,7 @@ locale: "en-US"
 tittle: Frederico Pinheiro personal Page
 author: fafpinheiro
 email: fafpinheiro@campus.fct.unl.pt
-description: >- 
-Bacon
+description: Bacon
 
 #url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 #baseurl                  : "" # the subpath of your site, e.g. "/blog"
