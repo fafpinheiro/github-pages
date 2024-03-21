@@ -39,3 +39,26 @@ Thumbs.db
 # Visual Studio #
 #################
 .vs
+
+# Jekyll generated files #
+##########################
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
+# Bundler generated files #
+###########################
+.bundle/
+vendor/
+Gemfile.lock
+
+# Files created by npm #
+########################
+node_modules
+package-lock.json
+
+# Gems #
+########
+*.gem
