@@ -1,6 +1,7 @@
 import React from 'react';
 import { Inter, Lexend } from 'next/font/google';
-import './globals.css'; // Import global CSS here
+import './globals.css';
+import ClientLayoutWrapper from './ClientLayoutWrapper'; // Import the wrapper
 
 // Initialize fonts using Next.js font optimization
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -23,7 +24,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         `}</style>
       </head>
       <body>
-        {children}
+        {/* Wrap all children (pages) in the ClientLayoutWrapper to apply the Sidebar globally */}
+        <ClientLayoutWrapper>
+          {children}
+        </ClientLayoutWrapper>
       </body>
     </html>
   );

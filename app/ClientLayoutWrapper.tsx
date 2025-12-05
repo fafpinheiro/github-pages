@@ -1,7 +1,9 @@
-'use client'; // This directive marks the file as a Client Component
+'use client'; // CRITICAL: Must be at the top for usePathname to work
 
 import React, { useState, useEffect } from 'react';
-import Sidebar from '../src/components/layout/Sidebar'; // Using absolute imports with @/
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { usePathname } from 'next/navigation'; // <-- Ensure this import is present
+import Sidebar from '../src/components/layout/Sidebar'; 
 import Footer from '../src/components/layout/Footer';
 
 interface ClientLayoutWrapperProps {
@@ -11,10 +13,32 @@ interface ClientLayoutWrapperProps {
 const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [activeSection] = useState<string>('home');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+  
+  // Use Next.js hook to get the current path
+  const pathname = usePathname(); // This should now work correctly
 
-  // --- Dark Mode Logic ---
+  // Determine active section based on the path
+  const getActiveSection = (path: string) => {
+    // Standardize path to start resolving from the root
+    if (path === '/') return 'home';
+
+    // The logic below ensures that paths like:
+    // /content/about -> 'about'
+    // /posts -> 'posts'
+    // /content/tools -> 'tools'
+    const match = path.match(/^\/(?:content\/)?([a-z-]+)/);
+    if (match) {
+        // Return the matched slug (e.g., 'about', 'projects', 'posts')
+        // Using match[1] works for both single segments (/posts) and nested segments (/content/about)
+        return match[1];
+    }
+    return 'home';
+  };
+  
+  const activeSection = getActiveSection(pathname);
+
+  // --- Dark Mode Logic --- (omitted for brevity)
   useEffect(() => {
     // Initialization: Check local storage or system preference
     const storedTheme = localStorage.getItem('theme');
@@ -42,8 +66,23 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
   const toggleTheme = () => setDarkMode(!darkMode);
   const toggleSidebarCollapsed = () => setIsSidebarCollapsed(!isSidebarCollapsed);
 
+  // --- Mobile Menu Logic --- (omitted for brevity)
+  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
   return (
     <div className={`min-h-screen transition-colors duration-300 font-sans ${darkMode ? 'dark bg-slate-900 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
+      
+      {/* Mobile Header */}
+      <div className="lg:hidden flex items-center justify-between p-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800">
+        <span className="font-bold text-xl tracking-tight font-display">ACF Peacekeeper</span>
+        <button 
+          onClick={toggleMenu}
+          className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          aria-label="Open Menu"
+        >
+          <Menu size={24} />
+        </button>
+      </div>
 
       <div className="flex max-w-7xl mx-auto">
         <Sidebar 

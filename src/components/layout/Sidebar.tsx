@@ -11,7 +11,7 @@ interface SidebarProps {
   toggleCollapse: () => void;
 }
 
-// NAV_ITEMS configuration
+// NAV_ITEMS: Links to the "respective text" (pages) created from Markdown
 const NAV_ITEMS = [
     { href: '/', label: 'Home', icon: <Home size={20} />, slug: 'home' },
     { href: '/content/about', label: 'About', icon: <User size={20} />, slug: 'about' },
@@ -47,9 +47,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div>
         {/* Profile / Header Section */}
         <div className="mb-12">
-          {/* Avatar Container: 
-              Using 'w-full' inside the constrained parent ensures it takes the full 48px content width when collapsed.
-          */}
+          {/* Avatar Container */}
           <div className={`relative rounded-full overflow-hidden shadow-lg ring-4 ring-white dark:ring-slate-800 transition-all duration-300 mb-4 bg-slate-200 dark:bg-slate-700 ${isCollapsed ? 'h-12 w-12' : 'h-20 w-20'}`}>
             <img 
               src={profilePic.src}
@@ -83,14 +81,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Social Links Section */}
-      {/* Alignment Fix:
-         - Collapsed: Uses 'grid grid-cols-1 justify-items-center' to perfectly center icons vertically and horizontally.
-         - Expanded: Uses 'flex justify-center space-x-4' for horizontal spread.
-      */}
       <div className={`${isCollapsed ? 'grid grid-cols-1 gap-y-3 justify-items-center w-full' : 'flex justify-center space-x-4'} text-slate-400`}>
         
+        {/* Linked to your GitHub profile based on package.json */}
         <a 
-          href="#" 
+          href="https://github.com/acfpeacekeeper"
+          target="_blank"
+          rel="noopener noreferrer"
           className={`hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
           aria-label="Github">
           <Github size={20} />
