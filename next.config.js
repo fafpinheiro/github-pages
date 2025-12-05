@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, 
+  // Sets the base path for deployment to a subdirectory (e.g., GitHub Pages)
+  basePath: '/github-pages',
   
-  // *** REQUIRED for GitHub Pages (Repository Pages) ***
-  // 1. Sets the base path for all assets and links.
-  basePath: '/github-pages', 
+  // Required for static exports (e.g., for GitHub Pages deployment)
+  output: 'export', 
   
-  // 2. Tells Next.js to export as static HTML instead of running a server.
-  output: 'export',
+  // For handling image imports and paths correctly in static exports
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;

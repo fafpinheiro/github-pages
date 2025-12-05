@@ -21,13 +21,10 @@ My own personal [github pages blog](https://acfpeacekeeper.github.io/github-page
 ## Tech Stack
 - [HTML - HyperText Markup Language](https://html.com/)
 - [CSS - Cascading Style Sheets](https://www.w3.org/Style/CSS/Overview.en.html)
-- [JS - JavaScript Programming Language](https://developer.mozilla.org/en-US/docs/Web/javascript)
-- [Ruby Programming Language](https://www.ruby-lang.org/en/)
-- [SASS - Syntactically Awesome Style Sheets](https://sass-lang.com/)
-- [Liquid - Template Language](https://shopify.github.io/liquid/)
-- [Jekyll - Static Site Generator](https://jekyllrb.com/)
-- [Node.js - Open-source JavaScript Runtime Environment](https://nodejs.org/en)
-- [npm - Package Manager for JavaScript](https://www.npmjs.com/package/npm)
+- [TypeScript Programming Language](https://www.typescriptlang.org/)
+- [Tailwind CSS Framework](https://tailwindcss.com/)
+- [React TypeScript Framework](https://react.dev/)
+- [Next.JS React Framework](https://nextjs.org/)
 
 <footer>
 
