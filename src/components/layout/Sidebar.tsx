@@ -1,9 +1,7 @@
-// src/components/layout/Sidebar.tsx
-
 import React from 'react';
 import { Home, User, PenTool, Code, Video, Github, Twitter, Linkedin, Moon, Sun, Wrench, ChevronLeft } from 'lucide-react';
 import SidebarItem from './SidebarItem';
-import profilePic from '@/assets/images/23041868.jpeg';
+import profilePic from '@/assets/images/23041868.jpeg'; 
 
 interface SidebarProps {
   activeSection: string;
@@ -13,7 +11,7 @@ interface SidebarProps {
   toggleCollapse: () => void;
 }
 
-// NAV_ITEMS remains the same
+// NAV_ITEMS configuration
 const NAV_ITEMS = [
     { href: '/', label: 'Home', icon: <Home size={20} />, slug: 'home' },
     { href: '/content/about', label: 'About', icon: <User size={20} />, slug: 'about' },
@@ -22,7 +20,6 @@ const NAV_ITEMS = [
     { href: '/posts', label: 'Notes', icon: <PenTool size={20} />, slug: 'posts' }, 
     { href: '/content/media', label: 'Media', icon: <Video size={20} />, slug: 'media' },
 ];
-
 
 const Sidebar: React.FC<SidebarProps> = ({ 
   activeSection, 
@@ -38,6 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className={`hidden lg:flex flex-col ${sidebarWidthClass} h-screen sticky top-0 border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl ${paddingClass} justify-between transition-all duration-300 ease-in-out relative`}>
       
+      {/* Collapse Toggle Button */}
       <button 
         onClick={toggleCollapse} 
         className={`absolute top-4 -right-3 z-10 p-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors hidden lg:block`}
@@ -47,10 +45,10 @@ const Sidebar: React.FC<SidebarProps> = ({
       </button>
 
       <div>
+        {/* Profile / Header Section */}
         <div className="mb-12">
-          {/* 2. Avatar Container
-              - REMOVED: bg-gradient-to-tr, from-blue-500, to-purple-600, text-white
-              - ADDED: bg-slate-200 (as a neutral placeholder background only if image fails)
+          {/* Avatar Container: 
+              Using 'w-full' inside the constrained parent ensures it takes the full 48px content width when collapsed.
           */}
           <div className={`relative rounded-full overflow-hidden shadow-lg ring-4 ring-white dark:ring-slate-800 transition-all duration-300 mb-4 bg-slate-200 dark:bg-slate-700 ${isCollapsed ? 'h-12 w-12' : 'h-20 w-20'}`}>
             <img 
@@ -69,6 +67,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           )}
         </div>
 
+        {/* Navigation Section */}
         <nav className="space-y-2">
           {NAV_ITEMS.map(item => (
             <SidebarItem 
@@ -83,11 +82,38 @@ const Sidebar: React.FC<SidebarProps> = ({
         </nav>
       </div>
 
-      <div className={`flex space-x-4 ${isCollapsed ? 'justify-center space-x-0 flex-col items-center space-y-4' : 'justify-center'} text-slate-400`}>
-        <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors p-1" aria-label="Github"><Github size={20} /></a>
-        <a href="#" className="hover:text-blue-400 transition-colors p-1" aria-label="Twitter"><Twitter size={20} /></a>
-        <a href="#" className="hover:text-blue-600 transition-colors p-1" aria-label="LinkedIn"><Linkedin size={20} /></a>
-        <button onClick={toggleTheme} className="hover:text-yellow-500 transition-colors p-1" aria-label="Toggle Dark Mode">
+      {/* Social Links Section */}
+      {/* Alignment Fix:
+         - Collapsed: Uses 'grid grid-cols-1 justify-items-center' to perfectly center icons vertically and horizontally.
+         - Expanded: Uses 'flex justify-center space-x-4' for horizontal spread.
+      */}
+      <div className={`${isCollapsed ? 'grid grid-cols-1 gap-y-3 justify-items-center w-full' : 'flex justify-center space-x-4'} text-slate-400`}>
+        
+        <a 
+          href="#" 
+          className={`hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+          aria-label="Github">
+          <Github size={20} />
+        </a>
+        
+        <a 
+          href="#" 
+          className={`hover:text-blue-400 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+          aria-label="Twitter">
+          <Twitter size={20} />
+        </a>
+        
+        <a 
+          href="#" 
+          className={`hover:text-blue-600 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+          aria-label="LinkedIn">
+          <Linkedin size={20} />
+        </a>
+        
+        <button 
+          onClick={toggleTheme} 
+          className={`hover:text-yellow-500 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+          aria-label="Toggle Dark Mode">
           {darkMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
       </div>

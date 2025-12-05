@@ -5,12 +5,16 @@ interface SidebarItemProps {
   icon: React.ReactNode;
   label: string;
   active?: boolean;
-  isCollapsed: boolean; 
+  isCollapsed: boolean;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ href, icon, label, active, isCollapsed }) => (
   <a 
     href={href}
+    title={isCollapsed ? label : undefined} // Add tooltip on hover when collapsed
+    // Conditional Layout:
+    // - Collapsed: 'justify-center px-0' -> Centers the icon perfectly in the sidebar width.
+    // - Expanded: 'space-x-3 px-4' -> Standard list layout with text.
     className={`flex items-center py-3 rounded-lg font-medium transition-all duration-200 
       ${isCollapsed ? 'justify-center px-0' : 'space-x-3 px-4'} 
       ${
@@ -20,7 +24,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ href, icon, label, active, is
     }`}
   >
     {icon}
-    {/* 3. Conditionally render the label */}
+    {/* Hide label text when collapsed */}
     {!isCollapsed && <span>{label}</span>}
   </a>
 );
