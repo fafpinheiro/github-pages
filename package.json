@@ -15,8 +15,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && touch out/.nojekyll"
   },
+  "homepage": "https://acfpeacekeeper.github.io/github-pages", 
   "dependencies": {
     "next": "^14.2.3",
     "lucide-react": "^0.383.0",
