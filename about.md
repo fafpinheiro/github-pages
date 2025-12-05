@@ -10,7 +10,7 @@ title: About Me
 - [About Index](#about-index)
   - [Current Work](#current-work)
   - [Previous Work](#previous-work)
-  - [Hobbies \& Personal Interests](#hobbies--personal-interests)
+  - [Hobbies & Personal Interests](#hobbies--personal-interests)
     - [Knowledge Areas of Interest](#knowledge-areas-of-interest)
   - [Academia](#academia)
     - [Extracurricular Courses](#extracurricular-courses)

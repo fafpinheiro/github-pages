@@ -14,7 +14,7 @@ title: Projects
     - [Web Development](#web-development)
       - [EBEC 2020](#ebec-2020)
       - [Personal blog](#personal-blog)
-    - [Software \& Hardware Engineering](#software--hardware-engineering)
+    - [Software & Hardware Engineering](#software--hardware-engineering)
       - [Hacker Entertainment System (HES)](#hacker-entertainment-system-hes)
       - [HackerSchool Robot (HS-Robot)](#hackerschool-robot-hs-robot)
     - [Game Development](#game-development)
