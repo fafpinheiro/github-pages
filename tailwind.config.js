@@ -1,18 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // CRITICAL: This content array tells Tailwind where to find your utility classes.
+  // CRITICAL: Now scanning ALL files under src/ for Tailwind classes.
   content: [
-    "./src/pages/**/*.{js,jsx,ts,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}", 
   ],
-  darkMode: 'class', // Enables manual toggling of dark mode
+  darkMode: 'class', 
   theme: {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Lexend', 'sans-serif'],
       },
-      // ... (other custom theme settings)
+      colors: {
+        slate: {
+          850: '#1e293b',
+          900: '#0f172a',
+        },
+        primary: {
+          500: '#3b82f6',
+          600: '#2563eb',
+        }
+      }
     },
   },
   plugins: [],
