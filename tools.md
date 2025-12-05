@@ -1,0 +1,78 @@
+---
+layout: page
+title: Tools
+---
+![Jinx from Arcane, a League of Legends Series, firing her minigun Pow-Pow](assets/images/maxresdefault.jpg)
+# Tools Index
+- [Tools Index](#tools-index)
+  - [Computer Science and Engineering (CSE)](#computer-science-and-engineering-cse)
+    - [Programming Languages](#programming-languages)
+    - [Frameworks \& Libraries](#frameworks--libraries)
+    - [Other Languages](#other-languages)
+    - [Version Control](#version-control)
+    - [Project Setup \& Management](#project-setup--management)
+    - [IDEs \& Text Editors](#ides--text-editors)
+    - [Game Engines \& Runtime Environments](#game-engines--runtime-environments)
+  - [Art](#art)
+    - [3D Modelling](#3d-modelling)
+    - [Pixel Art](#pixel-art)
+
+## Computer Science and Engineering (CSE)
+### Programming Languages
+- [Python](https://www.python.org/)
+- [Java](https://www.java.com/en/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Ruby](https://www.ruby-lang.org/en/)
+- [C](https://devdocs.io/c/)
+- [C++](https://cplusplus.com/doc/tutorial/)
+- [C#](https://dotnet.microsoft.com/en-us/languages/csharp)
+
+### Frameworks & Libraries
+- [Bootstrap - HTML, CSS and JS Library](https://getbootstrap.com/)
+- [Ruby on Rails Framework](https://rubyonrails.org/)
+- [PyTorch - Python Framework](https://pytorch.org/)
+- [Pytorch Lightning - Python Framework](https://lightning.ai/docs/pytorch/stable/)
+- [DJango - Python Framework](https://www.djangoproject.com/)
+- [Spring - Java Framework](https://spring.io/)
+- [JUnit - Java Framework](https://junit.org/junit5/)
+- [Jupyter - Python Framework](https://jupyter.org/)
+
+### Other Languages
+- [HTML - HyperText Markup Language](https://html.com/)
+- [CSS - Cascading Style Sheets](https://www.w3.org/Style/CSS/Overview.en.html)
+- [SASS - Syntactically Awesome Style Sheets](https://sass-lang.com/)
+- [SQL - Structured Query Language](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+- [Bash Shell](https://www.gnu.org/software/bash/manual/bash.html)
+
+### Version Control
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [GitLab](https://gitlab.com/)
+- [BitBucket](https://bitbucket.org/)
+
+### Project Setup & Management
+- [Anaconda](https://www.anaconda.com/download/)
+- [Maven](https://maven.apache.org/)
+- [Jekyll](https://jekyllrb.com/)
+- [npm](https://www.npmjs.com/package/npm)
+
+### IDEs & Text Editors
+- [Visual Studio - IDE](https://visualstudio.microsoft.com/)
+- [VS Code - IDE](https://code.visualstudio.com/Download)
+- [Vim - Editor](https://www.vim.org/)
+- [Obsidian - Editor](https://obsidian.md/)
+- [Nano - Editor](https://www.nano-editor.org/)
+
+### Game Engines & Runtime Environments
+- [Unity Game Engine](https://unity.com/)
+- [Unreal Engine](https://www.unrealengine.com/en-US)
+- [Node.js - JavaScript Runtime Environment](https://nodejs.org/en)
+
+## Art
+### 3D Modelling
+- [Blender](https://www.blender.org/)
+
+### Pixel Art
+- [LibreSprite](https://libresprite.github.io/#!/)
+- [GIMP](https://www.gimp.org/)

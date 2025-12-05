@@ -1,0 +1,78 @@
+---
+layout: page
+title: About Me
+---
+<p align='center'>
+    <img alt="Jinx from Arcane, a League of Legends Series, holding a hextech crystal." src="http://acfpeacekeeper.github.io/github-pages/assets/images/steamuserimages-a.akamaihd.jpeg" onerror="this.src='http://localhost:4000/assets/images/steamuserimages-a.akamaihd.jpeg';">
+</p>
+
+# About Index
+- [About Index](#about-index)
+  - [Current Work](#current-work)
+  - [Previous Work](#previous-work)
+  - [Hobbies \& Personal Interests](#hobbies--personal-interests)
+    - [Knowledge Areas of Interest](#knowledge-areas-of-interest)
+  - [Academia](#academia)
+    - [Extracurricular Courses](#extracurricular-courses)
+  - [Other Activities](#other-activities)
+
+## Current Work
+I'm currently a First Stage Researcher at [INESC-ID](https://www.inesc-id.pt/) - where I'm developing new Deep Reinforcement Learning methods to solve Combinatorial Optimization tasks - and a invited Assistant Professor at the Computer Science and Engineering department of [IST](https://tecnico.ulisboa.pt/en/), where I teach courses about [Distributed Systems](https://fenix.tecnico.ulisboa.pt/cursos/leic-t/disciplina-curricular/1408903891910867), [Cloud Computing and Virtualization](https://fenix.tecnico.ulisboa.pt/cursos/meic-t/disciplina-curricular/1127428915200223) and [Computer Organization](https://fenix.tecnico.ulisboa.pt/cursos/leic-t/disciplina-curricular/1971853845332781).
+I am also co-founding a Game Development studio called [Retsam Entertainment](https://twitter.com/RetsamGames) with [@jfperodrigues](https://github.com/jfperodrigues) and [@fafpinheiro](https://github.com/fafpinheiro).
+
+## Previous Work
+Previously, I was a Computer Programmer Analyst at the Research & Development department of [qubIT](http://www.qub-it.com/) - where I developed a Java application to integrate several Git-based version control services, as well as a microservice and a set of cryptographic tools to allow clients to securely manage several keystore files spread across multiple servers - and a Graduate Student Researcher at [GAIPS](https://gaips.inesc-id.pt/), where I developed new Multimodal Deep Learning architectures and frameworks with a focus towards increased robustness against noisy data and adversarial attacks.
+
+## Hobbies & Personal Interests
+During my spare time, I enjoy reading books (including both fiction and non-Fiction), playing a wide variety of games (such as videogames, table top games, card games, etc.), listening to music and watching movies, anime and TV series.
+Beyond this, I also like to work on hardware and software for personal projects, which I find to be both inherently fulfilling and a complement to my theoretical understanding of the world.
+
+### Knowledge Areas of Interest
+For as long as I can remember, I have been a naturally curious person which has sought to better understand the world by performing rudimentary experiments and learning as much knowledge as possible. Today, I continue my quest for knowledge, now not only due to an inherent curiosity, but also with the goal of using this knowledge and information to further my own research work. 
+The main focus of my research is the development of new Artificial Intelligence (AI) techniques to tackle real world problems. Towards this goal, I seek to not only learn about topics directly related to AI, such as Machine Learning (ML), Deep Learning (DL) and Reinforcement Learning (RL), but also about natural intelligence in general, particularly the interdisciplinary study of the mind known as cognitive science, which integrates several diverse fields such as AI, neuroscience, psychology, anthropology, philosophy, and linguistics. Overall, I am interested if the following fields of knowledge:
+- Computer Science and Engineering
+  - Artificial Intelligence
+    - Machine Learning
+      - Reinforcement Learning
+      - Deep Learning
+      - Graph Machine Learning
+      - Meta-Learning
+      - Adversarial Attacks
+    - Multimodal Learning
+      - Computer Vision
+      - Natural Language Processing
+      - Audio Analysis & Processing
+
+## Academia
+I initially pursued a [Integrated Master's (BSc + MSc) in Computer Science](https://www.fct.unl.pt/en/education/course/integrated-master-computer-science) at [NOVA - FCT](https://www.fct.unl.pt/en), and a [Bachelor of Science (BSc) in Biochemistry](https://fenix.ciencias.ulisboa.pt/degrees/bioquimica-564500436615216) at [UL - FCUL](https://ciencias.ulisboa.pt/en), both of which I did not complete.
+Afterwards, I studied for and completed a [Bachelor of Science (BSc)](https://fenix.tecnico.ulisboa.pt/cursos/leic-t/curriculo?year=1972768673366017) and a [Master of Science (MSc)](https://fenix.tecnico.ulisboa.pt/cursos/meic-t/curriculo?year=1128343743234050) degrees in Computer Science and Engineering (CSE) at [UL - IST](https://tecnico.ulisboa.pt/en/). During my BSc, I learned about core concepts in Computer Science, Mathematics, Computer Engineering and Physics (along with some minor courses about HASS and Management) and I also participated in a [Athens Network](http://athensnetwork.eu/) exchange program at [Mines Paris - PSL](https://tecnico.ulisboa.pt/en/), where I learned about Extreme Value Statistics. During my MSc, I did a double major in Artificial Intelligence and Cyber-Security (and also did some courses about Game Development) and I participated in a semester exchange program at [POSTECH](https://international.postech.ac.kr/), where I studied Machine Learning and Mathematics.
+
+I'm currently taking a Advanced Formation Diploma in [Methodologies and Techniques of Scientific Research](https://fenix.tecnico.ulisboa.pt/disciplinas/MTIC/2021-2022/1-semestre/programa) at UL - IST.
+
+### Extracurricular Courses
+Beyond formal academia, I also participated in Summer Schools and took extra courses from several different universities to complement my academic knowledge or to learn more about subjects I'm interested in:
+- From UL - IST:
+    - [Eigenvalues - vapX](https://courses.elearning.tecnico.ulisboa.pt/courses/course-v1:MOOCs+vapX+2021/about);
+    - [Machine Learning, Maths & Ethics: Hands-on - lematecX](https://courses.elearning.tecnico.ulisboa.pt/courses/course-v1:MOOCs+lematecX+2021/about);
+    - [Markov Matrices - mmX](https://courses.elearning.tecnico.ulisboa.pt/courses/course-v1:MOOCs+mmX+2021/about);
+    - [Mathematics for Machine Learning](https://fenix.tecnico.ulisboa.pt/disciplinas/MAAut3/2023-2024/2-semestre/programa).
+- From [Harvard](https://www.harvard.edu/):
+    - [Introduction to Computer Science - CS50](https://pll.harvard.edu/course/cs50-introduction-computer-science);
+    - [Christianity Through Its Scriptures](https://www.edx.org/learn/christianity/harvard-university-christianity-through-its-scriptures).
+- From [Stanford](https://www.stanford.edu/):
+    - [Machine Learning - XCS229](https://online.stanford.edu/courses/xcs229-machine-learning).
+- From [Cornell](https://www.cornell.edu/):
+    - [Advanced Compilers - CS6120](https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/).
+
+## Other Activities
+When I was in highschool at [Liceu Camões](https://liceucamoes.wixsite.com/camoes), my interest in politics led me to become a member of the youth wing of the portuguese [Socialist Party](https://ps.pt/), known in portuguese as [Juventude Socialista (JS)](https://juventudesocialista.pt/). During my time at JS, I worked on policies related to the environment, education, economics, technology and innovation, and held positions as: 
+- Vice-President of: my parish.
+- Member of the secretariat of: my highschool, my parish of residence, my university, the Secondary and Higher Education committee of Lisbon, and the county of Lisbon;
+- Member of the political commission of: the county of Lisbon, and the district of Lisbon.
+
+During my time as a BSc and MSc student at [IST](https://tecnico.ulisboa.pt/en/), I participated in several clubs related to the university: as a developer at [HackerSchool](https://hackerschool.tecnico.ulisboa.pt/), as a marketing assistant at [LabJogos](https://labjogos.tecnico.ulisboa.pt/en), as the EBEC Information Technology responsible for [BEST Lisbon](https://best.tecnico.ulisboa.pt/), and as a member of the student newspaper [Diferencial](https://diferencial.tecnico.ulisboa.pt/).
+
+I volunteered as a Computer Science Instructor at [TreeTree2](https://www.treetree2.org/), at the [Rua com Saída](http://voxlisboa.pt/rua-com-sa%c3%adda.html) project of the [VOXLisboa Association](http://voxlisboa.pt/index.html) for the homeless and as a staff member of the team of the TORNADU debate tournament organized by [CNADU](https://debates.pt/).
+
+Finally, I was a debater at [SDAL](http://sdal.weebly.com/), where I participated in several debate tournaments: TORNADU 2019 (Initiate 2nd place), Open Lisbon V (Initiate 3rd place + Initiate Brake), CMDLP 2019 (Initiate 1st place + Initiate Brake), Open da Católica III (Finalist + Top 10 Speaker), Open do Tejo III (Finalist + Top 10 Speaker).
+I was also part of the CA Team of the Open Centro Sul 2021, and worked as both a Member of the Board at IST and (later) as the Secretary General of [SDAL](http://sdal.weebly.com/).
