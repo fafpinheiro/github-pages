@@ -35,3 +35,26 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Jekyll generated files #
+##########################
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
+# Bundler generated files #
+###########################
+.bundle/
+vendor/
+Gemfile.lock
+
+# Gems #
+########
+*.gem
+
+# Other #
+#########
+tmp
+.vscode
