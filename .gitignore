@@ -48,13 +48,18 @@ vendor
 ###########################
 .bundle/
 vendor/
-Gemfile.lock
 
 # Gems #
 ########
 *.gem
 
+# Node package manager #
+###########################
+/**/node_modules
+
 # Other #
 #########
 tmp
+.cache
 .vscode
+/**/gatsby-types.d.ts
