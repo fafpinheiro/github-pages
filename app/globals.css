@@ -8,6 +8,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  body {
+    @apply bg-white dark:bg-black text-slate-900 dark:text-white;
+  }
+}
+
 /* Custom Scrollbar (from previous Gatsby setup) */
 ::-webkit-scrollbar {
     width: 8px;
