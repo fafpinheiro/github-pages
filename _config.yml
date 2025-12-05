@@ -1,0 +1,8 @@
+theme: minima
+
+title: Personal Blog 
+description: >- # this means to ignore newlines until "author:"
+  I mostly write about subjects I work on, such as Artificial Intelligence research - with a focus on Deep Reinforcement Learning - and Game Development.
+  Occasionally, I may also write about other subjects I am interested in, be it Gaming, Anime, Cinema, Music, History, Politics or Science.
+
+author: ACF
