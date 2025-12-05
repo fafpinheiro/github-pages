@@ -52,9 +52,6 @@ const HomePageContent: React.FC = () => {
       <section id="posts" className="mb-20 scroll-mt-24">
         <div className="flex items-center justify-between mb-8">
           <SectionHeading>Latest Notes & Research</SectionHeading>
-          <a href="#" className="text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline flex items-center gap-1">
-            View Archive <ExternalLink size={14} />
-          </a>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
