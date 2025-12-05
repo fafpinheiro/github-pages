@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePathname } from 'next/navigation'; // Import usePathname for client-side functionality
+import { usePathname } from 'next/navigation'; // Keep usePathname for active state
 
 interface SidebarItemProps {
   href: string;
@@ -9,18 +9,26 @@ interface SidebarItemProps {
   isCollapsed: boolean;
 }
 
-// Get the base path from environment variables (set by Next.js based on next.config.js)
-// Use a fallback of an empty string for root deployment, or the base path if set.
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+// CRITICAL HARD FIX: Define the required GitHub Pages subdirectory path explicitly.
+// This ensures that even if process.env fails during the static export, 
+// the correct path is compiled directly into the HTML.
+const GITHUB_PAGES_BASE_PATH = '/github-pages';
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ href, icon, label, active, isCollapsed }) => {
   
-  // CRITICAL FIX: Ensure all internal links are prefixed with the basePath
-  const finalHref = href === '/' ? basePath || '/' : `${basePath}${href}`;
+  // 1. Determine if the path is the root path ('/')
+  const isRootPath = href === '/';
+  
+  // 2. Construct the final href manually:
+  // If it's the root path, the final href is just the base path.
+  // If it's any other path, it is basePath + href (e.g., '/github-pages' + '/content/about')
+  const finalHref = isRootPath 
+    ? GITHUB_PAGES_BASE_PATH 
+    : `${GITHUB_PAGES_BASE_PATH}${href}`;
 
   return (
     <a 
-      href={finalHref} // Use the calculated href
+      href={finalHref} // Use the hardcoded prefixed link
       title={isCollapsed ? label : undefined} // Add tooltip on hover when collapsed
       // Conditional Layout:
       // - Collapsed: 'justify-center px-0' -> Centers the icon perfectly in the sidebar width.
