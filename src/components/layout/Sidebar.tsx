@@ -8,14 +8,13 @@ interface SidebarProps {
   toggleTheme: () => void;
 }
 
-// Define the navigation items explicitly
+// Define the navigation items explicitly, linking them to the /content/[slug] route
 const NAV_ITEMS = [
     { href: '/', label: 'Home', icon: <Home size={20} />, slug: 'home' },
     { href: '/content/about', label: 'About', icon: <User size={20} />, slug: 'about' },
-    { href: '/posts', label: 'Research Notes', icon: <PenTool size={20} />, slug: 'posts' }, // Link to post list (which you'll need to create)
     { href: '/content/projects', label: 'Projects', icon: <Code size={20} />, slug: 'projects' },
-    // NEW: tools.md replaces the old Blog link
     { href: '/content/tools', label: 'Tools', icon: <Wrench size={20} />, slug: 'tools' },
+    { href: '/posts', label: 'Notes', icon: <PenTool size={20} />, slug: 'posts' }, 
     { href: '/content/media', label: 'Media', icon: <Video size={20} />, slug: 'media' },
 ];
 

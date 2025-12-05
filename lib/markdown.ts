@@ -5,7 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), '_posts');
-const pagesDirectory = path.join(process.cwd(), 'pages'); 
+const pagesDirectory = path.join(process.cwd(), '_pages'); 
 
 export interface PostData {
   slug: string;
@@ -21,7 +21,7 @@ export interface PostData {
  */
 export function getAllPostSlugs(): { slug: string }[] {
   if (!fs.existsSync(postsDirectory)) {
-    console.error(`Post directory not found: ${postsDirectory}`);
+    // console.error(`Post directory not found: ${postsDirectory}`);
     return [];
   }
   
@@ -40,11 +40,11 @@ export function getAllPostSlugs(): { slug: string }[] {
 }
 
 /**
- * NEW: Returns a list of slugs for all static pages (e.g., 'about', 'media').
+ * Returns a list of slugs for all static pages (e.g., 'about', 'media').
  */
 export function getAllPageSlugs(): { slug: string }[] {
   if (!fs.existsSync(pagesDirectory)) {
-    console.error(`Pages directory not found: ${pagesDirectory}`);
+    // console.error(`Pages directory not found: ${pagesDirectory}`);
     return [];
   }
   
@@ -56,7 +56,7 @@ export function getAllPageSlugs(): { slug: string }[] {
       fileName.endsWith('.md')
     )
     .map(fileName => {
-      // Slug is just the file name without extension
+      // Slug is the file name without extension
       const slug = fileName.replace(/\.md$/, '');
       return { slug };
     });
@@ -64,9 +64,7 @@ export function getAllPageSlugs(): { slug: string }[] {
 
 
 /**
- * Reads Markdown content from either _posts or pages/ directory.
- * @param slug The filename (e.g., "about" or "2024-10-31-Notes-on-RL-an-Introduction")
- * @returns PostData object
+ * Reads Markdown content from either _posts or _pages/ directory.
  */
 export async function getMarkdownData(slug: string): Promise<PostData> {
   let directory: string;
@@ -93,8 +91,6 @@ export async function getMarkdownData(slug: string): Promise<PostData> {
   const contentHtml = processedContent.toString();
 
   const data = matterResult.data;
-
-  // Use current date if frontmatter date is missing
   const dateString = data.date ? new Date(data.date).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10);
   
   const defaultTitle = parseSlug(slug).name;
@@ -114,7 +110,6 @@ export function parseSlug(slug: string): { date: string, name: string } {
   const parts = slug.split('-');
   const date = parts.slice(0, 3).join('-'); 
   const name = parts.slice(3).join(' ');
-  // Use the slug directly if it doesn't look like a date prefix
   if (parts.length < 4) {
     return { date: '', name: slug.charAt(0).toUpperCase() + slug.slice(1) };
   }
