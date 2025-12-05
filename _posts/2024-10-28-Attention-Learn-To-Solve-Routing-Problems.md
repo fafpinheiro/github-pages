@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Attention, Learn To Solve Routing Problems: Summary & Review"
-date: 2025-12-05
+date: 2024-10-28
 categories: ML RL DL GML CO
 ---
 

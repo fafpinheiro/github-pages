@@ -1,0 +1,14 @@
+name: personal-webpage
+channels:
+- conda-forge
+- conda
+- defaults
+dependencies:
+- ipykernel
+- matplotlib
+- networkx
+- neo4j
+- rdflib
+- pip #=23.3
+- pip:
+  - netgraph #==4.13.2

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Combinatorial Optimization: An Introduction"
-date: 2025-12-05
+date: 2024-10-28
 categories: ML RL CO
 usemathjax: true
 ---
