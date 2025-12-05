@@ -36,12 +36,12 @@ const HomePageContent: React.FC = () => {
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl leading-relaxed">
             I am a researcher focusing on solving complex routing problems using attention mechanisms and deep learning. Welcome to my personal knowledge base and portfolio.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="#posts" className="px-6 py-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2">
+          <div className="flex items-center justify-between">
+            <a href="#posts" className="px-6 py-3 border border-slate-300 dark:border-slate-600 bg-slate-900 dark:bg-white dark:text-slate-900 dark:text-white text-black font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2">
               <PenTool size={18} />
               Read Latest Research
             </a>
-            <a href="#contact" className="px-6 py-3 border border-slate-300 dark:border-slate-600 font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">
+            <a href="#contact" className="px-6 py-3 border border-slate-300 dark:border-slate-600 font-medium rounded-lg dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">
               Contact Me
             </a>
           </div>
