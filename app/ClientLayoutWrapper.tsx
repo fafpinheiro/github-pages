@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import Sidebar from './Sidebar';
+'use client'; // This directive marks the file as a Client Component
 
-interface LayoutProps {
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import Sidebar from '../src/components/layout/Sidebar'; // Using absolute imports with @/
+import Footer from '../src/components/layout/Footer';
+
+interface ClientLayoutWrapperProps {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  
-  // In a real app, this might be determined by intersection observers or route
-  const [activeSection, setActiveSection] = useState<string>('home');
+  const [activeSection] = useState<string>('home'); // Simplified for this example
 
-  // Handle Dark Mode Initialization and Toggle
+  // --- Dark Mode Logic ---
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const storedTheme = localStorage.getItem('theme');
-      
-      if (storedTheme === 'dark' || (!storedTheme && isSystemDark)) {
-        setDarkMode(true);
-      }
+    // Initialization: Check local storage or system preference
+    const storedTheme = localStorage.getItem('theme');
+    const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme === 'dark' || (!storedTheme && isSystemDark)) {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
@@ -37,6 +41,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const toggleTheme = () => setDarkMode(!darkMode);
 
+  // --- Mobile Menu Logic ---
+  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
   return (
     <div className={`min-h-screen transition-colors duration-300 font-sans ${darkMode ? 'dark bg-slate-900 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
       
@@ -44,7 +51,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className="lg:hidden flex items-center justify-between p-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800">
         <span className="font-bold text-xl tracking-tight font-display">ACF Peacekeeper</span>
         <button 
-          onClick={() => setMobileMenuOpen(true)}
+          onClick={toggleMenu}
           className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           aria-label="Open Menu"
         >
@@ -56,7 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="absolute inset-0 bg-white dark:bg-slate-900 p-8 flex flex-col space-y-6">
           <button 
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={toggleMenu}
             className="self-end p-2 mb-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
             aria-label="Close Menu"
           >
@@ -66,12 +73,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <a 
               key={item}
               href={`#${item.toLowerCase()}`}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={toggleMenu}
               className="text-2xl font-medium font-display hover:text-blue-600 dark:hover:text-blue-400"
             >
               {item}
             </a>
           ))}
+          <button onClick={toggleTheme} className="flex items-center space-x-2 text-xl mt-4 p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
+            {darkMode ? <Sun size={20} className="text-yellow-500"/> : <Moon size={20} />}
+            <span>Toggle {darkMode ? 'Light' : 'Dark'} Mode</span>
+          </button>
         </div>
       </div>
 
@@ -84,21 +95,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         <main className="flex-1 p-6 lg:p-12 w-full max-w-4xl mx-auto">
           {children}
-          
-          <footer className="border-t border-slate-200 dark:border-slate-800 pt-8 mt-20 pb-8 text-center md:text-left text-slate-500 text-sm">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p>&copy; {new Date().getFullYear()} ACF Peacekeeper. All rights reserved.</p>
-              <div className="mt-4 md:mt-0 space-x-6 flex">
-                <a href="#" className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors">RSS</a>
-                <a href="#" className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors">Privacy</a>
-                <a href="#" className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors">Sitemap</a>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </main>
       </div>
     </div>
   );
 };
 
-export default Layout;
+export default ClientLayoutWrapper;

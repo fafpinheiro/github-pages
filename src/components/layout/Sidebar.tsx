@@ -13,7 +13,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, darkMode, toggleTheme 
     <aside className="hidden lg:flex flex-col w-72 h-screen sticky top-0 border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl p-8 justify-between">
       <div>
         <div className="mb-12">
-          {/* In real Gatsby, use <StaticImage /> here */}
+          {/* Logo/Avatar Placeholder */}
           <div className="h-20 w-20 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 mb-4 flex items-center justify-center text-white text-2xl font-bold shadow-lg ring-4 ring-white dark:ring-slate-800">
             AP
           </div>

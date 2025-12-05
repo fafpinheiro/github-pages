@@ -1,70 +1,28 @@
 import React from 'react';
 import { PenTool, Calendar, Star, Github, ExternalLink, Code, MapPin } from 'lucide-react';
-import Layout from '../components/layout/Layout';
-import GlassCard from '../components/ui/GlassCard';
-import SectionHeading from '../components/ui/SectionHeading';
-import Badge from '../components/ui/Badge';
-import type { BlogPost, Project } from '../types.ts';
+import ClientLayoutWrapper from './ClientLayoutWrapper';
+import GlassCard from '../src/components/ui/GlassCard';
+import SectionHeading from '../src/components/ui/SectionHeading';
+import Badge from '../src/components/ui/Badge';
+import { BlogPost, Project, ProjectLink } from '../src/types';
 
 /**
  * Mock Data
- * In a real Gatsby site, replace this with a GraphQL query using `useStaticQuery` or page queries.
  */
 const BLOG_POSTS: BlogPost[] = [
-  {
-    id: '1',
-    date: 'Oct 31, 2024',
-    category: 'RL',
-    title: 'Notes on RL: An Introduction',
-    excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.',
-    tags: ['Basics', 'Theory']
-  },
-  {
-    id: '2',
-    date: 'Oct 28, 2024',
-    category: 'Deep Learning',
-    title: 'Attention: Learn To Solve Routing Problems',
-    excerpt: 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.',
-    tags: ['Routing', 'Attention']
-  },
-  {
-    id: '3',
-    date: 'Oct 28, 2024',
-    category: 'Math',
-    title: 'Combinatorial Optimization Intro',
-    excerpt: 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.',
-    tags: ['Optimization']
-  }
+  { id: '1', date: 'Oct 31, 2024', category: 'RL', title: 'Notes on RL: An Introduction', excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.', tags: ['Basics', 'Theory'] },
+  { id: '2', date: 'Oct 28, 2024', category: 'Deep Learning', title: 'Attention: Learn To Solve Routing Problems', excerpt: 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.', tags: ['Routing', 'Attention'] },
+  { id: '3', date: 'Oct 28, 2024', category: 'Math', title: 'Combinatorial Optimization Intro', excerpt: 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.', tags: ['Optimization'] }
 ];
 
 const PROJECTS: Project[] = [
-  {
-    id: 'p1',
-    title: 'Neural Combinatorial Optimization Solver',
-    description: 'A Python framework implementing various Deep Reinforcement Learning models to solve TSP and CVRP problems. Benchmarked against classical heuristics like LKH3.',
-    icon: <Code size={24} />,
-    iconColorClass: 'text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/50',
-    stats: '128 Stars',
-    links: [
-      { label: 'View Code', url: '#', icon: <Github size={14} /> }
-    ]
-  },
-  {
-    id: 'p2',
-    title: 'TalkMap Generator',
-    description: 'A utility to visualize academic talks and conference travels on an interactive Leaflet map. Processes bibliography files to generate location markers.',
-    icon: <MapPin size={24} />,
-    iconColorClass: 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/50',
-    links: [
-      { label: 'View Code', url: '#', icon: <Github size={14} /> },
-      { label: 'Live Demo', url: '#', icon: <ExternalLink size={14} /> }
-    ]
-  }
+  { id: 'p1', title: 'Neural Combinatorial Optimization Solver', description: 'A Python framework implementing various Deep Reinforcement Learning models to solve TSP and CVRP problems. Benchmarked against classical heuristics like LKH3.', icon: <Code size={24} />, iconColorClass: 'text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/50', stats: '128 Stars', links: [{ label: 'View Code', url: '#', icon: <Github size={14} /> }] },
+  { id: 'p2', title: 'TalkMap Generator', description: 'A utility to visualize academic talks and conference travels on an interactive Leaflet map. Processes bibliography files to generate location markers.', icon: <MapPin size={24} />, iconColorClass: 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/50', links: [{ label: 'View Code', url: '#', icon: <Github size={14} /> }, { label: 'Live Demo', url: '#', icon: <ExternalLink size={14} /> }] }
 ];
 
-const IndexPage: React.FC = () => {
+const HomePageContent: React.FC = () => {
   return (
-    <Layout>
+    <>
       {/* Hero Section */}
       <section id="home" className="mb-20 pt-4 lg:pt-12 scroll-mt-24">
         <GlassCard className="p-8 lg:p-12">
@@ -161,8 +119,14 @@ const IndexPage: React.FC = () => {
           ))}
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
-export default IndexPage;
+export default function Home() {
+    return (
+        <ClientLayoutWrapper>
+            <HomePageContent />
+        </ClientLayoutWrapper>
+    )
+}

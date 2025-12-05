@@ -1,13 +1,14 @@
+/* Importing global styles directly into the Next.js App Router */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles if needed */
+/* Custom base styles */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar (from previous Gatsby setup) */
 ::-webkit-scrollbar {
     width: 8px;
 }

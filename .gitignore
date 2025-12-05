@@ -57,9 +57,9 @@ vendor/
 ###########################
 /**/node_modules
 
-# Gatsby #
+# Next.js #
 ###########################
-/public
+.next
 
 # Other #
 #########

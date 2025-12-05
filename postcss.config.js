@@ -1,7 +1,7 @@
 module.exports = {
-  // This array syntax explicitly tells PostCSS to load these modules, which is much more reliable.
+  // Use string names for plugins inside the array.
   plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
+    'tailwindcss',
+    'autoprefixer',
   ],
 }
