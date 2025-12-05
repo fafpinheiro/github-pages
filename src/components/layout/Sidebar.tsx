@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, User, PenTool, Code, Video, Github, Twitter, Linkedin, Moon, Sun } from 'lucide-react';
+import { Home, User, PenTool, Code, Video, Github, Twitter, Linkedin, Moon, Sun, Wrench } from 'lucide-react';
 import SidebarItem from './SidebarItem';
 
 interface SidebarProps {
@@ -7,6 +7,18 @@ interface SidebarProps {
   darkMode: boolean;
   toggleTheme: () => void;
 }
+
+// Define the navigation items explicitly
+const NAV_ITEMS = [
+    { href: '/', label: 'Home', icon: <Home size={20} />, slug: 'home' },
+    { href: '/content/about', label: 'About', icon: <User size={20} />, slug: 'about' },
+    { href: '/posts', label: 'Research Notes', icon: <PenTool size={20} />, slug: 'posts' }, // Link to post list (which you'll need to create)
+    { href: '/content/projects', label: 'Projects', icon: <Code size={20} />, slug: 'projects' },
+    // NEW: tools.md replaces the old Blog link
+    { href: '/content/tools', label: 'Tools', icon: <Wrench size={20} />, slug: 'tools' },
+    { href: '/content/media', label: 'Media', icon: <Video size={20} />, slug: 'media' },
+];
+
 
 const Sidebar: React.FC<SidebarProps> = ({ activeSection, darkMode, toggleTheme }) => {
   return (
@@ -23,11 +35,15 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, darkMode, toggleTheme 
         </div>
 
         <nav className="space-y-2">
-          <SidebarItem href="#home" icon={<Home size={20} />} label="Home" active={activeSection === 'home'} />
-          <SidebarItem href="#about" icon={<User size={20} />} label="About" active={activeSection === 'about'} />
-          <SidebarItem href="#posts" icon={<PenTool size={20} />} label="Blog" active={activeSection === 'posts'} />
-          <SidebarItem href="#projects" icon={<Code size={20} />} label="Projects" active={activeSection === 'projects'} />
-          <SidebarItem href="#media" icon={<Video size={20} />} label="Media" active={activeSection === 'media'} />
+          {NAV_ITEMS.map(item => (
+            <SidebarItem 
+              key={item.slug}
+              href={item.href} 
+              icon={item.icon} 
+              label={item.label} 
+              active={activeSection === item.slug} 
+            />
+          ))}
         </nav>
       </div>
 
