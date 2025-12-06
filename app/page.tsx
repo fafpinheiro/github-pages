@@ -10,9 +10,30 @@ import { BlogPost, Project } from '../src/types';
  * Mock Data
  */
 const BLOG_POSTS: BlogPost[] = [
-  { id: '1', date: 'Oct 31, 2024', category: 'RL', title: 'Notes on RL: An Introduction', excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.', tags: ['Basics', 'Theory'] },
-  { id: '2', date: 'Oct 28, 2024', category: 'Deep Learning', title: 'Attention: Learn To Solve Routing Problems', excerpt: 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.', tags: ['Routing', 'Attention'] },
-  { id: '3', date: 'Oct 28, 2024', category: 'Math', title: 'Combinatorial Optimization Intro', excerpt: 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.', tags: ['Optimization'] }
+  { 
+    id: '2024-10-31-Notes-on-RL-an-Introduction', // <--- CORRECT SLUG
+    date: 'Oct 31, 2024', 
+    category: 'RL', 
+    title: 'Notes on RL: An Introduction', 
+    excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.', 
+    tags: ['Basics', 'Theory'] 
+  },
+  { 
+    id: '2024-10-28-Attention-Learn-To-Solve-Routing-Problems', // <--- CORRECT SLUG
+    date: 'Oct 28, 2024', 
+    category: 'Deep Learning', 
+    title: 'Attention: Learn To Solve Routing Problems', 
+    excerpt: 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.', 
+    tags: ['Routing', 'Attention'] 
+  },
+  { 
+    id: '2024-10-28-Combinatorial-Optimization-Intro', // <--- CORRECT SLUG
+    date: 'Oct 28, 2024', 
+    category: 'Math', 
+    title: 'Combinatorial Optimization Intro', 
+    excerpt: 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.', 
+    tags: ['Optimization'] 
+  }
 ];
 
 // Reconstructed based on your projects.md
@@ -63,10 +84,10 @@ export default function Home() {
             Currently working at <a href="https://www.inesc-id.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">INESC-ID</a> and teaching at <a href="https://tecnico.ulisboa.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">IST</a>.
           </p>
           <div className="flex gap-4 pt-2">
-            <a href="/content/about" className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-2">
+            <a href="/github-pages/content/about" className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-2">
               About Me <ArrowRight size={18} />
             </a>
-            <a href="/content/projects" className="px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+            <a href="/github-pages/content/projects" className="px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
               View Projects
             </a>
           </div>
@@ -92,7 +113,7 @@ export default function Home() {
                   <span className="text-blue-600 dark:text-blue-400 font-medium">{post.category}</span>
                 </div>
                 <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  <a href={`/posts/${post.id}`}>{post.title}</a>
+                  <a href={`/github-pages/posts/${post.id}`}>{post.title}</a>
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
                   {post.excerpt}
@@ -108,10 +129,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
+      {/* Latest Projects Section */}
       <section>
         <div className="flex items-center justify-between mb-8">
-          <SectionHeading title="Featured Projects" icon={<Code className="text-blue-500" />} />
+          <SectionHeading title="Latest Projects" icon={<Code className="text-blue-500" />} />
           <a href="/content/projects" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
             View portfolio <ArrowRight size={14} />
           </a>
