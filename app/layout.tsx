@@ -9,7 +9,7 @@ import ClientLayoutWrapper from '@/app/ClientLayoutWrapper'; // Assuming this ex
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ACF Peacekeeper',
+  title: 'ACF Harbinger',
   description: 'AI & Engineering Portfolio',
 };
 

@@ -36,7 +36,7 @@ TBA
 #### CSE Master of Science (MSc) Dissertation
 Towards the completion of my CSE MSc degree at [IST](https://tecnico.ulisboa.pt/en/), I worked as a Graduate Student Researcher at [GAIPS](https://gaips.inesc-id.pt/), where I wrote a Dissertation titled ['Leveraging Deep Unsupervised Models Towards Learning Robust Multimodal Representations'](assets/docs/IST_UL___MEIC_Thesis___Dissertacao_final__Copy_.pdf). For this Dissertation, I developed three new Multimodal Deep Unsupervised Models - which combined principles from [Denoising Auto-Encoders](assets/docs/literature/papers/autoencoders.pdf), [Geometric Multimodal Contrastive Learning](assets/docs/literature/papers/geometric_multimodal_cl.pdf) and [Odd-One-Out Networks](assets/docs/literature/papers/ssl_video_ooo_nets.pdf) - and compared their robustness against missing modalities, noisy data and adversarial examples with other deep multimodal models such as the [MVAE](assets/docs/literature/papers/multimodal_gen_models_scalable_wsl.pdf). The final document and the respective code are the following (I also wrote a paper, but I still want to improve it before posting it to ARXIV):
 - [Dissertation](assets/docs/IST_UL___MEIC_Thesis___Dissertacao_final__Copy_.pdf)
-- [Github Repository](https://github.com/ACFPeacekeeper/rgmc)
+- [Github Repository](https://github.com/ACFHarbinger/rgmc)
 
 #### WSmart Route+
 For the diploma in Methodologies and Techniques of Scientific Research, I'm currently working on the [WSmart Route+](https://cegist.tecnico.ulisboa.pt/projects/wsmart-route-towards-smart-waste-collection-route-planning-system) project, which seeks to expand upon the research to develop a system for waste collection based on a real time route planning sytem made during the [WSmart Route](https://wsmartroute.tecnico.ulisboa.pt/#title) project, which was funded by the [FCT](https://www.fct.pt/en/) foundation and the [MIT Portugal](https://mitportugal.org/) program and combines efforts from [Ersuc](https://ersuc.pt/), [IST](https://tecnico.ulisboa.pt/en/), the [University of Coimbra](https://www.uc.pt/), [EVOX Technologies](https://evox.pt/) and the [Massachusetts Institute of Technology](https://www.mit.edu/). I am trying to develop new [Deep Reinforcement Learning](assets/docs/literature/papers/intro_drl.pdf) methods to solve [Combinatorial Optimization](assets/docs/literature/papers/rl_co.pdf) tasks, particularly the [Capacitated Vehicle Routing Problem (CVRP) with Fuzzy Demand](assets/docs/literature/papers/solving_cvrp_demands_fuzzy_rv.pdf) (which is an instance of the [CVRP](assets/docs/literature/papers/drl_solving_het_cvrp.pdf)) and  the [Orienteering Problem (OP)](assets/docs/literature/papers/orienteering.pdf). Here are some publications related to the project:
@@ -45,21 +45,21 @@ For the diploma in Methodologies and Techniques of Scientific Research, I'm curr
 ### Web Development
 #### EBEC 2020
 During my time as the Information Technology responsible for EBEC 2020, which was organized by [BEST Lisbon](https://best.tecnico.ulisboa.pt/), I developed a website for the event with the [Mandalorian TV series](https://www.imdb.com/title/tt8111088/) as its theme:
-- [Github Repository](https://github.com/ACFPeacekeeper/ebec2020)
+- [Github Repository](https://github.com/ACFHarbinger/ebec2020)
 
 #### Personal blog
 This blog was based on the [github-pages tutorial](https://github.com/skills/github-pages), the [jekyll scholar extension](https://github.com/inukshuk/jekyll-scholar/tree/main), the [academic github-pages template](https://github.com/academicpages/academicpages.github.io) and the [minima jekyll theme](https://github.com/jekyll/minima):
-- [Blog Repository](https://github.com/ACFPeacekeeper/github-pages)
+- [Blog Repository](https://github.com/ACFHarbinger/github-pages)
 
 ### Software & Hardware Engineering
 #### Hacker Entertainment System (HES)
 I participated in a FabLab workshop hosted by [HackerSchool](https://hackerschool.tecnico.ulisboa.pt/), where I got to learn about things such as soldering, laser cutting and 3D printing. During this workshop, I built the HES, a game controller inspired by the classic NES game controller:
-- [Workshop Repository](https://github.com/ACFPeacekeeper/HES)
+- [Workshop Repository](https://github.com/ACFHarbinger/HES)
 - [HES Image](assets/images/hes.jpeg)
 
 #### HackerSchool Robot (HS-Robot)
 As a [HackerSchool](https://hackerschool.tecnico.ulisboa.pt/) developer, I participated in the (incomplete) development of the HS-Robot, a robot made to traverse the world and retrieve items (e.g., a can of coke):
-- [Robot Controller Repository](https://github.com/ACFPeacekeeper/HS-Robot-Controller)
+- [Robot Controller Repository](https://github.com/ACFHarbinger/HS-Robot-Controller)
 
 ### Game Development
 #### Project Emerald

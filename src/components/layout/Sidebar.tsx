@@ -58,14 +58,14 @@ const Sidebar: React.FC<SidebarProps> = ({
           <div className={`relative rounded-full overflow-hidden shadow-lg ring-4 ring-white dark:ring-slate-800 transition-all duration-300 mb-4 bg-slate-200 dark:bg-slate-700 ${isCollapsed ? 'h-12 w-12' : 'h-20 w-20'}`}>
             <img 
               src={profilePic.src}
-              alt="ACF Peacekeeper" 
+              alt="ACF Harbinger" 
               className="h-full w-full object-cover"
             />
           </div>
           
           {!isCollapsed && (
             <>
-              <h1 className="text-2xl font-bold text-slate-900 dark:text-white font-display">ACF Peacekeeper</h1>
+              <h1 className="text-2xl font-bold text-slate-900 dark:text-white font-display">ACF Harbinger</h1>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium dark:text-white">Scientist & Engineer</p>
               <p className="text-xs text-slate-400 mt-2 uppercase tracking-wider dark:text-white">CSE & Math</p>
             </>
@@ -91,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className={`${isCollapsed ? 'grid grid-cols-1 gap-y-3 justify-items-center w-full' : 'flex justify-center space-x-4'} text-slate-400`}>
         
         <a 
-          href="https://github.com/acfpeacekeeper"
+          href="https://github.com/acfharbinger"
           target="_blank"
           rel="noopener noreferrer"
           className={`hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 

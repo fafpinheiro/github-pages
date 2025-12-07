@@ -1,9 +1,9 @@
 {
-  "name": "acfpeacekeeper-portfolio-nextjs",
+  "name": "acfharbinger-personal-website",
   "version": "1.0.0",
   "private": true,
-  "description": "A personal portfolio and research knowledge base built with Next.js, React, and TypeScript.",
-  "author": "ACF Peacekeeper",
+  "description": "A personal website and knowledge base built with Next.js, React, and TypeScript.",
+  "author": "ACF Harbinger",
   "keywords": [
     "nextjs",
     "react",
@@ -18,7 +18,7 @@
     "lint": "next lint",
     "deploy": "next build && touch out/.nojekyll"
   },
-  "homepage": "https://acfpeacekeeper.github.io/github-pages",
+  "homepage": "https://acfharbinger.github.io/github-pages",
   "dependencies": {
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.383.0",

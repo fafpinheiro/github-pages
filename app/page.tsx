@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
     id: 'p3',
     title: 'Personal Portfolio',
     description: 'The website you are looking at right now. Built with Next.js 14, TypeScript, and Tailwind CSS to serve as a digital garden for my research and projects.',
-    links: [{ label: 'Source', url: 'https://github.com/acfpeacekeeper', icon: <Github size={14} /> }],
+    links: [{ label: 'Source', url: 'https://github.com/acfharbinger', icon: <Github size={14} /> }],
     stats: 'Next.js',
     icon: undefined,
     iconColorClass: ''

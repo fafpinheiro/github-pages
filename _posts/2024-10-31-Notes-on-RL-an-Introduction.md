@@ -10,7 +10,7 @@ $$
 \DeclareMathOperator*{\argmax}{arg\,max}
 $$
 
-Here are some notes I took when reading the second edition of the <a href="http://acfpeacekeeper.github.io/github-pages/assets/docs/literature/books/RLbook2020.pdf" onerror="this.href='http://localhost:4000/assets/docs/literature/books/RLbook2020.pdf'">Reinforcement Learning: An Introduction</a> book.\\
+Here are some notes I took when reading the second edition of the <a href="http://acfharbinger.github.io/github-pages/assets/docs/literature/books/RLbook2020.pdf" onerror="this.href='http://localhost:4000/assets/docs/literature/books/RLbook2020.pdf'">Reinforcement Learning: An Introduction</a> book.\\
 If you want to get into Reinforcement Learning, or are just interested in Artificial Intelligence in general, I highly recommend that you read this book!\\
 It does require some mathematical background to read and understand everything (mostly Linear Algebra, Probabilities, Statistics, and some Calculus), but it is overall one of the best - and most exhaustive - introductory books about Reinforcement Learning out there.
 # Chapter Index
@@ -519,7 +519,7 @@ Markov Decision Processes (MDPs) are a formalization of sequential decision maki
 An MDP involves a learner and decision maker (i.e., the *agent*) that interacts with its surroundings (i.e., the *environment*) by continually selecting actions and having the environment respond by presenting new situations (or states) to the agent and giving rise to rewards, which the agent seeks to maximize over time. This process is illustrated in Figure 1.
 
 <figure align='center'>
-    <img alt="The agent-environment interaction in a Markov decision process." src="http://acfpeacekeeper.github.io/github-pages/assets/images/literature/rl_mdp.png" onerror="this.src='http://localhost:4000/assets/images/literature/rl_mdp.png';">
+    <img alt="The agent-environment interaction in a Markov decision process." src="http://acfharbinger.github.io/github-pages/assets/images/literature/rl_mdp.png" onerror="this.src='http://localhost:4000/assets/images/literature/rl_mdp.png';">
 	<figcaption>Figure 1: The agent-environment interaction in a MDP.</figcaption>
 </figure>
 
@@ -650,7 +650,7 @@ To be precise about episodic tasks, instead of considering one long sequence of 
 We can unify the finite sum of terms for the total return in the episodic case and the infinite sum for the total reward in the continuing case by considering episode termination to be the entering of a special *absorbing state* that transitions only to itself and generates only rewards of zero, as exemplified in Figure 2.
 
 <figure align='center'>
-<img alt="Example of an MDP with a absorbing state." src="http://acfpeacekeeper.github.io/github-pages/assets/images/literature/absorbing_state.png" onerror="this.src='http://localhost:4000/assets/images/literature/absorbing_state.png';">
+<img alt="Example of an MDP with a absorbing state." src="http://acfharbinger.github.io/github-pages/assets/images/literature/absorbing_state.png" onerror="this.src='http://localhost:4000/assets/images/literature/absorbing_state.png';">
 
 <figcaption>Figure 2: Example of an MDP with an absorbing state.</figcaption>
 </figure>
@@ -1046,7 +1046,7 @@ These two processes need not be alternate and/or completed one after the other, 
 If both the evaluation process and the improvement process stabilize, then the value function and policy must be optimal. The value function only stabilizes when it is consistent with the current policy, and the policy stabilizes only when it is greedy with respect to the current value function. This implies that the Bellman optimality equation, which means that the policy and the value function are guaranteed to be optimal.
 
 <figure align='center'>
-	<img alt="Example of a policy iteration process." src="http://acfpeacekeeper.github.io/github-pages/assets/images/literature/example_pi_process.png" onerror="this.src='http://localhost:4000/assets/images/literature/example_pi_process.png';">
+	<img alt="Example of a policy iteration process." src="http://acfharbinger.github.io/github-pages/assets/images/literature/example_pi_process.png" onerror="this.src='http://localhost:4000/assets/images/literature/example_pi_process.png';">
 	<figcaption>Figure 3: Example of a policy iteration process.</figcaption>
 </figure>
 
