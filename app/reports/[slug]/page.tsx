@@ -14,13 +14,13 @@ import VRPReport from '../VRPReport';
 
 // Define the registry
 const REPORT_COMPONENTS: Record<string, React.ComponentType> = {
-  'anime-gen': AnimeGenModelReport,
-  'gen-arch': GenerativeArchitectureReport,
-  'local-ai': LocalAICodingReport,
-  'semantic': SemanticSearchReport,
-  'strategic': StrategicPipelineReport,
-  'timeseries': TimeSeriesReport,
-  'vrp': VRPReport,
+  'Anime_Gen_Model.html': AnimeGenModelReport,
+  'Generative_Architecture.html': GenerativeArchitectureReport,
+  'Local_AI_Coding.html': LocalAICodingReport,
+  'Semantic_Search.html': SemanticSearchReport,
+  'Strategic_Generative_Pipeline.html': StrategicPipelineReport,
+  'TimeSeries_Forecasting.html': TimeSeriesReport,
+  'VRP.html': VRPReport,
 };
 
 // Generate static params for build time
@@ -42,6 +42,11 @@ export default function ReportPage({ params }: PageProps) {
     return notFound();
   }
 
+  // Logic to clean the slug for display in the page title
+  const displayTitle = slug
+    .replace(/\.html$/, '') // 1. Remove the '.html' extension
+    .replace(/_/g, ' ');    // 2. Replace underscores with spaces
+  
   return (
     <div className="animate-in fade-in duration-500 flex flex-col h-full">
       <div className="mb-4">
@@ -55,7 +60,8 @@ export default function ReportPage({ params }: PageProps) {
       </div>
       
       <h1 className="text-2xl font-bold mb-4 capitalize text-slate-900 dark:text-white">
-        {slug.replace(/-/g, ' ')} Report
+        {/* Use the cleaned display title */}
+        {displayTitle} Report
       </h1>
       
       <ReportComponent />

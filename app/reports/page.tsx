@@ -7,13 +7,13 @@ import SectionHeading from '@/src/components/ui/SectionHeading';
 import GlassCard from '@/src/components/ui/GlassCard';
 
 const REPORTS = [
-  { id: 'anime-gen', title: 'Anime Generation Model', category: 'Deep Learning', slug: 'anime-gen' },
-  { id: 'gen-arch', title: 'Generative Architecture', category: 'Architecture', slug: 'gen-arch' },
-  { id: 'local-ai', title: 'Local AI Coding', category: 'DevOps', slug: 'local-ai' },
-  { id: 'semantic', title: 'Semantic Search', category: 'NLP', slug: 'semantic' },
-  { id: 'strategic', title: 'Strategic Generative Pipeline', category: 'Strategy', slug: 'strategic' },
-  { id: 'timeseries', title: 'Time Series Forecasting', category: 'Data Science', slug: 'timeseries' },
-  { id: 'vrp', title: 'Vehicle Routing Problem', category: 'Optimization', slug: 'vrp' },
+  { id: 'anime-gen', title: 'Anime Generation Model', category: 'Deep Learning', slug: 'Anime_Gen_Model.html' },
+  { id: 'gen-arch', title: 'Generative Architecture', category: 'Architecture', slug: 'Generative_Architecture.html' },
+  { id: 'local-ai', title: 'Local AI Coding', category: 'DevOps', slug: 'Local_AI_Coding.html' },
+  { id: 'semantic', title: 'Semantic Search', category: 'NLP', slug: 'Semantic_Search.html' },
+  { id: 'strategic', title: 'Strategic Generative Pipeline', category: 'Strategy', slug: 'Strategic_Generative_Pipeline.html' },
+  { id: 'timeseries', title: 'Time Series Forecasting', category: 'Data Science', slug: 'TimeSeries_Forecasting.html' },
+  { id: 'vrp', title: 'Vehicle Routing Problem', category: 'Optimization', slug: 'VRP.html' },
 ];
 
 export default function ReportsIndexPage() {
