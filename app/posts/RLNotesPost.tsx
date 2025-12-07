@@ -91,7 +91,7 @@ export default function RLNotesPost() {
       {/* Part II */}
       <section>
         <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white mb-4 mt-8">Part II: Approximate Solution Methods</h2>
-        <div className="pl-4 border-l-2 border-orange-500">
+        <div className="pl-4 border-l-2 border-blue-500">
             <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">Chapter 13: Policy Gradient Methods</h3>
             <GlassCard className="p-6 text-slate-700 dark:text-slate-300">
                 <p className="mb-4">

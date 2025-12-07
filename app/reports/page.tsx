@@ -25,17 +25,17 @@ export default function ReportsIndexPage() {
       </div>
 
       <section>
-        <SectionHeading title="Available Reports" icon={<FileText className="text-orange-500" />} />
+        <SectionHeading title="Available Reports" icon={<FileText className="text-blue-500" />} />
         <div className="grid md:grid-cols-2 gap-6">
           {REPORTS.map((report) => (
             <Link key={report.id} href={`/reports/${report.slug}`} className="group">
-              <GlassCard className="p-6 h-full hover:border-orange-500/50 transition-colors cursor-pointer">
+              <GlassCard className="p-6 h-full hover:border-blue-500/50 transition-colors cursor-pointer">
                 <div className="flex justify-between items-start">
                     <div>
-                        <span className="text-xs font-bold text-orange-500 uppercase tracking-wider">{report.category}</span>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1 group-hover:text-orange-500 transition-colors">{report.title}</h3>
+                        <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">{report.category}</span>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1 group-hover:text-blue-500 transition-colors">{report.title}</h3>
                     </div>
-                    <ExternalLink size={18} className="text-slate-400 group-hover:text-orange-500" />
+                    <ExternalLink size={18} className="text-slate-400 group-hover:text-blue-500" />
                 </div>
                 <p className="text-sm text-slate-500 mt-4">Click to view full HTML report.</p>
               </GlassCard>

@@ -11,6 +11,7 @@ import {
   Wrench, 
   Film, 
   FileText,
+  PenTool,
   Menu, // Import Menu icon for the closed state
   X     // Import X icon for the open state
 } from 'lucide-react';
@@ -19,9 +20,10 @@ const NAV_ITEMS = [
   { label: 'Home', href: '/', icon: Home },
   { label: 'About', href: '/content/about', icon: User },
   { label: 'Projects', href: '/content/projects', icon: Briefcase },
-  { label: 'Tools', href: '/content/tools', icon: Wrench },
-  { label: 'Media', href: '/content/media', icon: Film },
   { label: 'Reports', href: '/reports', icon: FileText },
+  { label: 'Tools', href: '/content/tools', icon: Wrench },
+  { label: 'Notes', href: '/posts', icon: PenTool },
+  { label: 'Media', href: '/content/media', icon: Film },
 ];
 
 export default function Header() {
@@ -44,7 +46,7 @@ export default function Header() {
           {/* Logo / Title Area */}
           <div className="flex-shrink-0">
             <Link href="/" className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2" onClick={closeMobileMenu}>
-              <span className="text-orange-500">ACF</span>
+              <span className="text-blue-500">ACF</span>
               <span>Peacekeeper</span>
             </Link>
           </div>
@@ -56,7 +58,7 @@ export default function Header() {
           <div className="flex items-center">
             <button 
               onClick={toggleMobileMenu}
-              className="p-2 rounded-md text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500"
+              className="p-2 rounded-md text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             >
               <span className="sr-only">Open main menu</span>
               {/* This logic is correct for hamburger/X toggle */}
@@ -84,7 +86,7 @@ export default function Header() {
                   className={`
                     flex items-center px-3 py-3 rounded-md text-base font-medium transition-colors duration-200
                     ${isActive 
-                      ? 'bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400' 
+                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400' 
                       : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
                     }
                   `}

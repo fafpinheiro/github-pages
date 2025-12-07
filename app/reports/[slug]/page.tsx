@@ -52,7 +52,7 @@ export default function ReportPage({ params }: PageProps) {
         <div className="mb-6">
           <Link 
             href="/reports"
-            className="flex items-center text-slate-600 dark:text-slate-400 hover:text-orange-500 transition-colors w-fit group"
+            className="flex items-center text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors w-fit group"
           >
             <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Reports List

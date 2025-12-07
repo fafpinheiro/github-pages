@@ -38,7 +38,7 @@ export default function ToolsPage() {
       </div>
 
       <section>
-        <SectionHeading title="Programming Languages" icon={<Terminal className="text-orange-500" />} />
+        <SectionHeading title="Programming Languages" icon={<Terminal className="text-blue-500" />} />
         <GlassCard className="p-6">
             {renderToolGroup([
                 { name: 'Python', url: 'https://www.python.org/' },
