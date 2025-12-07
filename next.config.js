@@ -10,6 +10,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  // FIX: Explicitly set the client-side environment variable to guarantee
+  // that the component can access the basePath on the client.
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/github-pages',
+  },
 };
 
 module.exports = nextConfig;
