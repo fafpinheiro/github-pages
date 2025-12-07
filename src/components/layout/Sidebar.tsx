@@ -1,5 +1,5 @@
 import React from 'react';
-// Add FileText to the imports
+import Link from 'next/link';
 import { Home, User, PenTool, Code, Video, Github, Twitter, Linkedin, Moon, Sun, Wrench, ChevronLeft, FileText } from 'lucide-react';
 import SidebarItem from './SidebarItem';
 import profilePic from '@/assets/images/23041868.jpeg'; 
@@ -58,14 +58,17 @@ const Sidebar: React.FC<SidebarProps> = ({
           <div className={`relative rounded-full overflow-hidden shadow-lg ring-4 ring-white dark:ring-slate-800 transition-all duration-300 mb-4 bg-slate-200 dark:bg-slate-700 ${isCollapsed ? 'h-12 w-12' : 'h-20 w-20'}`}>
             <img 
               src={profilePic.src}
-              alt="ACF Harbinger" 
+              alt="ACFHarbinger" 
               className="h-full w-full object-cover"
             />
           </div>
           
           {!isCollapsed && (
             <>
-              <h1 className="text-2xl font-bold text-slate-900 dark:text-white font-display">ACF Harbinger</h1>
+              <Link href="/" className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                <span className="text-blue-500">ACF</span>
+                <span>Harbinger</span>
+              </Link>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium dark:text-white">Scientist & Engineer</p>
               <p className="text-xs text-slate-400 mt-2 uppercase tracking-wider dark:text-white">CSE & Math</p>
             </>

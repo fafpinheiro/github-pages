@@ -9,8 +9,8 @@ import ClientLayoutWrapper from '@/app/ClientLayoutWrapper'; // Assuming this ex
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ACF Harbinger',
-  description: 'AI & Engineering Portfolio',
+  title: 'ACFHarbinger',
+  description: 'Personal Website',
 };
 
 export default function RootLayout({
