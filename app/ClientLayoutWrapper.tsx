@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+// IMPORT FIX: Added 'X' to imports
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Sidebar from '../src/components/layout/Sidebar';
@@ -105,34 +106,6 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
         {/* Main Content Area */}
         <div className="flex-1">
-            {/* Mobile Header/Menu Control (Visible on small screens, hidden on large screens) */}
-            <header className="lg:hidden fixed top-0 left-0 right-0 z-30 flex justify-between items-center h-16 p-4 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm">
-
-                {/* Logo/Title Placeholder */}
-                <span className="font-bold text-xl text-slate-900 dark:text-white">ACFHarbinger</span>
-
-                {/* Mobile Menu & Theme Controls */}
-                <div className="flex items-center space-x-4">
-                    {/* Theme Toggle Button */}
-                    <button
-                        onClick={toggleTheme}
-                        className="p-2 hover:text-yellow-500 transition-colors"
-                        aria-label="Toggle Dark Mode"
-                    >
-                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                    </button>
-
-                    {/* Menu Button */}
-                    <button
-                        onClick={toggleMenu}
-                        className="p-2 text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
-                        aria-label="Open menu"
-                    >
-                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
-            </header>
-
             {/* Main Content Area */}
             {/* The pt-20 handles the space for the sticky mobile header */}
             <main className="flex-1 p-6 lg:p-12 w-full max-w-4xl mx-auto pt-20 lg:pt-12">
@@ -151,4 +124,3 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 };
 
 export default ClientLayoutWrapper;
-
