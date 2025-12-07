@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { 
   Home, 
   User, 
-  Briefcase, 
+  Code, 
   Wrench, 
   Film, 
   FileText,
@@ -19,7 +19,7 @@ import {
 const NAV_ITEMS = [
   { label: 'Home', href: '/', icon: Home },
   { label: 'About', href: '/content/about', icon: User },
-  { label: 'Projects', href: '/content/projects', icon: Briefcase },
+  { label: 'Projects', href: '/content/projects', icon: Code },
   { label: 'Reports', href: '/reports', icon: FileText },
   { label: 'Tools', href: '/content/tools', icon: Wrench },
   { label: 'Notes', href: '/posts', icon: PenTool },
