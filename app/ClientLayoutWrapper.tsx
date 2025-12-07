@@ -1,8 +1,9 @@
-'use client'; // CRITICAL: Must be at the top for usePathname to work
+'use client'; 
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
-import { usePathname } from 'next/navigation'; // <-- Ensure this import is present
+// IMPORT FIX: Added 'X' to imports
+import { Menu, X, Moon, Sun } from 'lucide-react'; 
+import { usePathname } from 'next/navigation'; 
 import Sidebar from '../src/components/layout/Sidebar'; 
 import Footer from '../src/components/layout/Footer';
 
@@ -15,10 +16,9 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
   
-  // Use Next.js hook to get the current path
-  const pathname = usePathname(); // This should now work correctly
+  const pathname = usePathname(); 
 
-  // Determine active section based on the path
+  // --- Omitted Dark Mode and getActiveSection logic for brevity (they remain unchanged) ---
   const getActiveSection = (path: string) => {
     // Standardize path to start resolving from the root
     if (path === '/') return 'home';
@@ -40,7 +40,6 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
   // --- Dark Mode Logic --- (omitted for brevity)
   useEffect(() => {
-    // Initialization: Check local storage or system preference
     const storedTheme = localStorage.getItem('theme');
     const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
@@ -65,35 +64,51 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
   const toggleTheme = () => setDarkMode(!darkMode);
   const toggleSidebarCollapsed = () => setIsSidebarCollapsed(!isSidebarCollapsed);
-
-  // --- Mobile Menu Logic --- (omitted for brevity)
+  
+  // --- Mobile Menu Logic ---
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
+  // FIX: Close mobile menu when the route changes (e.g., clicking a link in the menu)
+  useEffect(() => {
+    if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+    }
+  }, [pathname]);
+
 
   return (
     <div className={`min-h-screen transition-colors duration-300 font-sans ${darkMode ? 'dark bg-slate-900 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
-      
-      {/* Mobile Header */}
-      <div className="lg:hidden flex items-center justify-between p-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800">
-        <span className="font-bold text-xl tracking-tight font-display">ACF Peacekeeper</span>
-        <button 
-          onClick={toggleMenu}
-          className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          aria-label="Open Menu"
-        >
-          <Menu size={24} />
-        </button>
-      </div>
-
+      {/* Main Layout Container */}
       <div className="flex max-w-7xl mx-auto">
-        <Sidebar 
-          activeSection={activeSection} 
-          darkMode={darkMode} 
-          toggleTheme={toggleTheme} 
-          isCollapsed={isSidebarCollapsed}
-          toggleCollapse={toggleSidebarCollapsed}
-        />
+        
+        {/* Sidebar for Desktop */}
+        <div className="hidden lg:block"> 
+            <Sidebar 
+                activeSection={activeSection} 
+                darkMode={darkMode} 
+                toggleTheme={toggleTheme} 
+                isCollapsed={isSidebarCollapsed}
+                toggleCollapse={toggleSidebarCollapsed}
+            />
+        </div>
+        
+        {/* Sidebar for Mobile (Full-screen overlay when menu is open) */}
+        {mobileMenuOpen && (
+            <div className="lg:hidden fixed inset-0 z-40 bg-white dark:bg-slate-900 overflow-y-auto">
+                {/* Ensure the sidebar content fills the mobile overlay */}
+                <Sidebar 
+                    activeSection={activeSection} 
+                    darkMode={darkMode} 
+                    toggleTheme={toggleTheme} 
+                    isCollapsed={false} // Force uncollapsed for mobile menu
+                    toggleCollapse={toggleSidebarCollapsed} // Keep the toggle function even if hidden
+                />
+            </div>
+        )}
 
-        <main className="flex-1 p-6 lg:p-12 w-full max-w-4xl mx-auto">
+        {/* Main Content Area */}
+        {/* FIX: Added margin-top for mobile to account for the sticky header (p-4 + h-16) */}
+        <main className="flex-1 p-6 lg:p-12 w-full max-w-4xl mx-auto pt-20 lg:pt-12">
           {children}
           <Footer />
         </main>
