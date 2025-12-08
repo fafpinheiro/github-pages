@@ -11,17 +11,19 @@ import SemanticSearchReport from '../SemanticSearchReport';
 import StrategicPipelineReport from '../StrategicPipelineReport';
 import TimeSeriesReport from '../TimeSeriesReport';
 import VRPReport from '../VRPReport';
+import AudioSignalProcessingandEngineering from '../AudioSignalProcessingandEngineering';
 
 // Define the registry
 const REPORT_COMPONENTS: Record<string, React.ComponentType> = {
   // Reverted to clean slugs as per previous fix
-  'anime-gen': AnimeGenModelReport, 
+  'anime-gen': AnimeGenModelReport,
   'gen-arch': GenerativeArchitectureReport,
   'local-ai': LocalAICodingReport,
   'semantic': SemanticSearchReport,
   'strategic': StrategicPipelineReport,
   'timeseries': TimeSeriesReport,
   'vrp': VRPReport,
+  'audio-signal-proc': AudioSignalProcessingandEngineering,
 };
 
 // Generate static params for build time
@@ -50,7 +52,7 @@ export default function ReportPage({ params }: PageProps) {
       {/* Main Content Container */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12">
         <div className="mb-6">
-          <Link 
+          <Link
             href="/reports"
             className="flex items-center text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors w-fit group"
           >
@@ -58,11 +60,11 @@ export default function ReportPage({ params }: PageProps) {
             Back to Reports List
           </Link>
         </div>
-        
+
         <h1 className="text-3xl font-bold mb-6 capitalize text-slate-900 dark:text-white">
           {slug.replace(/-/g, ' ')} Report
         </h1>
-        
+
         <ReportComponent />
       </main>
     </div>
