@@ -2,35 +2,51 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import ReportWrapper from '@/src/components/ReportWrapper';
 
-// Import co-located report components
-import AnimeGenModelReport from '../AnimeGenModelReport';
-import GenerativeArchitectureReport from '../GenerativeArchitectureReport';
-import LocalAICodingReport from '../LocalAICodingReport';
-import SemanticSearchReport from '../SemanticSearchReport';
-import StrategicPipelineReport from '../StrategicPipelineReport';
-import TimeSeriesReport from '../TimeSeriesReport';
-import VRPReport from '../VRPReport';
-import AudioSignalProcessingReport from '../AudioSignalProcessingReport';
-import WasteLogisticsArchitectureReport from '../WasteLogisticsArchitectureReport';
-
-// Define the registry
-const REPORT_COMPONENTS: Record<string, React.ComponentType> = {
-  // Reverted to clean slugs as per previous fix
-  'anime-gen': AnimeGenModelReport,
-  'gen-arch': GenerativeArchitectureReport,
-  'local-ai': LocalAICodingReport,
-  'semantic': SemanticSearchReport,
-  'strategic': StrategicPipelineReport,
-  'timeseries': TimeSeriesReport,
-  'vrp': VRPReport,
-  'audio-signal-proc': AudioSignalProcessingReport,
-  'waste-logistics-architecture': WasteLogisticsArchitectureReport,
+// Configuration: Map the clean URL slug to the specific HTML file and Title
+const REPORTS_DATA: Record<string, { file: string; title: string }> = {
+  'anime-gen': { 
+    file: 'Anime_Gen_Model.html', 
+    title: 'Anime Generation Model' 
+  },
+  'gen-arch': { 
+    file: 'Generative_Architecture.html', 
+    title: 'Generative Architecture' 
+  },
+  'local-ai': { 
+    file: 'Local_AI_Coding.html', 
+    title: 'Local AI Coding' 
+  },
+  'semantic': { 
+    file: 'Semantic_Search.html', 
+    title: 'Semantic Search' 
+  },
+  'strategic': { 
+    file: 'Strategic_Generative_Pipeline.html', 
+    title: 'Strategic Generative Pipeline' 
+  },
+  'timeseries': { 
+    file: 'TimeSeries_Forecasting.html', 
+    title: 'Time Series Forecasting' 
+  },
+  'vrp': { 
+    file: 'VRP.html', 
+    title: 'Vehicle Routing Problem' 
+  },
+  'audio-signal-proc': { 
+    file: 'Audio_Signal_Processing.html', 
+    title: 'Audio Signal Processing' 
+  },
+  'waste-logistics-architecture': { 
+    file: 'Waste_Logistics_Architecture.html', 
+    title: 'Waste Logistics Architecture' 
+  },
 };
 
 // Generate static params for build time
 export async function generateStaticParams() {
-  return Object.keys(REPORT_COMPONENTS).map((slug) => ({
+  return Object.keys(REPORTS_DATA).map((slug) => ({
     slug: slug,
   }));
 }
@@ -41,14 +57,13 @@ interface PageProps {
 
 export default function ReportPage({ params }: PageProps) {
   const { slug } = params;
-  const ReportComponent = REPORT_COMPONENTS[slug];
+  const reportConfig = REPORTS_DATA[slug];
 
-  if (!ReportComponent) {
+  if (!reportConfig) {
     return notFound();
   }
 
   return (
-    // FIX: Removed "h-full" to allow natural scrolling with the new header
     <div className="animate-in fade-in duration-500 flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950">
 
       {/* Main Content Container */}
@@ -64,10 +79,14 @@ export default function ReportPage({ params }: PageProps) {
         </div>
 
         <h1 className="text-3xl font-bold mb-6 capitalize text-slate-900 dark:text-white">
-          {slug.replace(/-/g, ' ')} Report
+          {reportConfig.title}
         </h1>
 
-        <ReportComponent />
+        {/* Render the single reusable wrapper */}
+        <ReportWrapper 
+          htmlFileName={reportConfig.file} 
+          title={reportConfig.title} 
+        />
       </main>
     </div>
   );

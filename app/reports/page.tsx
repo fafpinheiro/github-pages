@@ -6,16 +6,17 @@ import { FileText, ExternalLink } from 'lucide-react';
 import SectionHeading from '@/src/components/ui/SectionHeading';
 import GlassCard from '@/src/components/ui/GlassCard';
 
+// Note: 'id' matches the keys in page.tsx 'REPORTS_DATA'
 const REPORTS = [
-  { id: 'anime-gen', title: 'Anime Generation Model', category: 'Deep Learning', slug: 'Anime_Gen_Model.html' },
-  { id: 'gen-arch', title: 'Generative Architecture', category: 'Architecture', slug: 'Generative_Architecture.html' },
-  { id: 'local-ai', title: 'Local AI Coding', category: 'DevOps', slug: 'Local_AI_Coding.html' },
-  { id: 'semantic', title: 'Semantic Search', category: 'NLP', slug: 'Semantic_Search.html' },
-  { id: 'strategic', title: 'Strategic Generative Pipeline', category: 'Strategy', slug: 'Strategic_Generative_Pipeline.html' },
-  { id: 'timeseries', title: 'Time Series Forecasting', category: 'Data Science', slug: 'TimeSeries_Forecasting.html' },
-  { id: 'vrp', title: 'Vehicle Routing Problem', category: 'Optimization', slug: 'VRP.html' },
-  { id: 'audio-signal-proc', title: 'Audio Signal Processing', category: 'Deep Learning', slug: 'Audio_Signal_Processing.html' },
-  { id: 'waste-logistics-architecture', title: 'Waste Logistics Architecture', category: 'Optimization', slug: 'Waste_Logistics_Architecture.html' },
+  { id: 'anime-gen', title: 'Anime Generation Model', category: 'Deep Learning' },
+  { id: 'gen-arch', title: 'Generative Architecture', category: 'Architecture' },
+  { id: 'local-ai', title: 'Local AI Coding', category: 'DevOps' },
+  { id: 'semantic', title: 'Semantic Search', category: 'NLP' },
+  { id: 'strategic', title: 'Strategic Generative Pipeline', category: 'Strategy' },
+  { id: 'timeseries', title: 'Time Series Forecasting', category: 'Data Science' },
+  { id: 'vrp', title: 'Vehicle Routing Problem', category: 'Optimization' },
+  { id: 'audio-signal-proc', title: 'Audio Signal Processing', category: 'Deep Learning' },
+  { id: 'waste-logistics-architecture', title: 'Waste Logistics Architecture', category: 'Optimization' },
 ];
 
 export default function ReportsIndexPage() {
@@ -30,7 +31,7 @@ export default function ReportsIndexPage() {
         <SectionHeading title="Available Reports" icon={<FileText className="text-blue-500" />} />
         <div className="grid md:grid-cols-2 gap-6">
           {REPORTS.map((report) => (
-            <Link key={report.id} href={`/reports/${report.slug}`} className="group">
+            <Link key={report.id} href={`/reports/${report.id}`} className="group">
               <GlassCard className="p-6 h-full hover:border-blue-500/50 transition-colors cursor-pointer">
                 <div className="flex justify-between items-start">
                     <div>
