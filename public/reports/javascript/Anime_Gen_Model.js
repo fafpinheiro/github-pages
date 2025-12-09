@@ -199,22 +199,39 @@ function updateRadarChart(model) {
 function renderModelList() {
     if (!modelListEl) return; 
 
+    // Clear the existing content
     modelListEl.innerHTML = '';
+    
+    // 1. Create the select element
+    const selectEl = document.createElement('select');
+    selectEl.id = 'modelSelect';
+    // Tailwind classes for styling the dropdown
+    selectEl.className = 'w-full px-4 py-3 rounded-lg text-sm font-medium transition-colors border border-stone-300 bg-white shadow-sm appearance-none focus:ring-blue-500 focus:border-blue-500';
+
+    // 2. Populate options
     models.forEach(model => {
-        const btn = document.createElement('button');
-        btn.className = `w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors border ${
-            model.id === selectedModelId 
-            ? 'bg-blue-50 border-blue-200 text-blue-700' 
-            : 'bg-white border-transparent text-stone-600 hover:bg-stone-100'
-        }`;
-        btn.innerText = model.name;
-        btn.onclick = () => {
-            selectedModelId = model.id;
-            renderModelList();
-            updateModelView(model.id);
-        };
-        modelListEl.appendChild(btn);
+        const option = document.createElement('option');
+        option.value = model.id;
+        option.innerText = model.name;
+        
+        // Set the default selection based on selectedModelId
+        if (model.id === selectedModelId) {
+            option.selected = true;
+        }
+        
+        selectEl.appendChild(option);
     });
+
+    // 3. Add change listener
+    selectEl.addEventListener('change', (event) => {
+        selectedModelId = event.target.value;
+        // The default value of a <select> element is automatically updated, 
+        // so we just need to update the view.
+        updateModelView(selectedModelId);
+    });
+
+    // 4. Append to the DOM
+    modelListEl.appendChild(selectEl);
 }
 
 // --- Update Model Details View ---
@@ -237,7 +254,8 @@ function updateModelView(id) {
 
     let consHtml = model.cons.map(c => 
         `<li class="flex items-start text-sm text-stone-600 mb-1">
-            <span class="text-red-500 font-bold mr-2.5 mt-0.5">✖</span>
+            <!-- REMOVED font-bold to make the cross icon less bulky -->
+            <span class="text-red-500 mr-2.5 mt-0.5">✖</span>
             <span class="flex-1">${c}</span>
          </li>`
     ).join('');
