@@ -97,7 +97,6 @@ function loadReportAssets(baseName: string) {
       let rawCss = fs.readFileSync(cssPath, 'utf8');
       
       // Scope the CSS to .report-content to prevent global leaks
-      // Replaces 'body' or 'html' selectors with '.report-content'
       rawCss = rawCss.replace(/(^|[\s,}])\b(body|html)\b(?=[\s,{])/gi, '$1.report-content');
       styleContent = rawCss;
     }
@@ -111,12 +110,21 @@ function loadReportAssets(baseName: string) {
       let rawJs = fs.readFileSync(jsPath, 'utf8');
 
       // PRE-PROCESSING:
-      // A. Remove problematic immediate calls if present (like the updateLoss issue)
+      // A. Remove problematic immediate calls if present (for Semantic Search only)
       rawJs = rawJs.replace(/updateLoss\s*\(\s*['"]contrastive['"]\s*\)\s*;?/g, '// Removed problematic updateLoss initialization call');
 
       // B. Handle DOMContentLoaded Logic
-      // We extract the *insides* of the event listener so they run immediately when injected
-      const domLoadedRegex = /document\.addEventListener\s*\(\s*['"]DOMContentLoaded['"]\s*,\s*(\(\)\s*=>\s*|function\s*)\s*{([\s\S]*?)}\s*\)\s*;/i;
+      // ---------------------------------------------------------
+      // FIX: Dynamically select regex based on file structure.
+      // 1. Lazy Match (Default): Stops at first "});". Safe for files where functions follow the listener (Anime Gen).
+      // 2. Greedy Match (Semantic): Consumes everything. Required for files with nested "});" inside the listener.
+      // ---------------------------------------------------------
+      let domLoadedRegex = /document\.addEventListener\s*\(\s*['"]DOMContentLoaded['"]\s*,\s*(\(\)\s*=>\s*|function\s*)\s*{([\s\S]*?)}\s*\)\s*;/i;
+      
+      if (baseName === 'Semantic_Search') {
+         domLoadedRegex = /document\.addEventListener\s*\(\s*['"]DOMContentLoaded['"]\s*,\s*(\(\)\s*=>\s*|function\s*)\s*{([\s\S]*)}\s*\)\s*;/i;
+      }
+
       const initMatch = rawJs.match(domLoadedRegex);
       
       let initCode = '';
@@ -124,11 +132,15 @@ function loadReportAssets(baseName: string) {
         initCode = initMatch[2].trim();
         // Remove the listener block from the main script to avoid duplication
         rawJs = rawJs.replace(domLoadedRegex, '');
+        
+        // Semantic Search Cleanup (inside extracted code)
+        initCode = initCode.replace(/updateLoss\s*\(\s*['"]contrastive['"]\s*\)\s*;?/g, '// Removed initialization via loadReportAssets clean-up');
       }
 
       // C. Expose Functions to Window (Crucial for onclick handlers in HTML)
-      // Converts "function myFunc(arg) {...}" to "window.myFunc = function(arg) {...}"
-      rawJs = rawJs.replace(/function\s+([a-zA-Z0-9_]+)\s*\(([\s\S]*?)\)/g, 'window.$1 = function($2)');
+      // FIX: Robust regex that matches arguments AND the opening brace '{'.
+      // Converts: "function myFunc(arg) {" -> "window.myFunc = function(arg) {"
+      rawJs = rawJs.replace(/function\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*{/g, 'window.$1 = function($2) {');
 
       // Combine: Global Definitions + Initialization Code
       inlineScriptContent = `${rawJs}\n\n// --- Initialization ---\n${initCode}`;
