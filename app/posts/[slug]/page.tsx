@@ -1,11 +1,8 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-
-// Import your custom post components
-// Note: These are imported from the parent folder (app/posts/)
-import AttentionRoutingPost from '../AttentionRoutingPost';
-import CombinatorialOptimizationPost from '../CombinatorialOptimizationPost';
-import RLNotesPost from '../RLNotesPost';
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+import PostWrapper from '@/src/components/PostWrapper';
 
 // Define the type for the URL parameters
 interface PostPageProps {
@@ -14,43 +11,50 @@ interface PostPageProps {
   };
 }
 
-// 1. Map your slugs to the corresponding React Components
-const POSTS_MAP: Record<string, React.ComponentType> = {
-  '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': AttentionRoutingPost,
-  '2024-10-28-Combinatorial-Optimization-Intro': CombinatorialOptimizationPost,
-  '2024-10-31-Notes-on-RL-an-Introduction': RLNotesPost,
+// Map slugs to the corresponding HTML file names in public/posts/
+const POSTS_HTML_MAP: Record<string, string> = {
+  '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'Attention_Learn_to_Solve_Routing_Problem.html',
+  '2024-10-28-Combinatorial-Optimization-Intro': 'Combinatorial_Optimization_an_Introduction.html',
+  '2024-10-31-Notes-on-RL-an-Introduction': 'Notes_on_RL_an_Introduction.html',
 };
 
 /**
- * 2. generateStaticParams
- * Required for 'output: export'. explicit list of all slugs 
+ * generateStaticParams
+ * Required for 'output: export'. Explicit list of all slugs 
  * that this dynamic route should handle.
  */
 export async function generateStaticParams() {
-  return Object.keys(POSTS_MAP).map((slug) => ({
+  return Object.keys(POSTS_HTML_MAP).map((slug) => ({
     slug,
   }));
 }
 
 /**
- * 3. PostPage Component (Server Component)
- * Looks up the component based on the slug and renders it.
+ * PostPage Component (Server Component)
+ * Looks up the HTML filename based on the slug and renders the PostWrapper.
  */
 export default function PostPage({ params }: PostPageProps) {
   const { slug } = params;
-  
-  // Find the component that matches the URL slug
-  const PostComponent = POSTS_MAP[slug];
+  const htmlFileName = POSTS_HTML_MAP[slug];
 
-  // If no matching component exists for this slug, return 404
-  if (!PostComponent) {
+  // If no matching file exists for this slug, return 404
+  if (!htmlFileName) {
     notFound();
   }
 
-  // Render the specific TSX component
+  // Render the PostWrapper with the static HTML file
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
-      <PostComponent />
+      <div className="mb-6">
+          <Link
+            href="/posts"
+            className="flex items-center text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors w-fit group"
+          >
+            <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
+            Back to Posts List
+          </Link>
+        </div>
+      <PostWrapper htmlFileName={htmlFileName} title={slug} />
     </div>
   );
 }
