@@ -116,12 +116,13 @@ function loadReportAssets(baseName: string) {
       // B. Handle DOMContentLoaded Logic
       // ---------------------------------------------------------
       // FIX: Dynamically select regex based on file structure.
-      // 1. Lazy Match (Default): Stops at first "});". Safe for files where functions follow the listener (Anime Gen).
-      // 2. Greedy Match (Semantic): Consumes everything. Required for files with nested "});" inside the listener.
+      // 1. Lazy Match (Default): Stops at first "});". Safe for simple files.
+      // 2. Greedy Match (Complex): Consumes everything until the last "});". Required for files with nested "});" inside the listener (e.g. Chart.js configs).
       // ---------------------------------------------------------
       let domLoadedRegex = /document\.addEventListener\s*\(\s*['"]DOMContentLoaded['"]\s*,\s*(\(\)\s*=>\s*|function\s*)\s*{([\s\S]*?)}\s*\)\s*;/i;
       
-      if (baseName === 'Semantic_Search') {
+      // ADDED: Strategic_Generative_Pipeline to the greedy list because it has nested Chart.js configurations
+      if (baseName === 'Semantic_Search' || baseName === 'Strategic_Generative_Pipeline') {
          domLoadedRegex = /document\.addEventListener\s*\(\s*['"]DOMContentLoaded['"]\s*,\s*(\(\)\s*=>\s*|function\s*)\s*{([\s\S]*)}\s*\)\s*;/i;
       }
 
@@ -137,13 +138,22 @@ function loadReportAssets(baseName: string) {
         initCode = initCode.replace(/updateLoss\s*\(\s*['"]contrastive['"]\s*\)\s*;?/g, '// Removed initialization via loadReportAssets clean-up');
       }
 
-      // C. Expose Functions to Window (Crucial for onclick handlers in HTML)
-      // FIX: Robust regex that matches arguments AND the opening brace '{'.
-      // Converts: "function myFunc(arg) {" -> "window.myFunc = function(arg) {"
-      rawJs = rawJs.replace(/function\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*{/g, 'window.$1 = function($2) {');
+      // C. Expose Functions to Window (FIXED METHOD)
+      // FIX: Use simple direct assignment with guaranteed termination to prevent SyntaxError.
+      const functionMatches = Array.from(rawJs.matchAll(/function\s+([a-zA-Z0-9_]+)\s*\(/g));
+      let functionExports = '';
+      
+      for (const match of functionMatches) {
+        const funcName = match[1];
+        // Direct assignment with semicolon termination
+        functionExports += `\nif (typeof ${funcName} !== 'undefined') { window.${funcName} = ${funcName}; };`; 
+      }
 
-      // Combine: Global Definitions + Initialization Code
-      inlineScriptContent = `${rawJs}\n\n// --- Initialization ---\n${initCode}`;
+      // D. Combine: 
+      // 1. Original declarations (safe)
+      // 2. Window assignments (guaranteed semicolon termination)
+      // 3. Initialization code wrapped in a block {} to prevent 'const' redeclaration errors
+      inlineScriptContent = `${rawJs}\n\n// --- Exports ---\n${functionExports}\n\n// --- Initialization ---\n{\n${initCode}\n}`;
       
       // Re-add specific initialization calls if needed (like the default state for Semantic Search)
       if (baseName === 'Semantic_Search') {
