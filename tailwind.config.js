@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // CRITICAL: Now scanning ALL files under src/ for Tailwind classes.
+  // CRITICAL: Added ./app and ./public/reports to scan for classes
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", 
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,jsx,ts,tsx}", 
+    "./public/reports/**/*.html"
   ],
   darkMode: 'class', 
   theme: {

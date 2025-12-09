@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import '@/src/styles/posts.css'; // Make sure the path to your CSS is correct
+import '@/src/styles/content.css'; // Make sure the path to your CSS is correct
 
 interface PostWrapperProps {
   content: string; // The raw HTML content string (not filename)
