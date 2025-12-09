@@ -19,7 +19,7 @@ const NAV_ITEMS = [
     { href: '/content/projects', label: 'Projects', icon: <Code size={20} />, slug: 'projects' },
     { href: '/reports', label: 'Reports', icon: <FileText size={20} />, slug: 'reports' },
     { href: '/content/tools', label: 'Tools', icon: <Wrench size={20} />, slug: 'tools' },
-    { href: '/posts', label: 'Notes', icon: <PenTool size={20} />, slug: 'posts' }, 
+    { href: '/posts', label: 'Posts', icon: <PenTool size={20} />, slug: 'posts' }, 
     { href: '/content/media', label: 'Media', icon: <Video size={20} />, slug: 'media' },
 ];
 

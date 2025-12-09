@@ -56,7 +56,7 @@ export default async function NotesIndexPage() {
         {/* Posts Grid */}
         <section>
             {/* Reusing existing SectionHeading component */}
-            <SectionHeading title={`All Notes (${posts.length})`} icon={<PenTool className="text-purple-500" />} />
+            <SectionHeading title={`All Posts (${posts.length})`} icon={<PenTool className="text-purple-500" />} />
             
             <div className="grid gap-6">
               {posts.length > 0 ? (
@@ -77,7 +77,7 @@ export default async function NotesIndexPage() {
                       
                       {/* Title and Link */}
                       <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        <a href={`/posts/${post.slug}`} className="hover:underline decoration-blue-500/30 underline-offset-4">
+                        <a href={`/github-pages/posts/${post.slug}`} className="hover:underline decoration-blue-500/30 underline-offset-4">
                           {post.title}
                         </a>
                       </h3>
@@ -94,8 +94,8 @@ export default async function NotesIndexPage() {
                             <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
                             ))}
                         </div>
-                        <a href={`/posts/${post.slug}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                             Read more <ArrowRight size={14} />
+                        <a href={`/github-pages/posts/${post.slug}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Read more <ArrowRight size={14} />
                         </a>
                       </div>
                     </div>
@@ -103,7 +103,7 @@ export default async function NotesIndexPage() {
                 ))
               ) : (
                 <div className="text-center py-12 text-slate-500">
-                  No notes found.
+                  No posts found.
                 </div>
               )}
             </div>

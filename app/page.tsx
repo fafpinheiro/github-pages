@@ -94,10 +94,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest Notes Section */}
+      {/* Latest Posts Section */}
       <section className="mb-16">
         <div className="flex items-center justify-between mb-8">
-          <SectionHeading title="Latest Notes" icon={<PenTool className="text-purple-500" />} />
+          <SectionHeading title="Latest Posts" icon={<PenTool className="text-purple-500" />} />
           <a href="/posts" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
             View all <ArrowRight size={14} />
           </a>
