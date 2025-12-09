@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-// IMPORT FIX: Added 'X' to imports
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Sidebar from '../src/components/layout/Sidebar';
 import Footer from '../src/components/layout/Footer';
@@ -14,7 +13,7 @@ interface ClientLayoutWrapperProps {
 const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(true);
 
   const pathname = usePathname();
 
@@ -66,12 +65,14 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 font-sans ${darkMode ? 'dark bg-slate-900 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
-      {/* Main Layout Container */}
-      <div className="flex max-w-7xl mx-auto">
+    // FIX 1: Set h-screen and overflow-hidden on the root element to disable the main document scroll.
+    <div className={`h-screen overflow-hidden transition-colors duration-300 font-sans ${darkMode ? 'dark bg-slate-900 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
+      
+      {/* Main Layout Container (Set to h-full to fit root container) */}
+      <div className="flex h-full max-w-7xl mx-auto">
 
-        {/* Sidebar for Desktop */}
-        <div className="hidden lg:block">
+        {/* Sidebar for Desktop (Set to h-full to fit root container) */}
+        <div className="hidden lg:block h-full">
             <Sidebar
                 activeSection={activeSection}
                 darkMode={darkMode}
@@ -105,7 +106,8 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
         )}
 
         {/* Main Content Area */}
-        <div className="flex-1">
+        {/* FIX 2: Set h-full and overflow-y-auto. This div now handles all main page scrolling. */}
+        <div className="flex-1 h-full overflow-y-auto">
             {/* Main Content Area */}
             {/* The pt-20 handles the space for the sticky mobile header */}
             <main className="flex-1 p-6 lg:p-12 w-full max-w-4xl mx-auto pt-20 lg:pt-12">

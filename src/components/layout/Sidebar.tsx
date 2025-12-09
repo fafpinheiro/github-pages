@@ -32,7 +32,9 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   
   const sidebarWidthClass = isCollapsed ? 'w-20' : 'w-72';
-  const paddingClass = isCollapsed ? 'p-4' : 'p-8';
+  const hPaddingClass = isCollapsed ? 'px-4' : 'px-8';
+  const ptClass = isCollapsed ? 'pt-4' : 'pt-8';
+  const pbClass = isCollapsed ? 'pb-4' : 'pb-8';
   
   // Base Path Logic for Social Links
   const rawBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
@@ -41,7 +43,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                    : rawBasePath;
 
   return (
-    <aside className={`hidden lg:flex flex-col ${sidebarWidthClass} h-screen sticky top-0 border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl ${paddingClass} justify-between transition-all duration-300 ease-in-out relative`}>
+    // FIX: Main sidebar element removed vertical padding, uses h-full and overflow-y-auto, and removed sticky top-0.
+    <aside className={`hidden lg:flex flex-col ${sidebarWidthClass} h-full overflow-y-auto border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl ${hPaddingClass} transition-all duration-300 ease-in-out relative`}>
       
       {/* Collapse Toggle Button */}
       <button 
@@ -52,9 +55,10 @@ const Sidebar: React.FC<SidebarProps> = ({
         <ChevronLeft size={16} className={`transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
       </button>
 
-      <div>
+      {/* Applied top padding here */}
+      <div className={ptClass}>
         {/* Profile / Header Section */}
-        <div className="mb-12">
+        <div> 
           <div className={`relative rounded-full overflow-hidden shadow-lg ring-4 ring-white dark:ring-slate-800 transition-all duration-300 mb-4 bg-slate-200 dark:bg-slate-700 ${isCollapsed ? 'h-12 w-12' : 'h-20 w-20'}`}>
             <img 
               src={profilePic.src}
@@ -76,7 +80,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Navigation Section */}
-        <nav className="space-y-2">
+        <nav className="space-y-2 mt-8"> 
           {NAV_ITEMS.map(item => (
             <SidebarItem 
               key={item.slug}
@@ -90,38 +94,44 @@ const Sidebar: React.FC<SidebarProps> = ({
         </nav>
       </div>
 
-      {/* Social Links Section */}
-      <div className={`${isCollapsed ? 'grid grid-cols-1 gap-y-3 justify-items-center w-full' : 'flex justify-center space-x-4'} text-slate-400`}>
-        
-        <a 
-          href="https://github.com/acfharbinger"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
-          aria-label="Github">
-          <Github size={20} />
-        </a>
-        
-        <a 
-          href="#" 
-          className={`hover:text-blue-400 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
-          aria-label="Twitter">
-          <Twitter size={20} />
-        </a>
-        
-        <a 
-          href="#" 
-          className={`hover:text-blue-600 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
-          aria-label="LinkedIn">
-          <Linkedin size={20} />
-        </a>
-        
-        <button 
-          onClick={toggleTheme} 
-          className={`hover:text-yellow-500 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
-          aria-label="Toggle Dark Mode">
-          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
+      {/* This empty div with flex-grow consumes all available vertical space, pushing the social links to the bottom. */}
+      <div className="flex-grow"/> 
+
+      {/* Social Links Section (Pinned to the bottom) */}
+      <div className={pbClass}>
+        <div className={`${isCollapsed ? 'grid grid-cols-1 gap-y-3 justify-items-center w-full' : 'flex justify-center space-x-4'} text-slate-400`}>
+          
+          <a 
+            href="https://github.com/acfharbinger"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+            aria-label="Github">
+            <Github size={20} />
+          </a>
+          
+          <a 
+            href="#" 
+            className={`hover:text-blue-400 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+            aria-label="Twitter">
+            <Twitter size={20} />
+          </a>
+          
+          <a 
+            href="#" 
+            className={`hover:text-blue-600 transition-colors flex items-center justify-center ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+            aria-label="LinkedIn">
+            <Linkedin size={20} />
+          </a>
+          
+          <button 
+            onClick={toggleTheme} 
+            // FIX: Added border-0 and focus:outline-none to normalize the button's vertical alignment with the <a> tags.
+            className={`hover:text-yellow-500 transition-colors flex items-center justify-center border-0 focus:outline-none ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
+            aria-label="Toggle Dark Mode">
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </div>
       </div>
     </aside>
   );
