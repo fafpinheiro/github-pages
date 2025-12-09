@@ -7,9 +7,15 @@ import SectionHeading from '@/src/components/ui/SectionHeading';
 import Badge from '@/src/components/ui/Badge';
 import { PostData } from '@/lib/markdown'; // Reusing your PostData interface
 
-// Extend PostData to include the generated excerpt
+// Extend PostData to include the selected/generated excerpt
+const POSTS_EXCERPT_MAP: Record<string, string> = {
+  '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.',
+  '2024-10-28-Combinatorial-Optimization-Intro': 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.',
+  '2024-10-31-Notes-on-RL-an-Introduction': 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.',
+};
+
 interface PostWithExcerpt extends PostData {
-    excerpt: string;
+  excerpt: string;
 }
 
 // Helper to fetch, process, and sort ALL posts
@@ -22,10 +28,18 @@ async function getAllPosts(): Promise<PostWithExcerpt[]> {
     slugs.map(async ({ slug }) => {
       const data = await getMarkdownData(slug);
       
-      // Generate a simple plain text excerpt from the HTML content for the preview
-      // This is a common pattern to create previews for index pages
-      const plainText = data.contentHtml.replace(/<[^>]+>/g, '');
-      const excerpt = plainText.slice(0, 160) + (plainText.length > 160 ? '...' : '');
+      let excerpt: string;
+      const mapExcerpt = POSTS_EXCERPT_MAP[slug];
+
+      // Use the excerpt from the map if the slug is found
+      if (mapExcerpt) {
+        excerpt = mapExcerpt;
+      } else {
+        // Fallback: Generate a simple plain text excerpt from the HTML content for the preview
+        // This is a common pattern to create previews for index pages
+        const plainText = data.contentHtml.replace(/<[^>]+>/g, '');
+        excerpt = plainText.slice(0, 160) + (plainText.length > 160 ? '...' : '');
+      }
       
       return { 
         ...data, 
@@ -94,7 +108,7 @@ export default async function NotesIndexPage() {
                             <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
                             ))}
                         </div>
-                        <a href={`/github-pages/posts/${post.slug}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        <a href={`/github-pages/content/posts/${post.slug}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                             Read more <ArrowRight size={14} />
                         </a>
                       </div>
