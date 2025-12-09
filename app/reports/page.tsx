@@ -14,7 +14,8 @@ const REPORTS = [
   { id: 'strategic', title: 'Strategic Generative Pipeline', category: 'Strategy', slug: 'Strategic_Generative_Pipeline.html' },
   { id: 'timeseries', title: 'Time Series Forecasting', category: 'Data Science', slug: 'TimeSeries_Forecasting.html' },
   { id: 'vrp', title: 'Vehicle Routing Problem', category: 'Optimization', slug: 'VRP.html' },
-  { id: 'audio-signal-proc', title: 'Audio Signal Processing', category: 'Deep Learning', slug: 'Audio_Signal_Processing_and_Engineering.html' },
+  { id: 'audio-signal-proc', title: 'Audio Signal Processing', category: 'Deep Learning', slug: 'Audio_Signal_Processing.html' },
+  { id: 'waste-logistics-architecture', title: 'Waste Logistics Architecture', category: 'Optimization', slug: 'Waste_Logistics_Architecture.html' },
 ];
 
 export default function ReportsIndexPage() {

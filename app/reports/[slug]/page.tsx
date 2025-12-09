@@ -11,7 +11,8 @@ import SemanticSearchReport from '../SemanticSearchReport';
 import StrategicPipelineReport from '../StrategicPipelineReport';
 import TimeSeriesReport from '../TimeSeriesReport';
 import VRPReport from '../VRPReport';
-import AudioSignalProcessingandEngineering from '../AudioSignalProcessingandEngineering';
+import AudioSignalProcessingReport from '../AudioSignalProcessingReport';
+import WasteLogisticsArchitectureReport from '../WasteLogisticsArchitectureReport';
 
 // Define the registry
 const REPORT_COMPONENTS: Record<string, React.ComponentType> = {
@@ -23,7 +24,8 @@ const REPORT_COMPONENTS: Record<string, React.ComponentType> = {
   'strategic': StrategicPipelineReport,
   'timeseries': TimeSeriesReport,
   'vrp': VRPReport,
-  'audio-signal-proc': AudioSignalProcessingandEngineering,
+  'audio-signal-proc': AudioSignalProcessingReport,
+  'waste-logistics-architecture': WasteLogisticsArchitectureReport,
 };
 
 // Generate static params for build time
