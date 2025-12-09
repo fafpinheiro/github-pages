@@ -17,9 +17,9 @@ const NAV_ITEMS = [
     { href: '/', label: 'Home', icon: <Home size={20} />, slug: 'home' },
     { href: '/content/about', label: 'About', icon: <User size={20} />, slug: 'about' },
     { href: '/content/projects', label: 'Projects', icon: <Code size={20} />, slug: 'projects' },
-    { href: '/reports', label: 'Reports', icon: <FileText size={20} />, slug: 'reports' },
+    { href: '/content/reports', label: 'Reports', icon: <FileText size={20} />, slug: 'reports' },
     { href: '/content/tools', label: 'Tools', icon: <Wrench size={20} />, slug: 'tools' },
-    { href: '/posts', label: 'Posts', icon: <PenTool size={20} />, slug: 'posts' }, 
+    { href: '/content/posts', label: 'Posts', icon: <PenTool size={20} />, slug: 'posts' }, 
     { href: '/content/media', label: 'Media', icon: <Video size={20} />, slug: 'media' },
 ];
 

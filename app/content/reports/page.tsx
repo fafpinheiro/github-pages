@@ -31,7 +31,7 @@ export default function ReportsIndexPage() {
         <SectionHeading title="Available Reports" icon={<FileText className="text-blue-500" />} />
         <div className="grid md:grid-cols-2 gap-6">
           {REPORTS.map((report) => (
-            <Link key={report.id} href={`/reports/${report.id}`} className="group">
+            <Link key={report.id} href={`/content/reports/${report.id}`} className="group">
               <GlassCard className="p-6 h-full hover:border-blue-500/50 transition-colors cursor-pointer">
                 <div className="flex justify-between items-start">
                     <div>

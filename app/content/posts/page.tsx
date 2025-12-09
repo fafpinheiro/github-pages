@@ -38,7 +38,7 @@ async function getAllPosts(): Promise<PostWithExcerpt[]> {
   return posts.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
 }
 
-// This is the index page component for /posts
+// This is the index page component for /content/posts
 export default async function NotesIndexPage() {
   const posts = await getAllPosts();
 
@@ -77,7 +77,7 @@ export default async function NotesIndexPage() {
                       
                       {/* Title and Link */}
                       <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        <a href={`/github-pages/posts/${post.slug}`} className="hover:underline decoration-blue-500/30 underline-offset-4">
+                        <a href={`/github-pages/content/posts/${post.slug}`} className="hover:underline decoration-blue-500/30 underline-offset-4">
                           {post.title}
                         </a>
                       </h3>

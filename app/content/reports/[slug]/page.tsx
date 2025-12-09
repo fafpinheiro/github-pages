@@ -70,7 +70,7 @@ export default function ReportPage({ params }: PageProps) {
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12">
         <div className="mb-6">
           <Link
-            href="/reports"
+            href="/content/reports"
             className="flex items-center text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors w-fit group"
           >
             <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />

@@ -11,7 +11,7 @@ interface PostPageProps {
   };
 }
 
-// Map slugs to the corresponding HTML file names in public/posts/
+// Map slugs to the corresponding HTML file names in public/content/posts/
 const POSTS_HTML_MAP: Record<string, string> = {
   '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'Attention_Learn_to_Solve_Routing_Problem.html',
   '2024-10-28-Combinatorial-Optimization-Intro': 'Combinatorial_Optimization_an_Introduction.html',
@@ -47,7 +47,7 @@ export default function PostPage({ params }: PostPageProps) {
     <div className="max-w-4xl mx-auto py-12 px-4">
       <div className="mb-6">
           <Link
-            href="/posts"
+            href="/content/posts"
             className="flex items-center text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors w-fit group"
           >
             <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />

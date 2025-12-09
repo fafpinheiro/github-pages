@@ -98,7 +98,7 @@ export default function Home() {
       <section className="mb-16">
         <div className="flex items-center justify-between mb-8">
           <SectionHeading title="Latest Posts" icon={<PenTool className="text-purple-500" />} />
-          <a href="/posts" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+          <a href="/content/posts" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
             View all <ArrowRight size={14} />
           </a>
         </div>
@@ -113,7 +113,7 @@ export default function Home() {
                   <span className="text-blue-600 dark:text-blue-400 font-medium">{post.category}</span>
                 </div>
                 <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  <a href={`/github-pages/posts/${post.id}`}>{post.title}</a>
+                  <a href={`/github-pages/content/posts/${post.id}`}>{post.title}</a>
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
                   {post.excerpt}
