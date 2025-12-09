@@ -6,42 +6,42 @@ import fs from 'fs';
 import path from 'path';
 import ReportWrapper from '@/src/components/ReportWrapper';
 
-// Configuration: Map the clean URL slug to the specific HTML file and Title
-const REPORTS_DATA: Record<string, { file: string; title: string }> = {
+// Configuration: Map the slug to the Base Filename (no extension) and Title
+const REPORTS_DATA: Record<string, { baseName: string; title: string }> = {
   'anime-gen': { 
-    file: 'Anime_Gen_Model.html', 
+    baseName: 'Anime_Gen_Model', 
     title: 'Anime Generation Model' 
   },
   'gen-arch': { 
-    file: 'Generative_Architecture.html', 
+    baseName: 'Generative_Architecture', 
     title: 'Generative Architecture' 
   },
   'local-ai': { 
-    file: 'Local_AI_Coding.html', 
+    baseName: 'Local_AI_Coding', 
     title: 'Local AI Coding' 
   },
   'semantic': { 
-    file: 'Semantic_Search.html', 
+    baseName: 'Semantic_Search', 
     title: 'Semantic Search' 
   },
   'strategic': { 
-    file: 'Strategic_Generative_Pipeline.html', 
+    baseName: 'Strategic_Generative_Pipeline', 
     title: 'Strategic Generative Pipeline' 
   },
   'timeseries': { 
-    file: 'TimeSeries_Forecasting.html', 
+    baseName: 'TimeSeries_Forecasting', 
     title: 'Time Series Forecasting' 
   },
   'vrp': { 
-    file: 'VRP.html', 
+    baseName: 'VRP', 
     title: 'Vehicle Routing Problem' 
   },
   'audio-signal-proc': { 
-    file: 'Audio_Signal_Processing.html', 
+    baseName: 'Audio_Signal_Processing', 
     title: 'Audio Signal Processing' 
   },
   'waste-logistics-architecture': { 
-    file: 'Waste_Logistics_Architecture.html', 
+    baseName: 'Waste_Logistics_Architecture', 
     title: 'Waste Logistics Architecture' 
   },
 };
@@ -56,82 +56,93 @@ interface PageProps {
   params: { slug: string };
 }
 
-// Helper to parse HTML and scope its styles
-function parseHtmlFile(fileContent: string) {
-  // 1. Extract and SCOPE Styles
-  const styleMatches = fileContent.match(/<style[^>]*>([\s\S]*?)<\/style>/gi) || [];
-  const styleContent = styleMatches.map(s => {
-    let css = s.replace(/<\/?style[^>]*>/gi, '');
-    // Regex to safely replace 'body' or 'html' with '.report-content'
-    css = css.replace(/(^|[\s,}])\b(body|html)\b(?=[\s,{])/gi, '$1.report-content');
-    return css;
-  }).join('\n');
-
-  // 2. Extract Scripts with SRC (Exclude Tailwind CDN)
-  const scriptSrcMatches = fileContent.match(/<script[^>]+src=["']([^"']+)["'][^>]*><\/script>/gi) || [];
-  const scriptFiles = scriptSrcMatches.map(s => {
-    const match = s.match(/src=["']([^"']+)["']/);
-    if (!match) return null;
-    const src = match[1];
-    
-    // Block Tailwind CDN and Polyfills
-    if (src.includes('cdn.tailwindcss.com') || src.includes('polyfill.io')) return null;
-    
-    return src;
-  }).filter((s): s is string => Boolean(s));
-
-  // 3. Extract Inline Scripts (logic)
-  const allScriptMatches = fileContent.match(/<script[^>]*>([\s\S]*?)<\/script>/gi) || [];
-  let initializationCode = "";
+/**
+ * Loads and processes the report assets from the new directory structure:
+ * - HTML: /public/reports/html/[baseName].html
+ * - CSS:  /public/reports/css/[baseName].css
+ * - JS:   /public/reports/javascript/[baseName].js
+ */
+function loadReportAssets(baseName: string) {
+  const basePath = path.join(process.cwd(), 'public', 'reports');
   
-  const processedScripts = allScriptMatches
-    .filter(s => !s.includes('src='))
-    .map(s => {
-      let content = s.replace(/<\/?script[^>]*>/gi, '');
+  // Paths
+  const htmlPath = path.join(basePath, 'html', `${baseName}.html`);
+  const cssPath = path.join(basePath, 'css', `${baseName}.css`);
+  const jsPath = path.join(basePath, 'javascript', `${baseName}.js`);
 
-      // Step A: Find and extract the body of the document.addEventListener('DOMContentLoaded', ...)
-      // Captures various function/arrow function syntaxes
-      const initMatch = content.match(/document\.addEventListener\s*\(\s*['"]DOMContentLoaded['"]\s*,\s*(\(\)\s*=>\s*|function\s*)\s*{([\s\S]*?)}\s*\)\s*;/);
-      if (initMatch) {
-          // Store the inner code (e.g., initResourceChart(); renderModelList(); ...)
-          initializationCode = initMatch[2].trim(); 
-          
-          // Remove the entire listener block from the content
-          content = content.replace(initMatch[0], '// Removed original DOMContentLoaded listener block');
-      }
+  let bodyContent = '';
+  let styleContent = '';
+  let inlineScriptContent = '';
+
+  // 1. Load HTML (Required)
+  try {
+    const rawHtml = fs.readFileSync(htmlPath, 'utf8');
+    
+    // Clean up HTML: Extract content inside <body> or return raw if no body tag
+    const bodyMatch = rawHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    bodyContent = bodyMatch ? bodyMatch[1] : rawHtml;
+
+    // Remove any leftover <script> or <style> tags from the HTML to be safe
+    bodyContent = bodyContent.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+    bodyContent = bodyContent.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
+
+  } catch (err) {
+    console.error(`HTML file not found for: ${baseName}`, err);
+    throw new Error('Report HTML missing');
+  }
+
+  // 2. Load CSS (Optional)
+  try {
+    if (fs.existsSync(cssPath)) {
+      let rawCss = fs.readFileSync(cssPath, 'utf8');
       
-      // Step B: CRITICAL FIX: Expose named functions to 'window' for onclick handlers
-      // This converts hoisted function declarations to window assignments (non-hoisted expressions)
-      content = content.replace(/function\s+([a-zA-Z0-9_]+)\s*\(/g, 'window.$1 = function(');
-
-      // Remove the problematic updateLoss initialization call in Semantic Search if it exists
-      content = content.replace(/updateLoss\s*\(\s*['"]contrastive['"]\s*\)\s*;/g, '// Removed problematic updateLoss initialization call');
-
-      return content;
-    });
-  
-  let inlineScriptContent = processedScripts.join('\n');
-
-  // Step C: Append the extracted initialization code at the very end.
-  // This ensures all window.func assignments are completed before the calls are made.
-  if (initializationCode) {
-      inlineScriptContent += `\n\n// START Report Initialization Code (Manually appended after all function definitions)\n`;
-      inlineScriptContent += initializationCode;
-      inlineScriptContent += `\n// END Report Initialization Code\n`;
-  }
-  
-  // 4. Extract Main Content (Logic remains the same)
-  const mainMatch = fileContent.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-  let bodyContent = mainMatch ? mainMatch[1] : ''; 
-  
-  if (!bodyContent) {
-      const bodyMatch = fileContent.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-      bodyContent = bodyMatch ? bodyContent[1] : '';
+      // Scope the CSS to .report-content to prevent global leaks
+      // Replaces 'body' or 'html' selectors with '.report-content'
+      rawCss = rawCss.replace(/(^|[\s,}])\b(body|html)\b(?=[\s,{])/gi, '$1.report-content');
+      styleContent = rawCss;
+    }
+  } catch (err) {
+    console.warn(`CSS file not found for: ${baseName}`);
   }
 
-  bodyContent = bodyContent.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+  // 3. Load Javascript (Optional)
+  try {
+    if (fs.existsSync(jsPath)) {
+      let rawJs = fs.readFileSync(jsPath, 'utf8');
 
-  return { styleContent, scriptFiles, inlineScriptContent, bodyContent };
+      // PRE-PROCESSING:
+      // A. Remove problematic immediate calls if present (like the updateLoss issue)
+      rawJs = rawJs.replace(/updateLoss\s*\(\s*['"]contrastive['"]\s*\)\s*;?/g, '// Removed problematic updateLoss initialization call');
+
+      // B. Handle DOMContentLoaded Logic
+      // We extract the *insides* of the event listener so they run immediately when injected
+      const domLoadedRegex = /document\.addEventListener\s*\(\s*['"]DOMContentLoaded['"]\s*,\s*(\(\)\s*=>\s*|function\s*)\s*{([\s\S]*?)}\s*\)\s*;/i;
+      const initMatch = rawJs.match(domLoadedRegex);
+      
+      let initCode = '';
+      if (initMatch) {
+        initCode = initMatch[2].trim();
+        // Remove the listener block from the main script to avoid duplication
+        rawJs = rawJs.replace(domLoadedRegex, '');
+      }
+
+      // C. Expose Functions to Window (Crucial for onclick handlers in HTML)
+      // Converts "function myFunc(arg) {...}" to "window.myFunc = function(arg) {...}"
+      rawJs = rawJs.replace(/function\s+([a-zA-Z0-9_]+)\s*\(([\s\S]*?)\)/g, 'window.$1 = function($2)');
+
+      // Combine: Global Definitions + Initialization Code
+      inlineScriptContent = `${rawJs}\n\n// --- Initialization ---\n${initCode}`;
+      
+      // Re-add specific initialization calls if needed (like the default state for Semantic Search)
+      if (baseName === 'Semantic_Search') {
+         inlineScriptContent += `\nif(window.updateLoss) window.updateLoss('contrastive');\n`;
+      }
+    }
+  } catch (err) {
+    console.warn(`JS file not found for: ${baseName}`);
+  }
+
+  return { bodyContent, styleContent, inlineScriptContent };
 }
 
 export default function ReportPage({ params }: PageProps) {
@@ -142,24 +153,24 @@ export default function ReportPage({ params }: PageProps) {
     return notFound();
   }
 
-  const filePath = path.join(process.cwd(), 'public', 'reports', reportConfig.file);
-  let parsedData = { styleContent: '', scriptFiles: [] as string[], inlineScriptContent: '', bodyContent: '' };
+  let parsedData = { bodyContent: '', styleContent: '', inlineScriptContent: '' };
+  
+  // Script dependencies (like Chart.js) - You might want to move this to config if it varies
+  const scriptFiles = [
+    'https://cdn.jsdelivr.net/npm/chart.js' 
+  ];
 
   try {
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    parsedData = parseHtmlFile(fileContent);
+    parsedData = loadReportAssets(reportConfig.baseName);
   } catch (error) {
-    console.error(`Error reading file ${reportConfig.file}:`, error);
+    console.error(`Error loading assets for ${reportConfig.baseName}:`, error);
     notFound();
   }
 
   return (
     <div className="animate-in fade-in duration-500 flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950">
       
-      {/* Main Content Container */}
       <main className="flex-1 w-full pb-12">
-        
-        {/* Inner Wrapper for Alignment */}
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           <div className="mb-6 pt-10">
             <Link
@@ -178,7 +189,7 @@ export default function ReportPage({ params }: PageProps) {
           <ReportWrapper 
             content={parsedData.bodyContent}
             styles={parsedData.styleContent}
-            scripts={parsedData.scriptFiles}
+            scripts={scriptFiles}
             inlineScript={parsedData.inlineScriptContent}
             title={reportConfig.title} 
           />
