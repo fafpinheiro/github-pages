@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import '@/src/styles/content.css';
+import '@/src/styles/reports.css';
 
 interface ReportWrapperProps {
   content: string;       

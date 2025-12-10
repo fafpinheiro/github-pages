@@ -1,0 +1,25 @@
+/* Common CSS for all Reports 
+   Import or include this file before the specific report styles.
+*/
+
+/* Base Chart Container Structure */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    /* Max-width and margins vary by report type and are defined in specific files */
+}
+
+/* Base Scrollbar Geometry */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Colors defined in specific files */
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    /* Colors defined in specific files */
+}
