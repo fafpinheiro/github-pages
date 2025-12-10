@@ -1,22 +1,157 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import '@/src/styles/content.css'; // Make sure the path to your CSS is correct
+import '@/src/styles/content.css';
+import '@/src/styles/posts.css';
+// import hljs from 'highlight.js'; // REMOVED: Do not use Highlight.js
 
 interface PostWrapperProps {
   content: string; // The raw HTML content string (not filename)
   title?: string;
 }
 
-// Function to load and typeset MathJax
+// ====================================================================
+// STANDALONE UTILITY FUNCTION FOR SYNTAX HIGHLIGHTING (LITERAL FIX)
+// Fixes: Ensures True/False/int/float are correctly classified as Grey Literals.
+// ====================================================================
+const highlightFunctionCalls = () => {
+  // --- COLOR MAPPING ---
+  const PURPLE_KEYWORDS = [
+    'and', 'as', 'assert', 'async', 'await', 'break', 'case', 'class', 'continue', 
+    'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 
+    'if', 'import', 'in', 'is', 'lambda', 'match', 'nonlocal', 'not', 'or', 
+    'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
+  ];
+  
+  const classMap = {
+    keyword: 'hljs-keyword', // Purple
+    literal: 'hljs-number', // Grey
+    string: 'hljs-string', // Green
+    blueIdentifier: 'hljs-custom-func-call', // Blue (for function names)
+    orangeSymbol: 'hljs-symbol-op', // Orange (for operators and punctuation like =, +, *, (, ), ;)
+  };
+
+  // List of tokens that should be GREY
+  const GREY_LITERALS_AND_TYPES = [
+    'True', 'False', 'None', 'int', 'float', 'complex', 'str', 'list', 'tuple', 
+    'dict', 'set', 'bool', 'frozenet', 'bytes', 'bytearray', 'memoryview', 'NoneType'
+  ];
+
+  // Regex to split code into ALL tokens
+  const TOKENIZER = /(\b[a-zA-Z_][a-zA-Z0-9_]*\b|\b\d+(\.\d+)?\b|("|').*?(\3)|[^\s\w]|\s+)/g;
+
+  document.querySelectorAll('pre code').forEach(codeBlock => {
+    let rawContent = codeBlock.textContent || '';
+    
+    // Temporarily decode standard entities just in case they survived the initial DOM pass
+    rawContent = rawContent.replace(/&lt;/g, '<')
+                            .replace(/&gt;/g, '>')
+                            .replace(/&amp;/g, '&'); 
+
+    let highlightedTokens: string[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    
+    const localTokenizer = new RegExp(TOKENIZER, 'g');
+    localTokenizer.lastIndex = 0; 
+
+    while ((match = localTokenizer.exec(rawContent)) !== null) {
+      const token = match[0];
+      const index = match.index;
+      
+      // Capture preceding whitespace/symbols
+      if (index > lastIndex) {
+        highlightedTokens.push(rawContent.substring(lastIndex, index));
+      }
+
+      let className: string | null = null;
+      
+      // 3.1. Classification Checks
+      
+      // --- Identifier Check ---
+      const isIdentifier = /^[a-zA-Z_][a-zA-Z0-9_]*$/.test(token);
+
+      if (isIdentifier) {
+        // A. Check for Keywords (Purple)
+        if (PURPLE_KEYWORDS.includes(token)) {
+          className = classMap.keyword;
+        }
+        // B. Check for Literals and Types (Grey)
+        else if (GREY_LITERALS_AND_TYPES.includes(token)) {
+          className = classMap.literal;
+        }
+        // C. Check for Function Call Pattern (Blue)
+        else {
+          let lookaheadIndex = index + token.length; 
+          let foundOpenParen = false;
+          
+          // Lookahead: Skip whitespace/operators to find the next meaningful token
+          while (lookaheadIndex < rawContent.length) {
+            const nextTokenMatch = rawContent.substring(lookaheadIndex).match(/(\s*([^\s\w]|\b[a-zA-Z_][a-zA-Z0-9_]*\b))/);
+            
+            if (!nextTokenMatch) break; 
+
+            const nextToken = nextTokenMatch[2]; 
+
+            if (!nextToken.match(/^\s+$/)) {
+              if (nextToken === '(') {
+                foundOpenParen = true;
+              }
+              break; 
+            }
+            lookaheadIndex += nextTokenMatch[0].length;
+          }
+
+          if (foundOpenParen) {
+            className = classMap.blueIdentifier;
+          }
+        }
+      } 
+      
+      // --- Non-Identifier Checks ---
+      
+      // D. Strings (Green)
+      else if (token.match(/^("|').*?(\1)$/)) {
+          className = classMap.string;
+      } 
+      // E. Numeric Literals (Grey) - Need to ensure only numbers are matched here.
+      else if (token.match(/^\b\d+(\.\d+)?\b$/)) {
+          className = classMap.literal;
+      }
+      // F. Symbols and Punctuation (Orange)
+      else if (token.match(/^[^\s\w]$/)) { // Matches any single non-alphanumeric, non-whitespace character
+          className = classMap.orangeSymbol;
+      }
+      
+      // 3.2. Apply Span or push raw token
+      if (className) {
+          highlightedTokens.push(`<span class="${className}">${token}</span>`);
+      } else {
+          // Fallthrough: Variables, complex symbols/punctuation (RED by CSS default)
+          highlightedTokens.push(token);
+      }
+
+      lastIndex = index + token.length;
+    }
+
+    // Push any remaining content
+    if (lastIndex < rawContent.length) {
+      highlightedTokens.push(rawContent.substring(lastIndex));
+    }
+
+    // --- 4. Update the innerHTML ---
+    codeBlock.innerHTML = highlightedTokens.join('');
+  });
+};
+// ====================================================================
+
+
 const loadMathJax = () => {
-  // 1. Define the configuration for MathJax
-  // This MUST be set on the window object before the main MathJax script is loaded
   if (typeof window.MathJax === 'undefined') {
     window.MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']], // Enables single dollar signs for inline math
-        displayMath: [['$$', '$$'], ['\\[', '\\]']], // Ensures double dollar signs work for block math
+        inlineMath: [['$', '$'], ['\\(', '\\)']], 
+        displayMath: [['$$', '$$'], ['\\[', '\\]']], 
       },
       svg: {
         fontCache: 'global'
@@ -24,18 +159,12 @@ const loadMathJax = () => {
     };
   }
   
-  // Check if MathJax is already loaded (it would exist on window.MathJax)
-  // We must check if typeset exists before calling it
-  if (typeof window.MathJax.typeset !== 'undefined') {
-    // Clear any previous typesetting and typeset the new content
-    // The optional chaining operator (?.) is often cleaner, but for clarity 
-    // with the type guard above, we can assert non-nullability or rely on the check.
+  if (typeof window.MathJax !== 'undefined' && typeof window.MathJax.typeset === 'function') {
     window.MathJax.typesetClear!();
     window.MathJax.typeset!();
     return;
   }
 
-  // Load MathJax scripts dynamically
   const polyfillScript = document.createElement('script');
   polyfillScript.src = "https://polyfill.io/v3/polyfill.min.js?features=es6";
   document.head.appendChild(polyfillScript);
@@ -49,18 +178,24 @@ const loadMathJax = () => {
 
 
 const PostWrapper: React.FC<PostWrapperProps> = ({ content }) => {
-  // Use an effect to load MathJax after the component renders the content
+  
   useEffect(() => {
-    // Wait for the DOM to update with the new 'content' before attempting to typeset
     if (content) {
       loadMathJax();
     }
-  }, [content]); // Rerun whenever the post content changes
+  }, [content]);
 
+  useEffect(() => {
+    if (content) {
+      const container = document.querySelector('.post-container');
+      if (container) {
+        highlightFunctionCalls(); 
+      }
+    }
+  }, [content]);
+  
   return (
-    // The GlassCard styling (background, padding, shadow) remains.
     <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg overflow-hidden border border-slate-200 dark:border-slate-800 p-8">
-      {/* The 'post-container' class (from app/posts.css) now wraps the raw HTML. */}
       <div 
         className="post-container"
         dangerouslySetInnerHTML={{ __html: content }} 
@@ -71,7 +206,6 @@ const PostWrapper: React.FC<PostWrapperProps> = ({ content }) => {
 
 export default PostWrapper;
 
-// Extend Window interface for MathJax global object
 declare global {
   interface Window {
     MathJax: {
@@ -82,10 +216,8 @@ declare global {
       svg: {
         fontCache: string;
       };
-      // FIX: Made these functions optional as they are only available after the script loads.
-      // We also use the non-null assertion operator (!) in loadMathJax() for calls.
       typesetClear?: () => void; 
-      typeset?: () => void;
+      typeset?: () => void; 
     } | undefined;
   }
 }
