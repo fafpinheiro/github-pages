@@ -158,6 +158,7 @@ export default function AboutPage() {
                 <li><a href="https://labjogos.tecnico.ulisboa.pt/en" className="text-blue-600 dark:text-blue-400 hover:underline">LabJogos</a> (Marketing Assistant)</li>
                 <li><a href="https://best.tecnico.ulisboa.pt/" className="text-blue-600 dark:text-blue-400 hover:underline">BEST Lisbon</a> (IT Responsible)</li>
                 <li><a href="https://diferencial.tecnico.ulisboa.pt/" className="text-blue-600 dark:text-blue-400 hover:underline">Diferencial</a> (Newspaper Member)</li>
+                <li><a href="https://lage2.ist.utl.pt/" className="text-blue-600 dark:text-blue-400 hover:underline">Lage2</a> (Events Organizer)</li>
             </ul>
              <p className="text-slate-700 dark:text-slate-300">
                 I also volunteered as a Computer Science Instructor at <a href="https://www.treetree2.org/" className="text-blue-600 dark:text-blue-400 hover:underline">TreeTree2</a>, with 
