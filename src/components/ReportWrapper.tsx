@@ -12,6 +12,45 @@ interface ReportWrapperProps {
   title: string;
 }
 
+const loadMathJax = () => {
+  // 1. Configure MathJax if not already defined
+  if (typeof window.MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']], 
+        displayMath: [['$$', '$$'], ['\\[', '\\]']], 
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  }
+  
+  // 2. If MathJax is already loaded and ready, just trigger a typeset
+  if (typeof window.MathJax !== 'undefined' && typeof window.MathJax.typeset === 'function') {
+    window.MathJax.typesetClear!();
+    window.MathJax.typeset!();
+    return;
+  }
+
+  // 3. Prevent duplicate script injection
+  if (document.getElementById('MathJax-script')) {
+    return;
+  }
+
+  // 4. Load Polyfill
+  const polyfillScript = document.createElement('script');
+  polyfillScript.src = "https://polyfill.io/v3/polyfill.min.js?features=es6";
+  document.head.appendChild(polyfillScript);
+
+  // 5. Load MathJax
+  const mathJaxScript = document.createElement('script');
+  mathJaxScript.id = 'MathJax-script';
+  mathJaxScript.async = true;
+  mathJaxScript.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+  document.head.appendChild(mathJaxScript);
+};
+
 const ReportWrapper: React.FC<ReportWrapperProps> = ({ 
   content, 
   styles, 
@@ -22,6 +61,14 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
   // Use a ref to ensure the initialization runs only once per content change
   const scriptsLoadedRef = useRef(false);
 
+  // Effect 1: Handles MathJax initial load and updates based on content
+  useEffect(() => {
+    if (content) {
+      loadMathJax();
+    }
+  }, [content]);
+
+  // Effect 2: Handles Report-specific Scripts (Charts, etc.) and ensures final MathJax typeset
   useEffect(() => {
     // This effect runs after the component renders (with the new HTML content).
     if (scriptsLoadedRef.current) return;
@@ -47,10 +94,9 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
         });
       }
 
-      // 2. Execute inline report logic safely
+      // 2. Execute inline report logic safely and force a final MathJax typeset
       if (inlineScript) {
-        // Introduce a small delay (50ms) to ensure the DOM (specifically the <canvas> elements) 
-        // has been fully rendered and sized by the browser layout engine before Chart.js attempts to draw.
+        // Introduce a small delay (50ms) to ensure the DOM is ready for charts/scripts
         setTimeout(() => {
             try {
                 const scriptEl = document.createElement('script');
@@ -64,8 +110,20 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
                 document.body.appendChild(scriptEl);
             } catch (err) {
                 console.error("Error executing inline report script:", err);
+            } finally {
+                // Crucial: Force MathJax typeset AFTER inline scripts and delay have run
+                if (window.MathJax && window.MathJax.typeset) {
+                    window.MathJax.typesetClear!();
+                    window.MathJax.typeset!();
+                }
             }
         }, 50); // 50ms delay to allow DOM sizing
+      } else {
+         // If no inline script, ensure typeset runs immediately after external scripts load
+         if (window.MathJax && window.MathJax.typeset) {
+             window.MathJax.typesetClear!();
+             window.MathJax.typeset!();
+         }
       }
     };
 
@@ -96,3 +154,19 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
 };
 
 export default ReportWrapper;
+
+declare global {
+  interface Window {
+    MathJax: {
+      tex: {
+        inlineMath: string[][];
+        displayMath: string[][];
+      };
+      svg: {
+        fontCache: string;
+      };
+      typesetClear?: () => void; 
+      typeset?: () => void; 
+    } | undefined;
+  }
+}
