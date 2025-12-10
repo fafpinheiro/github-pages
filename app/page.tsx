@@ -77,11 +77,12 @@ export default function Home() {
             Available for Research Collaboration
           </Badge>
           <h1 className="text-5xl font-display font-bold text-slate-900 dark:text-white leading-tight">
-            Exploring the intersection of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AI</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Optimization</span>.
+            Exploring the intersection of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Artificial Intelligence</span>, <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Operations Research</span>, and <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-red-600">Combinatorial Optimization</span>.
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-            I'm a researcher and developer focused on <strong>Reinforcement Learning</strong> and <strong>Combinatorial Optimization</strong>. 
-            Currently working at <a href="https://www.inesc-id.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">INESC-ID</a> and teaching at <a href="https://tecnico.ulisboa.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">IST</a>.
+            I'm a scientist and engineer focused on <strong>Reinforcement Learning</strong> and <strong>Operations Research</strong> methods to solve <strong>Combinatorial Optimization</strong> problems. 
+            Currently working as a researcher at <a href="https://www.inesc-id.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">INESC-ID</a> and 
+            teaching at <a href="https://tecnico.ulisboa.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">IST</a>.
           </p>
           <div className="flex gap-4 pt-2">
             <a href="/github-pages/content/about" className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-2">
