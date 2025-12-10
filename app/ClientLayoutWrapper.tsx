@@ -5,6 +5,7 @@ import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Sidebar from '../src/components/layout/Sidebar';
 import Footer from '../src/components/layout/Footer';
+import Header from '../src/components/layout/Header'; 
 
 interface ClientLayoutWrapperProps {
   children: React.ReactNode;
@@ -17,7 +18,7 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
   const pathname = usePathname();
 
-  // --- getActiveSection Logic --- (Unchanged)
+  // --- getActiveSection Logic ---
   const getActiveSection = (path: string) => {
     if (path === '/') return 'home';
     const match = path.match(/^\/(?:content\/)?([a-z-]+)/);
@@ -29,7 +30,7 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
   const activeSection = getActiveSection(pathname);
 
-  // --- Dark Mode Logic --- (Unchanged, but complete code is here for context)
+  // --- Dark Mode Logic --- (Unchanged)
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
     const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -54,8 +55,8 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
   const toggleTheme = () => setDarkMode(!darkMode);
   const toggleSidebarCollapsed = () => setIsSidebarCollapsed(!isSidebarCollapsed);
 
-  // --- Mobile Menu Logic --- (Unchanged)
-  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  // --- Mobile Menu Logic ---
+  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen); // This is the function Header needs for onSidebarToggle
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -65,9 +66,10 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
 
   return (
-    // Set h-screen and overflow-hidden on the root element to disable the main document scroll.
+    // Set h-screen and overflow-hidden on the root element
     <div className={`h-screen overflow-hidden transition-colors duration-300 font-sans ${darkMode ? 'dark bg-slate-900 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
-      
+      <Header/>
+
       {/* Main Layout Container (Set to h-full to fit root container) */}
       <div className="flex h-full max-w-7xl mx-auto">
 
