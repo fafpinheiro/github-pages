@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react';
 import '@/src/styles/content.css';
 import '@/src/styles/posts.css';
-// import hljs from 'highlight.js'; // REMOVED: Do not use Highlight.js
 
 interface PostWrapperProps {
   content: string; // The raw HTML content string (not filename)
@@ -12,7 +11,7 @@ interface PostWrapperProps {
 
 // ====================================================================
 // STANDALONE UTILITY FUNCTION FOR SYNTAX HIGHLIGHTING (LITERAL FIX)
-// Fixes: Ensures True/False/int/float are correctly classified as Grey Literals.
+// Fixes: Includes guard to prevent Maximum Call Stack Size Exceeded error.
 // ====================================================================
 const highlightFunctionCalls = () => {
   // --- COLOR MAPPING ---
@@ -38,6 +37,7 @@ const highlightFunctionCalls = () => {
   ];
 
   // Regex to split code into ALL tokens
+  // This tokenizer handles keywords, identifiers, numbers, strings, symbols, and whitespace.
   const TOKENIZER = /(\b[a-zA-Z_][a-zA-Z0-9_]*\b|\b\d+(\.\d+)?\b|("|').*?(\3)|[^\s\w]|\s+)/g;
 
   document.querySelectorAll('pre code').forEach(codeBlock => {
@@ -49,19 +49,27 @@ const highlightFunctionCalls = () => {
                             .replace(/&amp;/g, '&'); 
 
     let highlightedTokens: string[] = [];
-    let lastIndex = 0;
-    let match: RegExpExecArray | null;
-    
     const localTokenizer = new RegExp(TOKENIZER, 'g');
     localTokenizer.lastIndex = 0; 
+    
+    let match: RegExpExecArray | null;
+    let previousIndex = 0; // Guard variable to track last successful match index
 
     while ((match = localTokenizer.exec(rawContent)) !== null) {
       const token = match[0];
       const index = match.index;
-      
-      // Capture preceding whitespace/symbols
-      if (index > lastIndex) {
-        highlightedTokens.push(rawContent.substring(lastIndex, index));
+
+      // Crucial Guard: If the tokenizer hasn't moved forward, prevent infinite loop.
+      if (localTokenizer.lastIndex === previousIndex) {
+          localTokenizer.lastIndex++; // Manually advance to skip the problematic spot
+          continue;
+      }
+      previousIndex = localTokenizer.lastIndex;
+
+      // Skip over pure whitespace, let it fall through to be added as a raw token
+      if (token.match(/^\s+$/)) {
+          highlightedTokens.push(token);
+          continue;
       }
 
       let className: string | null = null;
@@ -85,7 +93,7 @@ const highlightFunctionCalls = () => {
           let lookaheadIndex = index + token.length; 
           let foundOpenParen = false;
           
-          // Lookahead: Skip whitespace/operators to find the next meaningful token
+          // Lookahead logic remains the same
           while (lookaheadIndex < rawContent.length) {
             const nextTokenMatch = rawContent.substring(lookaheadIndex).match(/(\s*([^\s\w]|\b[a-zA-Z_][a-zA-Z0-9_]*\b))/);
             
@@ -114,7 +122,7 @@ const highlightFunctionCalls = () => {
       else if (token.match(/^("|').*?(\1)$/)) {
           className = classMap.string;
       } 
-      // E. Numeric Literals (Grey) - Need to ensure only numbers are matched here.
+      // E. Numeric Literals (Grey)
       else if (token.match(/^\b\d+(\.\d+)?\b$/)) {
           className = classMap.literal;
       }
@@ -127,16 +135,9 @@ const highlightFunctionCalls = () => {
       if (className) {
           highlightedTokens.push(`<span class="${className}">${token}</span>`);
       } else {
-          // Fallthrough: Variables, complex symbols/punctuation (RED by CSS default)
+          // Fallthrough: Variables, complex symbols/punctuation
           highlightedTokens.push(token);
       }
-
-      lastIndex = index + token.length;
-    }
-
-    // Push any remaining content
-    if (lastIndex < rawContent.length) {
-      highlightedTokens.push(rawContent.substring(lastIndex));
     }
 
     // --- 4. Update the innerHTML ---
@@ -165,10 +166,6 @@ const loadMathJax = () => {
     return;
   }
 
-  const polyfillScript = document.createElement('script');
-  polyfillScript.src = "https://polyfill.io/v3/polyfill.min.js?features=es6";
-  document.head.appendChild(polyfillScript);
-
   const mathJaxScript = document.createElement('script');
   mathJaxScript.id = 'MathJax-script';
   mathJaxScript.async = true;
@@ -179,25 +176,31 @@ const loadMathJax = () => {
 
 const PostWrapper: React.FC<PostWrapperProps> = ({ content }) => {
   
+  // Consolidate both functions into one useEffect to control order
   useEffect(() => {
-    if (content) {
-      loadMathJax();
-    }
-  }, [content]);
+    if (!content) return;
 
-  useEffect(() => {
-    if (content) {
-      const container = document.querySelector('.post-container');
-      if (container) {
-        highlightFunctionCalls(); 
-      }
+    // 1. Run Syntax Highlighter
+    const container = document.querySelector('.post-container');
+    if (container) {
+      highlightFunctionCalls(); 
     }
-  }, [content]);
+
+    // 2. Run MathJax Typesetting
+    // We add a slight delay to ensure the DOM changes from highlighting are settled
+    const timer = setTimeout(() => {
+      loadMathJax();
+    }, 50); // 50ms delay
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount/re-render
+    
+  }, [content]); // Reruns when content changes
   
   return (
     <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg overflow-hidden border border-slate-200 dark:border-slate-800 p-8">
       <div 
         className="post-container"
+        // This is where React renders the content, which both highlighter and MathJax rely on.
         dangerouslySetInnerHTML={{ __html: content }} 
       />
     </div>

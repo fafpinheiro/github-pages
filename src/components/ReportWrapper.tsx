@@ -38,11 +38,8 @@ const loadMathJax = () => {
     return;
   }
 
-  // 4. Load Polyfill
-  const polyfillScript = document.createElement('script');
-  polyfillScript.src = "https://polyfill.io/v3/polyfill.min.js?features=es6";
-  document.head.appendChild(polyfillScript);
-
+  // 4. Load Polyfill: REMOVED DUE TO PREVIOUSLY IDENTIFIED NETWORK ERROR
+  
   // 5. Load MathJax
   const mathJaxScript = document.createElement('script');
   mathJaxScript.id = 'MathJax-script';
@@ -58,7 +55,6 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
   inlineScript, 
   title 
 }) => {
-  // Use a ref to ensure the initialization runs only once per content change
   const scriptsLoadedRef = useRef(false);
 
   // Effect 1: Handles MathJax initial load and updates based on content
@@ -68,9 +64,8 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
     }
   }, [content]);
 
-  // Effect 2: Handles Report-specific Scripts (Charts, etc.) and ensures final MathJax typeset
+  // Effect 2: Handles Report-specific Scripts (Charts, etc.)
   useEffect(() => {
-    // This effect runs after the component renders (with the new HTML content).
     if (scriptsLoadedRef.current) return;
     scriptsLoadedRef.current = true;
 
@@ -117,7 +112,7 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
                     window.MathJax.typeset!();
                 }
             }
-        }, 50); // 50ms delay to allow DOM sizing
+        }, 50);
       } else {
          // If no inline script, ensure typeset runs immediately after external scripts load
          if (window.MathJax && window.MathJax.typeset) {
@@ -129,9 +124,26 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
 
     loadScriptsSequential();
     
-    // Cleanup function to allow scripts to run again if content or slug changes
+    // Cleanup function: DESTROY CHART.JS INSTANCES AND RESET FLAG
     return () => {
         scriptsLoadedRef.current = false;
+        
+        // 🚨 CHART.JS CLEANUP FIX
+        // This attempts to destroy all Chart.js instances associated with canvas elements
+        // in the document, preventing the "Canvas is already in use" error on re-render.
+        if (window.Chart) {
+            try {
+                // Iterate over all canvas elements to find and destroy existing charts
+                document.querySelectorAll('canvas').forEach(canvasEl => {
+                    const existingChart = window.Chart.getChart(canvasEl);
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+                });
+            } catch (e) {
+                console.warn("Error during Chart.js cleanup:", e);
+            }
+        }
     };
   }, [scripts, inlineScript, content]); 
 
@@ -168,5 +180,6 @@ declare global {
       typesetClear?: () => void; 
       typeset?: () => void; 
     } | undefined;
+    Chart: any; // Added for Chart.js access in cleanup
   }
 }
