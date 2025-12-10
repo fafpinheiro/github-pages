@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Palette, Box, Database, Globe, PenTool } from 'lucide-react';
+import { Terminal, Palette, Box, Database, Globe } from 'lucide-react';
 import SectionHeading from '@/src/components/ui/SectionHeading';
 import GlassCard from '@/src/components/ui/GlassCard';
 import Badge from '@/src/components/ui/Badge';
@@ -47,7 +47,7 @@ export default function ToolsPage() {
                 { name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
                 { name: 'C', url: 'https://devdocs.io/c/' },
                 { name: 'C++', url: 'https://cplusplus.com/' },
-                { name: 'C#', url: 'https://dotnet.microsoft.com/en-us/languages/csharp' },
+                { name: 'Kotlin', url: 'https://kotlinlang.org/' },
                 { name: 'SQL', url: 'https://www.microsoft.com/en-us/sql-server/' },
                 { name: 'Bash', url: 'https://www.gnu.org/software/bash/' }
             ])}
@@ -55,7 +55,7 @@ export default function ToolsPage() {
       </section>
 
       <section>
-        <SectionHeading title="Frameworks & Libraries" icon={<Box className="text-blue-500" />} />
+        <SectionHeading title="Frameworks & Libraries" icon={<Box className="text-red-500" />} />
         <GlassCard className="p-6">
              {renderToolGroup([
                 { name: 'React', url: 'https://reactjs.org/' },
@@ -64,7 +64,6 @@ export default function ToolsPage() {
                 { name: 'Bootstrap', url: 'https://getbootstrap.com/' },
                 { name: 'PyTorch', url: 'https://pytorch.org/' },
                 { name: 'TensorFlow', url: 'https://www.tensorflow.org/' },
-                { name: 'Unity', url: 'https://unity.com/' },
                 { name: 'Pandas', url: 'https://pandas.pydata.org/' },
                 { name: 'NumPy', url: 'https://numpy.org/' }
             ])}
@@ -72,14 +71,32 @@ export default function ToolsPage() {
       </section>
 
       <section>
-        <SectionHeading title="DevOps & Tools" icon={<Database className="text-green-500" />} />
+        <SectionHeading title="DevOps & Build Tools" icon={<Database className="text-green-500" />} />
         <GlassCard className="p-6">
             {renderToolGroup([
                 { name: 'Git', url: 'https://git-scm.com/' },
                 { name: 'GitHub', url: 'https://github.com/' },
                 { name: 'GitLab', url: 'https://gitlab.com/' },
+                { name: 'BitBucket', url: 'https://bitbucket.org/' },
                 { name: 'Docker', url: 'https://www.docker.com/' },
-                { name: 'VS Code', url: 'https://code.visualstudio.com/' },
+                { name: 'Anaconda', url: 'https://www.anaconda.com/download/' },
+                { name: 'UV', url: 'https://docs.astral.sh/uv/' },
+                { name: 'Maven', url: 'https://maven.apache.org/' },
+                { name: 'Gradle', url: 'https://gradle.org/' },
+                { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+            ])}
+        </GlassCard>
+      </section>
+
+      <section>
+        <SectionHeading title="Engines & Editors" icon={<Globe className="text-orange-500" />} />
+        <GlassCard className="p-6">
+            {renderToolGroup([
+                { name: 'Node.js', url: 'https://nodejs.org/en' },
+                { name: 'Unity', url: 'https://unity.com/' },
+                { name: 'Neovim', url: 'https://neovim.io/' },
+                { name: 'Emacs', url: 'https://www.gnu.org/software/emacs/' },
+                { name: 'Visual Studio Code', url: 'https://code.visualstudio.com/' },
                 { name: 'Obsidian', url: 'https://obsidian.md/' },
                 { name: 'Jupyter', url: 'https://jupyter.org/' }
             ])}
@@ -91,13 +108,12 @@ export default function ToolsPage() {
         <GlassCard className="p-6">
              {renderToolGroup([
                 { name: 'Blender', url: 'https://www.blender.org/' },
-                { name: 'Aseprite', url: 'https://www.aseprite.org/' },
-                { name: 'Photoshop', url: 'https://www.adobe.com/products/photoshop.html' },
+                { name: 'LibreSprite', url: 'https://libresprite.github.io/' },
+                { name: 'GNU Image Manipulation Program', url: 'https://www.gimp.org/' },
                 { name: 'Figma', url: 'https://www.figma.com/' }
             ])}
         </GlassCard>
       </section>
-
     </div>
   );
 }
