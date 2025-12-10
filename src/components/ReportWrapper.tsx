@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import '@/src/styles/content.css';
 import '@/src/styles/reports.css';
 
@@ -37,8 +37,10 @@ const loadMathJax = () => {
   if (document.getElementById('MathJax-script')) {
     return;
   }
+
+  // 4. Load Polyfill: REMOVED DUE TO PREVIOUSLY IDENTIFIED NETWORK ERROR
   
-  // 4. Load MathJax
+  // 5. Load MathJax
   const mathJaxScript = document.createElement('script');
   mathJaxScript.id = 'MathJax-script';
   mathJaxScript.async = true;
@@ -54,7 +56,7 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
   title 
 }) => {
   const scriptsLoadedRef = useRef(false);
-  // FIX: Create a ref to the HTML content container div
+  // Create a ref to the HTML content container div
   const contentRef = useRef<HTMLDivElement>(null);
 
   // Effect 1: Handles MathJax initial load and updates based on content
@@ -64,12 +66,12 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
     }
   }, [content]);
 
-  // Effect 2: Handles Report-specific Scripts (Charts, etc.)
-  useEffect(() => {
+  // Use useLayoutEffect for synchronous cleanup
+  useLayoutEffect(() => {
     if (scriptsLoadedRef.current) return;
     scriptsLoadedRef.current = true;
 
-    // FIX: Variable to hold the ID of the pending inline script timeout
+    // Variable to hold the ID of the pending inline script timeout
     let timeoutId: number | undefined;
 
     const loadScriptsSequential = async () => {
@@ -94,34 +96,57 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
 
       // 2. Execute inline report logic safely and force a final MathJax typeset
       if (inlineScript) {
+        let scriptEl: HTMLScriptElement | null = null; // Declare script element locally
+
         // Introduce a small delay to ensure the DOM is ready for charts/scripts
         // Store the timeout ID so we can cancel it on cleanup
         timeoutId = window.setTimeout(() => {
-            try {
-                const scriptEl = document.createElement('script');
-                
-                // Wrap in IIFE to prevent global variable collisions.
-                const wrappedScript = `(function() {
-                    ${inlineScript}
-                })();`;
+            
+          // Add a defensive check for the contentRef
+          if (!contentRef.current) {
+            console.error("Content reference is missing. Aborting inline script injection.");
+            return;
+          }
 
-                scriptEl.textContent = wrappedScript;
-                document.body.appendChild(scriptEl);
-            } catch (err) {
-                console.error("Error executing inline report script:", err);
-            } finally {
-                // Crucial: Force MathJax typeset AFTER inline scripts and delay have run
-                if (window.MathJax && window.MathJax.typeset) {
-                    window.MathJax.typesetClear!();
-                    window.MathJax.typeset!();
-                }
+          // Check if Chart.js is defined before attempting to run the script.
+          if (scripts.some(src => src.includes('chart.js')) && !window.Chart) {
+            console.error("Chart.js is required but not defined. Aborting inline report script execution to prevent ReferenceError.");
+            return; 
+          }
+
+          try {
+            scriptEl = document.createElement('script');
+            
+            // Wrap in IIFE to prevent global variable collisions.
+            const wrappedScript = `(function() {
+                ${inlineScript}
+            })();`;
+
+            scriptEl.textContent = wrappedScript;
+            
+            // Change append target from document.body to contentRef.current
+            contentRef.current.appendChild(scriptEl); 
+
+          } catch (err) {
+            console.error("Error executing inline report script:", err);
+          } finally {
+            // Crucial: Force MathJax typeset AFTER inline scripts and delay have run
+            if (window.MathJax && window.MathJax.typeset) {
+              window.MathJax.typesetClear!();
+              window.MathJax.typeset!();
             }
+            
+            // Synchronously remove the inline script tag after execution.
+            if (scriptEl && contentRef.current && contentRef.current.contains(scriptEl)) {
+              scriptEl.remove(); 
+            }
+          }
         }, 50);
       } else {
          // If no inline script, ensure typeset runs immediately after external scripts load
          if (window.MathJax && window.MathJax.typeset) {
-             window.MathJax.typesetClear!();
-             window.MathJax.typeset!();
+            window.MathJax.typesetClear!();
+            window.MathJax.typeset!();
          }
       }
     };
@@ -130,35 +155,26 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
     
     // Cleanup function: DESTROY CHART.JS INSTANCES AND RESET FLAG
     return () => {
-        scriptsLoadedRef.current = false;
-        
-        // FIX 1: Clear the pending setTimeout (prevents stale script from running)
-        if (timeoutId !== undefined) {
-            window.clearTimeout(timeoutId);
+      scriptsLoadedRef.current = false;
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+      }
+      
+      if (window.Chart && contentRef.current) { 
+        try {
+            // Destroy existing chart instances
+            const canvases = contentRef.current.querySelectorAll('canvas');
+
+            canvases.forEach(canvasEl => {
+              const existingChart = window.Chart.getChart(canvasEl);
+              if (existingChart) {
+                existingChart.destroy();
+              }
+            });
+        } catch (e) {
+          console.warn("Error during Chart.js cleanup:", e);
         }
-        
-        // 🚨 FIX 2 & 3: ROBUST CHART.JS CLEANUP
-        if (window.Chart && contentRef.current) { 
-            try {
-                // 1. Destroy existing chart instances
-                const canvases = contentRef.current.querySelectorAll('canvas');
-
-                canvases.forEach(canvasEl => {
-                    const existingChart = window.Chart.getChart(canvasEl);
-                    if (existingChart) {
-                        existingChart.destroy();
-                    }
-                });
-
-                // 2. 🌟 CRITICAL FIX: Forcefully clear the container's inner HTML 
-                // This guarantees the canvas elements are physically removed from the DOM 
-                // before the next render cycle, finally preventing the reuse error.
-                contentRef.current.innerHTML = ''; 
-
-            } catch (e) {
-                console.warn("Error during Chart.js cleanup:", e);
-            }
-        }
+      }
     };
   }, [scripts, inlineScript, content]); 
 

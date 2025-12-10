@@ -65,7 +65,7 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
 
 
   return (
-    // FIX 1: Set h-screen and overflow-hidden on the root element to disable the main document scroll.
+    // Set h-screen and overflow-hidden on the root element to disable the main document scroll.
     <div className={`h-screen overflow-hidden transition-colors duration-300 font-sans ${darkMode ? 'dark bg-slate-900 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
       
       {/* Main Layout Container (Set to h-full to fit root container) */}
@@ -106,14 +106,14 @@ const ClientLayoutWrapper: React.FC<ClientLayoutWrapperProps> = ({ children }) =
         )}
 
         {/* Main Content Area */}
-        {/* FIX 2: Set h-full and overflow-y-auto. This div now handles all main page scrolling. */}
+        {/* Set h-full and overflow-y-auto. This div now handles all main page scrolling. */}
         <div className="flex-1 h-full overflow-y-auto">
             {/* Main Content Area */}
             {/* The pt-20 handles the space for the sticky mobile header */}
             <main className="flex-1 p-6 lg:p-12 w-full max-w-4xl mx-auto pt-20 lg:pt-12">
                 {children}
 
-                {/* FIX: Pass required props to Footer */}
+                {/* Pass required props to Footer */}
                 <Footer
                     darkMode={darkMode}
                     toggleTheme={toggleTheme}

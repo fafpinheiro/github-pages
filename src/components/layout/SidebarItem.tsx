@@ -9,7 +9,7 @@ interface SidebarItemProps {
   isCollapsed: boolean;
 }
 
-// CRITICAL HARD FIX: Define the required GitHub Pages subdirectory path explicitly.
+// Define the required GitHub Pages subdirectory path explicitly.
 // This ensures that even if process.env fails during the static export, 
 // the correct path is compiled directly into the HTML.
 const GITHUB_PAGES_BASE_PATH = '/github-pages';

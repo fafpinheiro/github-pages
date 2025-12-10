@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                    : rawBasePath;
 
   return (
-    // FIX: Main sidebar element removed vertical padding, uses h-full and overflow-y-auto, and removed sticky top-0.
+    // Main sidebar element removed vertical padding, uses h-full and overflow-y-auto, and removed sticky top-0.
     <aside className={`hidden lg:flex flex-col ${sidebarWidthClass} h-full overflow-y-auto border-r border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl ${hPaddingClass} transition-all duration-300 ease-in-out relative`}>
       
       {/* Collapse Toggle Button */}
@@ -126,7 +126,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           
           <button 
             onClick={toggleTheme} 
-            // FIX: Added border-0 and focus:outline-none to normalize the button's vertical alignment with the <a> tags.
+            // Added border-0 and focus:outline-none to normalize the button's vertical alignment with the <a> tags.
             className={`hover:text-yellow-500 transition-colors flex items-center justify-center border-0 focus:outline-none ${isCollapsed ? 'p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800' : 'p-1'}`} 
             aria-label="Toggle Dark Mode">
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}

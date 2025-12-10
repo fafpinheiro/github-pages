@@ -115,7 +115,7 @@ function loadReportAssets(baseName: string) {
 
       // B. Handle DOMContentLoaded Logic
       // ---------------------------------------------------------
-      // FIX: Dynamically select regex based on file structure.
+      // Dynamically select regex based on file structure.
       // 1. Lazy Match (Default): Stops at first "});". Safe for simple files.
       // 2. Greedy Match (Complex): Consumes everything until the last "});". Required for files with nested "});" inside the listener (e.g. Chart.js configs).
       // ---------------------------------------------------------
@@ -138,8 +138,8 @@ function loadReportAssets(baseName: string) {
         initCode = initCode.replace(/updateLoss\s*\(\s*['"]contrastive['"]\s*\)\s*;?/g, '// Removed initialization via loadReportAssets clean-up');
       }
 
-      // C. Expose Functions to Window (FIXED METHOD)
-      // FIX: Use simple direct assignment with guaranteed termination to prevent SyntaxError.
+      // C. Expose Functions to Window
+      // Use simple direct assignment with guaranteed termination to prevent SyntaxError.
       const functionMatches = Array.from(rawJs.matchAll(/function\s+([a-zA-Z0-9_]+)\s*\(/g));
       let functionExports = '';
       

@@ -10,8 +10,8 @@ interface PostWrapperProps {
 }
 
 // ====================================================================
-// STANDALONE UTILITY FUNCTION FOR SYNTAX HIGHLIGHTING (LITERAL FIX)
-// Fixes: Includes guard to prevent Maximum Call Stack Size Exceeded error.
+// STANDALONE UTILITY FUNCTION FOR SYNTAX HIGHLIGHTING
+// Includes guard to prevent Maximum Call Stack Size Exceeded error.
 // ====================================================================
 const highlightFunctionCalls = () => {
   // --- COLOR MAPPING ---
