@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FileText, ExternalLink } from 'lucide-react';
 import SectionHeading from '@/src/components/ui/SectionHeading';
 import GlassCard from '@/src/components/ui/GlassCard';
+import pageImage from '@/assets/images/Jinx-League-of-Legends-League-of-Legends-arcane-Netflix-TV-Series-tv-series-video-game-characters-2233556.jpg';
 
 // Note: 'id' matches the keys in page.tsx 'REPORTS_DATA'
 const REPORTS = [
@@ -22,6 +23,17 @@ const REPORTS = [
 export default function ReportsIndexPage() {
   return (
     <div className="space-y-10 animate-in fade-in duration-500">
+      <div className="flex justify-center mb-8">
+        <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+            {/* Note: Ensure this image path is correct in your public folder */}
+          <img 
+            src={pageImage.src}
+            alt="Jinx from Arcane"
+            className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      </div>
+
       <div className="text-center mb-12">
         <h1 className="text-4xl font-display font-bold text-slate-900 dark:text-white">Research Reports</h1>
         <p className="text-slate-600 dark:text-slate-400 mt-2">Detailed technical analysis and strategic documents.</p>

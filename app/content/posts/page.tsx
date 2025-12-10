@@ -1,11 +1,11 @@
 import React from 'react';
 import { PenTool, Calendar, ArrowRight } from 'lucide-react';
-// Import utility functions to fetch ALL posts
 import { getAllPostSlugs, getMarkdownData } from '@/lib/markdown';
 import GlassCard from '@/src/components/ui/GlassCard';
 import SectionHeading from '@/src/components/ui/SectionHeading';
 import Badge from '@/src/components/ui/Badge';
-import { PostData } from '@/lib/markdown'; // Reusing your PostData interface
+import { PostData } from '@/lib/markdown'; 
+import pageImage from '@/assets/images/G7HNekqXUAAueb6.jpg';
 
 // Extend PostData to include the selected/generated excerpt
 const POSTS_EXCERPT_MAP: Record<string, string> = {
@@ -58,70 +58,80 @@ export default async function NotesIndexPage() {
 
   return (
     <div className="space-y-10 animate-in fade-in duration-500">
-        
-        {/* Header Section */}
-        <div className="text-center mb-12">
-            <h1 className="text-4xl font-display font-bold text-slate-900 dark:text-white">Notes & Thoughts</h1>
-            <p className="text-slate-600 dark:text-slate-400 mt-2">
-              A collection of articles on Reinforcement Learning, Math, and Engineering.
-            </p>
+      <div className="flex justify-center mb-8">
+        <div className="relative w-full max-w-2xl aspect-square rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+            {/* Note: Ensure this image path is correct in your public folder */}
+          <img 
+            src={pageImage.src}
+            alt="Jinx from Arcane"
+            className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+          />
         </div>
+      </div>
+        
+      {/* Header Section */}
+      <div className="text-center mb-12">
+          <h1 className="text-4xl font-display font-bold text-slate-900 dark:text-white">Notes & Thoughts</h1>
+          <p className="text-slate-600 dark:text-slate-400 mt-2">
+            A collection of articles on Reinforcement Learning, Math, and Engineering.
+          </p>
+      </div>
 
-        {/* Posts Grid */}
-        <section>
-            {/* Reusing existing SectionHeading component */}
-            <SectionHeading title={`All Posts (${posts.length})`} icon={<PenTool className="text-purple-500" />} />
-            
-            <div className="grid gap-6">
-              {posts.length > 0 ? (
-                posts.map((post) => (
-                  // Reusing existing GlassCard component
-                  <GlassCard key={post.slug} className="group hover:border-blue-500/30 transition-colors">
-                    <div className="p-6">
-                      {/* Metadata */}
-                      <div className="flex items-center gap-3 text-sm text-slate-500 mb-3">
-                        <span className="flex items-center gap-1">
-                          <Calendar size={14} /> {post.date}
-                        </span>
-                        <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
-                        <span className="text-blue-600 dark:text-blue-400 font-medium">
-                          {post.category}
-                        </span>
-                      </div>
-                      
-                      {/* Title and Link */}
-                      <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        <a href={`/github-pages/content/posts/${post.slug}`} className="hover:underline decoration-blue-500/30 underline-offset-4">
-                          {post.title}
-                        </a>
-                      </h3>
-                      
-                      {/* Excerpt */}
-                      <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
-                        {post.excerpt}
-                      </p>
-                      
-                      {/* Tags and Read More Link */}
-                      <div className="flex flex-wrap gap-2 items-center justify-between mt-auto">
-                        <div className="flex gap-2">
-                            {post.tags.map(tag => (
-                            <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
-                            ))}
-                        </div>
-                        <a href={`/github-pages/content/posts/${post.slug}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                            Read more <ArrowRight size={14} />
-                        </a>
-                      </div>
+      {/* Posts Grid */}
+      <section>
+          {/* Reusing existing SectionHeading component */}
+          <SectionHeading title={`All Posts (${posts.length})`} icon={<PenTool className="text-purple-500" />} />
+          
+          <div className="grid gap-6">
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                // Reusing existing GlassCard component
+                <GlassCard key={post.slug} className="group hover:border-blue-500/30 transition-colors">
+                  <div className="p-6">
+                    {/* Metadata */}
+                    <div className="flex items-center gap-3 text-sm text-slate-500 mb-3">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={14} /> {post.date}
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                      <span className="text-blue-600 dark:text-blue-400 font-medium">
+                        {post.category}
+                      </span>
                     </div>
-                  </GlassCard>
-                ))
-              ) : (
-                <div className="text-center py-12 text-slate-500">
-                  No posts found.
-                </div>
-              )}
-            </div>
-        </section>
+                    
+                    {/* Title and Link */}
+                    <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <a href={`/github-pages/content/posts/${post.slug}`} className="hover:underline decoration-blue-500/30 underline-offset-4">
+                        {post.title}
+                      </a>
+                    </h3>
+                    
+                    {/* Excerpt */}
+                    <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                    
+                    {/* Tags and Read More Link */}
+                    <div className="flex flex-wrap gap-2 items-center justify-between mt-auto">
+                      <div className="flex gap-2">
+                          {post.tags.map(tag => (
+                          <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+                          ))}
+                      </div>
+                      <a href={`/github-pages/content/posts/${post.slug}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                          Read more <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </GlassCard>
+              ))
+            ) : (
+              <div className="text-center py-12 text-slate-500">
+                No posts found.
+              </div>
+            )}
+          </div>
+      </section>
     </div>
   );
 }

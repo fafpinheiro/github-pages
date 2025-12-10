@@ -9,7 +9,7 @@ export default function MediaPage() {
     <div className="space-y-10 animate-in fade-in duration-500">
 
         <div className="flex justify-center mb-8">
-            <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+            <div className="relative w-full max-w-2xl aspect-square rounded-2xl overflow-hidden shadow-2xl border border-white/20">
                 {/* Note: Ensure this image path is correct in your public folder */}
             <img 
                 src={pageImage.src}
