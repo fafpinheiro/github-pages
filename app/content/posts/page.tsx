@@ -7,6 +7,13 @@ import Badge from '@/src/components/ui/Badge';
 import { PostData } from '@/lib/markdown'; 
 import pageImage from '@/assets/images/G7HNekqXUAAueb6.jpg';
 
+// 1. Define the categories here to match your Home page
+const POSTS_CATEGORY_MAP: Record<string, string> = {
+  '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'Deep Learning',
+  '2024-10-28-Combinatorial-Optimization-Intro': 'Math',
+  '2024-10-31-Notes-on-RL-an-Introduction': 'Reinforcement Learning',
+};
+
 // Extend PostData to include the selected/generated excerpt
 const POSTS_EXCERPT_MAP: Record<string, string> = {
   '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.',
@@ -20,39 +27,36 @@ interface PostWithExcerpt extends PostData {
 
 // Helper to fetch, process, and sort ALL posts
 async function getAllPosts(): Promise<PostWithExcerpt[]> {
-  // 1. Get ALL slugs from the file system (using the existing function)
   const slugs = getAllPostSlugs();
   
-  // 2. Fetch the full data for EVERY slug concurrently
   const posts = await Promise.all(
     slugs.map(async ({ slug }) => {
       const data = await getMarkdownData(slug);
       
+      // 2. Resolve the Excerpt
       let excerpt: string;
       const mapExcerpt = POSTS_EXCERPT_MAP[slug];
-
-      // Use the excerpt from the map if the slug is found
       if (mapExcerpt) {
         excerpt = mapExcerpt;
       } else {
-        // Fallback: Generate a simple plain text excerpt from the HTML content for the preview
-        // This is a common pattern to create previews for index pages
         const plainText = data.contentHtml.replace(/<[^>]+>/g, '');
         excerpt = plainText.slice(0, 160) + (plainText.length > 160 ? '...' : '');
       }
+
+      // 3. Resolve the Category (Use Map -> Fallback to Markdown Data -> Fallback to 'Uncategorized')
+      const category = POSTS_CATEGORY_MAP[slug] || data.category || 'Uncategorized';
       
       return { 
         ...data, 
+        category, // Override with the mapped category
         excerpt 
       };
     })
   );
 
-  // 3. Sort posts by date (descending: newest first)
   return posts.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
 }
 
-// This is the index page component for /content/posts
 export default async function NotesIndexPage() {
   const posts = await getAllPosts();
 
@@ -60,7 +64,6 @@ export default async function NotesIndexPage() {
     <div className="space-y-10 animate-in fade-in duration-500">
       <div className="flex justify-center mb-8">
         <div className="relative w-full max-w-2xl aspect-square rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-            {/* Note: Ensure this image path is correct in your public folder */}
           <img 
             src={pageImage.src}
             alt="Jinx from Arcane"
@@ -79,13 +82,11 @@ export default async function NotesIndexPage() {
 
       {/* Posts Grid */}
       <section>
-          {/* Reusing existing SectionHeading component */}
           <SectionHeading title={`All Posts (${posts.length})`} icon={<PenTool className="text-purple-500" />} />
           
           <div className="grid gap-6">
             {posts.length > 0 ? (
               posts.map((post) => (
-                // Reusing existing GlassCard component
                 <GlassCard key={post.slug} className="group hover:border-blue-500/30 transition-colors">
                   <div className="p-6">
                     {/* Metadata */}
@@ -94,24 +95,22 @@ export default async function NotesIndexPage() {
                         <Calendar size={14} /> {post.date}
                       </span>
                       <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                      {/* Render the Category */}
                       <span className="text-blue-600 dark:text-blue-400 font-medium">
                         {post.category}
                       </span>
                     </div>
                     
-                    {/* Title and Link */}
                     <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       <a href={`/github-pages/content/posts/${post.slug}`} className="hover:underline decoration-blue-500/30 underline-offset-4">
                         {post.title}
                       </a>
                     </h3>
                     
-                    {/* Excerpt */}
                     <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
                     
-                    {/* Tags and Read More Link */}
                     <div className="flex flex-wrap gap-2 items-center justify-between mt-auto">
                       <div className="flex gap-2">
                           {post.tags.map(tag => (

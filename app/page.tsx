@@ -13,7 +13,7 @@ const BLOG_POSTS: BlogPost[] = [
   { 
     id: '2024-10-31-Notes-on-RL-an-Introduction', // <--- CORRECT SLUG
     date: 'Oct 31, 2024', 
-    category: 'RL', 
+    category: 'Reinforcement Learning', 
     title: 'Notes on RL: An Introduction', 
     excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.', 
     tags: ['Basics', 'Theory'] 
