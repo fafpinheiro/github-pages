@@ -15,9 +15,9 @@ interface PostPageProps {
 
 // Map slugs to the corresponding HTML file names
 const POSTS_HTML_MAP: Record<string, string> = {
-  '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'Attention_Learn_to_Solve_Routing_Problem.html',
-  '2024-10-28-Combinatorial-Optimization-Intro': 'Combinatorial_Optimization_an_Introduction.html',
-  '2024-10-31-Notes-on-RL-an-Introduction': 'Notes_on_RL_an_Introduction.html',
+  'Attention_Learn_to_Solve_Routing_Problem': 'Attention_Learn_to_Solve_Routing_Problem.html',
+  'Combinatorial_Optimization_an_Introduction': 'Combinatorial_Optimization_an_Introduction.html',
+  'Notes_on_RL_an_Introduction': 'Notes_on_RL_an_Introduction.html',
 };
 
 export async function generateStaticParams() {

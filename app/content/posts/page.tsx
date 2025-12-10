@@ -1,61 +1,52 @@
 import React from 'react';
 import { PenTool, Calendar, ArrowRight } from 'lucide-react';
-import { getAllPostSlugs, getMarkdownData } from '@/lib/markdown';
 import GlassCard from '@/src/components/ui/GlassCard';
 import SectionHeading from '@/src/components/ui/SectionHeading';
 import Badge from '@/src/components/ui/Badge';
-import { PostData } from '@/lib/markdown'; 
 import pageImage from '@/assets/images/G7HNekqXUAAueb6.jpg';
 
-// 1. Define the categories here to match your Home page
-const POSTS_CATEGORY_MAP: Record<string, string> = {
-  '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'Deep Learning',
-  '2024-10-28-Combinatorial-Optimization-Intro': 'Math',
-  '2024-10-31-Notes-on-RL-an-Introduction': 'Reinforcement Learning',
-};
 
-// Extend PostData to include the selected/generated excerpt
-const POSTS_EXCERPT_MAP: Record<string, string> = {
-  '2024-10-28-Attention-Learn-To-Solve-Routing-Problems': 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.',
-  '2024-10-28-Combinatorial-Optimization-Intro': 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.',
-  '2024-10-31-Notes-on-RL-an-Introduction': 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.',
-};
-
-interface PostWithExcerpt extends PostData {
+interface PostData {
+  slug: string;
+  title: string;
+  date: string;
+  tags: string[];
+  category: string;
   excerpt: string;
 }
 
-// Helper to fetch, process, and sort ALL posts
-async function getAllPosts(): Promise<PostWithExcerpt[]> {
-  const slugs = getAllPostSlugs();
-  
-  const posts = await Promise.all(
-    slugs.map(async ({ slug }) => {
-      const data = await getMarkdownData(slug);
-      
-      // 2. Resolve the Excerpt
-      let excerpt: string;
-      const mapExcerpt = POSTS_EXCERPT_MAP[slug];
-      if (mapExcerpt) {
-        excerpt = mapExcerpt;
-      } else {
-        const plainText = data.contentHtml.replace(/<[^>]+>/g, '');
-        excerpt = plainText.slice(0, 160) + (plainText.length > 160 ? '...' : '');
-      }
+const POSTS_DATA: PostData[] = [
+  {
+    slug: 'Notes_on_RL_an_Introduction',
+    title: 'Notes on Reinforcement Learning: an Introduction',
+    date: '2024-10-31',
+    tags: ['RL', 'Deep Learning', 'Math'],
+    category: 'Reinforcement Learning',
+    excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.',
+  },
+  {
+    slug: 'Attention_Learn_to_Solve_Routing_Problem',
+    title: 'Attention! Learn to Solve Routing Problems',
+    date: '2024-10-28',
+    tags: ['Deep Learning', 'Optimization', 'VRP'],
+    category: 'Deep Learning',
+    excerpt: 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.',
+  },
+  {
+    slug: 'Combinatorial_Optimization_an_Introduction',
+    title: 'Combinatorial Optimization: an Introduction',
+    date: '2024-10-28',
+    tags: ['Math', 'Optimization', 'Algorithms'],
+    category: 'Math',
+    excerpt: 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.',
+  },
+].sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
 
-      // 3. Resolve the Category (Use Map -> Fallback to Markdown Data -> Fallback to 'Uncategorized')
-      const category = POSTS_CATEGORY_MAP[slug] || data.category || 'Uncategorized';
-      
-      return { 
-        ...data, 
-        category, // Override with the mapped category
-        excerpt 
-      };
-    })
-  );
-
-  return posts.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
+// The fetching function now just returns the static array
+async function getAllPosts(): Promise<PostData[]> {
+    return POSTS_DATA;
 }
+
 
 export default async function NotesIndexPage() {
   const posts = await getAllPosts();

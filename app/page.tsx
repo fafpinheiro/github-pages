@@ -1,6 +1,5 @@
 import React from 'react';
-import { PenTool, Calendar, Star, Github, ExternalLink, Code, MapPin, ArrowRight } from 'lucide-react';
-// ClientLayoutWrapper is removed from imports as it is now in layout.tsx
+import { PenTool, Calendar, Star, FileText, BookOpen, Code, ArrowRight } from 'lucide-react';
 import GlassCard from '../src/components/ui/GlassCard';
 import SectionHeading from '../src/components/ui/SectionHeading';
 import Badge from '../src/components/ui/Badge';
@@ -11,7 +10,7 @@ import { BlogPost, Project } from '../src/types';
  */
 const BLOG_POSTS: BlogPost[] = [
   { 
-    id: '2024-10-31-Notes-on-RL-an-Introduction', // <--- CORRECT SLUG
+    id: 'Notes_on_RL_an_Introduction',
     date: 'Oct 31, 2024', 
     category: 'Reinforcement Learning', 
     title: 'Notes on RL: An Introduction', 
@@ -19,7 +18,7 @@ const BLOG_POSTS: BlogPost[] = [
     tags: ['Basics', 'Theory'] 
   },
   { 
-    id: '2024-10-28-Attention-Learn-To-Solve-Routing-Problems', // <--- CORRECT SLUG
+    id: 'Attention_Learn_to_Solve_Routing_Problem',
     date: 'Oct 28, 2024', 
     category: 'Deep Learning', 
     title: 'Attention: Learn To Solve Routing Problems', 
@@ -27,7 +26,7 @@ const BLOG_POSTS: BlogPost[] = [
     tags: ['Routing', 'Attention'] 
   },
   { 
-    id: '2024-10-28-Combinatorial-Optimization-Intro', // <--- CORRECT SLUG
+    id: 'Combinatorial_Optimization_an_Introduction',
     date: 'Oct 28, 2024', 
     category: 'Math', 
     title: 'Combinatorial Optimization Intro', 
@@ -42,25 +41,28 @@ const PROJECTS: Project[] = [
     id: 'p1',
     title: 'WSmart Route+',
     description: 'A Reinforcement Learning agent designed to optimize Waste Collection routing. This project explores how RL agents can learn efficient paths in dynamic environments compared to traditional heuristics.',
-    links: [{ label: 'Paper', url: '#', icon: <ExternalLink size={14} /> }],
+    links: [{ label: 'Workshop Poster', url: '/github-pages/images/workshop_posters/workshop-poster.png', icon: <FileText size={14} className="w-4 h-4 mr-1" /> }],
     stats: 'RL Agent',
     icon: undefined,
     iconColorClass: ''
   },
   {
     id: 'p2',
-    title: 'Multimodal Graph Neural Network',
-    description: 'Research on Automatic Generation of Coherent Image Descriptions. This MGNN model leverages graph structures to bridge the gap between visual features and semantic text generation.',
-    links: [{ label: 'View Research', url: '/content/projects', icon: <ExternalLink size={14} /> }],
+    title: 'CSE Master of Science (MSc) Dissertation',
+    description: 'Thesis: "Leveraging Deep Unsupervised Models Towards Learning Robust Multimodal Representations". Developed and compared new Multimodal Deep Unsupervised Models.',
+    links: [
+      { label: 'Dissertation PDF', url: '/github-pages/docs/IST_UL___MEIC_Thesis___Dissertacao_final__Copy_.pdf', icon: <BookOpen size={14} className="w-4 h-4 mr-1" /> },
+      { label: 'GitHub Repository', url: 'https://github.com/ACFHarbinger/rgmc', icon: <Code size={14} className="w-4 h-4 mr-1" /> }
+    ],
     stats: 'GNN',
     icon: undefined,
     iconColorClass: ''
   },
   {
     id: 'p3',
-    title: 'Personal Portfolio',
-    description: 'The website you are looking at right now. Built with Next.js 14, TypeScript, and Tailwind CSS to serve as a digital garden for my research and projects.',
-    links: [{ label: 'Source', url: 'https://github.com/acfharbinger', icon: <Github size={14} /> }],
+    title: 'Personal Website',
+    description: 'The website you are looking at right now, showcasing my blog posts and projects. Built with Next.js, React, and Tailwind CSS for modern design.',
+    links: [{ label: 'GitHub Repository', url: 'https://github.com/acfharbinger', icon: <Code size={14} className="w-4 h-4 mr-1" /> }],
     stats: 'Next.js',
     icon: undefined,
     iconColorClass: ''
@@ -88,8 +90,8 @@ export default function Home() {
             <a href="/github-pages/content/about" className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors flex items-center gap-2">
               About Me <ArrowRight size={18} />
             </a>
-            <a href="/github-pages/content/projects" className="px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-              View Projects
+            <a href="/github-pages/content/tools" className="px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+              View Tools
             </a>
           </div>
         </div>
@@ -99,7 +101,7 @@ export default function Home() {
       <section className="mb-16">
         <div className="flex items-center justify-between mb-8">
           <SectionHeading title="Latest Posts" icon={<PenTool className="text-purple-500" />} />
-          <a href="/content/posts" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+          <a href="/github-pages/content/posts" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
             View all <ArrowRight size={14} />
           </a>
         </div>
@@ -119,10 +121,15 @@ export default function Home() {
                 <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
                   {post.excerpt}
                 </p>
-                <div className="flex gap-2">
-                  {post.tags.map(tag => (
-                    <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
-                  ))}
+                <div className="flex flex-wrap gap-2 items-center justify-between mt-auto">
+                  <div className="flex gap-2">
+                      {post.tags.map(tag => (
+                      <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+                      ))}
+                  </div>
+                  <a href={`/github-pages/content/posts/${post.id}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Read more <ArrowRight size={14} />
+                  </a>
                 </div>
               </div>
             </GlassCard>
@@ -134,7 +141,7 @@ export default function Home() {
       <section>
         <div className="flex items-center justify-between mb-8">
           <SectionHeading title="Latest Projects" icon={<Code className="text-blue-500" />} />
-          <a href="/content/projects" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+          <a href="/github-pages/content/projects" className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
             View portfolio <ArrowRight size={14} />
           </a>
         </div>
@@ -159,7 +166,7 @@ export default function Home() {
                     <a 
                       key={idx} 
                       href={link.url}
-                      className="flex items-center gap-1.5 text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors font-medium"
+                      className="inline-flex items-center text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors"
                     >
                       {link.icon} {link.label}
                     </a>

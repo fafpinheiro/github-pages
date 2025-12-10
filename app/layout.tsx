@@ -1,16 +1,19 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-
-// Import the Header and the Client Layout Wrapper
-import Header from '@/src/components/layout/Header'; 
-import ClientLayoutWrapper from '@/app/ClientLayoutWrapper'; // Assuming this exists at app/ClientLayoutWrapper.tsx
+import ClientLayoutWrapper from './ClientLayoutWrapper';
+import nextConfig from '../next.config.js'; // Note: This path might need fixing depending on how Next.js handles it
 
 const inter = Inter({ subsets: ['latin'] });
 
+const basePath = nextConfig.basePath || ''; 
+
 export const metadata: Metadata = {
-  title: 'ACFHarbinger',
-  description: 'Personal Website',
+  title: 'ACF | Harbinger',
+  description: 'Personal blog and portfolio.',
+  icons: {
+    icon: `${basePath}/favicon.ico`
+  }
 };
 
 export default function RootLayout({
@@ -19,17 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en"> 
-      <body className={`${inter.className} bg-slate-50 dark:bg-slate-950 h-full`}>
-        
-        {/* The Mobile-Only Header is placed here, outside the Sidebar/Main wrapper */}
-        <Header />
-        
-        {/* Pass the page content (children) to the wrapper that adds the Sidebar and Footer */}
+    <html lang="en">
+      <body className={inter.className}>
         <ClientLayoutWrapper>
           {children}
         </ClientLayoutWrapper>
-        
       </body>
     </html>
   );

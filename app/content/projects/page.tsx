@@ -9,9 +9,6 @@ import pageImage from '@/assets/images/Ella-Purnell-Jinx-Arcane-League-of-Legend
 // Common style for links
 const linkStyles = "inline-flex items-center text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors";
 
-// --- Mock external URLs for PDFs to prevent local file resolution errors ---
-const MOCK_PDF_BASE = "https://example.com/docs/paper_";
-
 export default function ProjectsPage() {
   return (
     <div className="space-y-10 animate-in fade-in duration-500 max-w-4xl mx-auto pb-16">
@@ -61,7 +58,7 @@ export default function ProjectsPage() {
           <GlassCard className="p-6">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">CSE Master of Science (MSc) Dissertation</h3>
             <p className="text-slate-600 dark:text-slate-300 mb-4">
-              Thesis: 'Leveraging Deep Unsupervised Models Towards Learning Robust Multimodal Representations'. Developed and compared new Multimodal Deep Unsupervised Models.
+              Thesis: "Leveraging Deep Unsupervised Models Towards Learning Robust Multimodal Representations". Developed and compared new Multimodal Deep Unsupervised Models.
             </p>
             <div className="flex flex-wrap gap-4 items-center">
                 <div className="flex gap-2">
@@ -70,7 +67,7 @@ export default function ProjectsPage() {
                 </div>
                 <div className="flex gap-4">
                     <Link 
-                        href="https://example.com/docs/dissertation.pdf" // Placeholder for local file
+                        href="../docs/IST_UL___MEIC_Thesis___Dissertacao_final__Copy_.pdf"
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className={linkStyles}
@@ -83,7 +80,7 @@ export default function ProjectsPage() {
                         rel="noopener noreferrer" 
                         className={linkStyles}
                     >
-                        <Code className="w-4 h-4 mr-1" /> GitHub
+                        <Code className="w-4 h-4 mr-1" /> GitHub Repository
                     </Link>
                 </div>
             </div>
@@ -98,10 +95,9 @@ export default function ProjectsPage() {
                 <div className="flex gap-2">
                     <Badge>Reinforcement Learning</Badge>
                     <Badge>Optimization</Badge>
-                    <Badge>CVRP</Badge>
                 </div>
                 <Link 
-                    href="https://example.com/docs/workshop_poster.png" // Placeholder for local file
+                    href="../images/workshop_posters/workshop-poster.png"
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className={linkStyles}
@@ -131,7 +127,7 @@ export default function ProjectsPage() {
           </GlassCard>
            <GlassCard className="p-6">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Personal Website</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">Built with Next.js, React, and Tailwind CSS for modern design.</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">The website you are looking at right now, showcasing my blog posts and projects. Built with Next.js, React, and Tailwind CSS for modern design.</p>
             <Link 
                 href="https://github.com/ACFHarbinger/github-pages" 
                 target="_blank" 

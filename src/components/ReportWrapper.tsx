@@ -37,10 +37,8 @@ const loadMathJax = () => {
   if (document.getElementById('MathJax-script')) {
     return;
   }
-
-  // 4. Load Polyfill: REMOVED DUE TO PREVIOUSLY IDENTIFIED NETWORK ERROR
   
-  // 5. Load MathJax
+  // 4. Load MathJax
   const mathJaxScript = document.createElement('script');
   mathJaxScript.id = 'MathJax-script';
   mathJaxScript.async = true;
@@ -56,6 +54,8 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
   title 
 }) => {
   const scriptsLoadedRef = useRef(false);
+  // FIX: Create a ref to the HTML content container div
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // Effect 1: Handles MathJax initial load and updates based on content
   useEffect(() => {
@@ -68,6 +68,9 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
   useEffect(() => {
     if (scriptsLoadedRef.current) return;
     scriptsLoadedRef.current = true;
+
+    // FIX: Variable to hold the ID of the pending inline script timeout
+    let timeoutId: number | undefined;
 
     const loadScriptsSequential = async () => {
       // 1. Load external scripts (like Chart.js) sequentially
@@ -91,8 +94,9 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
 
       // 2. Execute inline report logic safely and force a final MathJax typeset
       if (inlineScript) {
-        // Introduce a small delay (50ms) to ensure the DOM is ready for charts/scripts
-        setTimeout(() => {
+        // Introduce a small delay to ensure the DOM is ready for charts/scripts
+        // Store the timeout ID so we can cancel it on cleanup
+        timeoutId = window.setTimeout(() => {
             try {
                 const scriptEl = document.createElement('script');
                 
@@ -128,18 +132,29 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
     return () => {
         scriptsLoadedRef.current = false;
         
-        // 🚨 CHART.JS CLEANUP FIX
-        // This attempts to destroy all Chart.js instances associated with canvas elements
-        // in the document, preventing the "Canvas is already in use" error on re-render.
-        if (window.Chart) {
+        // FIX 1: Clear the pending setTimeout (prevents stale script from running)
+        if (timeoutId !== undefined) {
+            window.clearTimeout(timeoutId);
+        }
+        
+        // 🚨 FIX 2 & 3: ROBUST CHART.JS CLEANUP
+        if (window.Chart && contentRef.current) { 
             try {
-                // Iterate over all canvas elements to find and destroy existing charts
-                document.querySelectorAll('canvas').forEach(canvasEl => {
+                // 1. Destroy existing chart instances
+                const canvases = contentRef.current.querySelectorAll('canvas');
+
+                canvases.forEach(canvasEl => {
                     const existingChart = window.Chart.getChart(canvasEl);
                     if (existingChart) {
                         existingChart.destroy();
                     }
                 });
+
+                // 2. 🌟 CRITICAL FIX: Forcefully clear the container's inner HTML 
+                // This guarantees the canvas elements are physically removed from the DOM 
+                // before the next render cycle, finally preventing the reuse error.
+                contentRef.current.innerHTML = ''; 
+
             } catch (e) {
                 console.warn("Error during Chart.js cleanup:", e);
             }
@@ -158,6 +173,7 @@ const ReportWrapper: React.FC<ReportWrapperProps> = ({
 
       {/* Inject HTML Content */}
       <div 
+        ref={contentRef}
         className="post-container report-content py-10 space-y-20"
         dangerouslySetInnerHTML={{ __html: content }} 
       />
