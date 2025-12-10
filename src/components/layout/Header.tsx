@@ -9,7 +9,7 @@ import {
   User, 
   Code, 
   Wrench, 
-  Film, 
+  Tv, 
   FileText,
   PenTool,
   Menu, // Import Menu icon for the closed state
@@ -23,7 +23,7 @@ const NAV_ITEMS = [
   { label: 'Reports', href: '/content/reports', icon: FileText },
   { label: 'Tools', href: '/content/tools', icon: Wrench },
   { label: 'Posts', href: '/content/posts', icon: PenTool },
-  { label: 'Media', href: '/content/media', icon: Film },
+  { label: 'Media', href: '/content/media', icon: Tv },
 ];
 
 export default function Header() {

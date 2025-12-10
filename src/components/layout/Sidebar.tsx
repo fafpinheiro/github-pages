@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Home, User, PenTool, Code, Video, Github, Twitter, Linkedin, Moon, Sun, Wrench, ChevronLeft, FileText } from 'lucide-react';
+import { Home, User, PenTool, Code, Tv, Github, Twitter, Linkedin, Moon, Sun, Wrench, ChevronLeft, FileText } from 'lucide-react';
 import SidebarItem from './SidebarItem';
 import profilePic from '@/assets/images/23041868.jpeg'; 
 
@@ -20,7 +20,7 @@ const NAV_ITEMS = [
     { href: '/content/reports', label: 'Reports', icon: <FileText size={20} />, slug: 'reports' },
     { href: '/content/tools', label: 'Tools', icon: <Wrench size={20} />, slug: 'tools' },
     { href: '/content/posts', label: 'Posts', icon: <PenTool size={20} />, slug: 'posts' }, 
-    { href: '/content/media', label: 'Media', icon: <Video size={20} />, slug: 'media' },
+    { href: '/content/media', label: 'Media', icon: <Tv size={20} />, slug: 'media' },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ 
