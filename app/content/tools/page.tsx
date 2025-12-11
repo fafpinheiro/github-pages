@@ -98,7 +98,8 @@ export default function ToolsPage() {
             { name: 'Emacs', url: 'https://www.gnu.org/software/emacs/' },
             { name: 'Visual Studio Code', url: 'https://code.visualstudio.com/' },
             { name: 'Obsidian', url: 'https://obsidian.md/' },
-            { name: 'Jupyter', url: 'https://jupyter.org/' }
+            { name: 'Jupyter', url: 'https://jupyter.org/' },
+            { name: 'Antigravity', url: 'https://antigravity.google/' },
           ])}
         </GlassCard>
       </section>
