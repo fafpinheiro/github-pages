@@ -4,16 +4,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  Home, 
-  User, 
-  Code, 
-  Wrench, 
-  Tv, 
+import {
+  Home,
+  User,
+  Code,
+  Wrench,
+  Tv,
   FileText,
   PenTool,
   Menu, // Import Menu icon for the closed state
-  X     // Import X icon for the open state
+  X,    // Import X icon for the open state
+  Sun,
+  Moon
 } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -26,7 +28,12 @@ const NAV_ITEMS = [
   { label: 'Media', href: '/content/media', icon: Tv },
 ];
 
-export default function Header() {
+interface HeaderProps {
+  darkMode: boolean;
+  toggleTheme: () => void;
+}
+
+export default function Header({ darkMode, toggleTheme }: HeaderProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -39,8 +46,8 @@ export default function Header() {
   };
 
   return (
-    // Make the header visible ONLY on small screens (md:hidden)
-    <header className="w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 **md:hidden**">
+    // Remove md:hidden to make visible on desktop
+    <header className="w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo / Title Area */}
@@ -51,17 +58,23 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* DESKTOP Navigation Links (Hidden on small screens - this nav block is removed or simplified in mobile-only header) */}
-          {/* We are removing the hidden md:flex block as the whole component is now md:hidden */}
-
-          {/* MOBILE Menu ButtonTrigger (Always visible in this now mobile-only component) */}
-          <div className="flex items-center">
-            <button 
-              onClick={toggleMobileMenu}
+          {/* Controls: Theme Toggle & Menu */}
+          <div className="flex items-center gap-2">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
               className="p-2 rounded-md text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              aria-label="Toggle theme"
+            >
+              {darkMode ? <Sun size={24} /> : <Moon size={24} />}
+            </button>
+
+            {/* Mobile Menu Button - Hide on Large Screens where Sidebar exists */}
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-md text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 lg:hidden"
             >
               <span className="sr-only">Open main menu</span>
-              {/* This logic is correct for hamburger/X toggle */}
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -77,7 +90,7 @@ export default function Header() {
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
-              
+
               return (
                 <Link
                   key={item.href}
@@ -85,8 +98,8 @@ export default function Header() {
                   onClick={closeMobileMenu}
                   className={`
                     flex items-center px-3 py-3 rounded-md text-base font-medium transition-colors duration-200
-                    ${isActive 
-                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400' 
+                    ${isActive
+                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
                       : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
                     }
                   `}
