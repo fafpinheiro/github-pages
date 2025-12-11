@@ -9,29 +9,29 @@ import { BlogPost, Project } from '../src/types';
  * Mock Data
  */
 const BLOG_POSTS: BlogPost[] = [
-  { 
+  {
     id: 'Notes_on_RL_an_Introduction',
-    date: 'Oct 31, 2024', 
-    category: 'Reinforcement Learning', 
-    title: 'Notes on RL: An Introduction', 
-    excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.', 
-    tags: ['Basics', 'Theory'] 
+    date: 'Oct 31, 2024',
+    category: 'Reinforcement Learning',
+    title: 'Notes on RL: An Introduction',
+    excerpt: 'A deep dive into the foundational concepts of Reinforcement Learning, exploring Markov Decision Processes (MDPs) and basic policy iteration methods.',
+    tags: ['Basics', 'Theory']
   },
-  { 
+  {
     id: 'Attention_Learn_to_Solve_Routing_Problem',
-    date: 'Oct 28, 2024', 
-    category: 'Deep Learning', 
-    title: 'Attention: Learn To Solve Routing Problems', 
-    excerpt: 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.', 
-    tags: ['Routing', 'Attention'] 
+    date: 'Oct 28, 2024',
+    category: 'Deep Learning',
+    title: 'Attention: Learn To Solve Routing Problems',
+    excerpt: 'Analyzing the application of Attention mechanisms in Neural Combinatorial Optimization. How transformers can replace heuristics for TSP and VRP.',
+    tags: ['Routing', 'Attention']
   },
-  { 
+  {
     id: 'Combinatorial_Optimization_an_Introduction',
-    date: 'Oct 28, 2024', 
-    category: 'Math', 
-    title: 'Combinatorial Optimization Intro', 
-    excerpt: 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.', 
-    tags: ['Optimization'] 
+    date: 'Oct 28, 2024',
+    category: 'Math',
+    title: 'Combinatorial Optimization Intro',
+    excerpt: 'An introduction to the field of Combinatorial Optimization, focusing on complexity classes (P vs NP) and exact vs. heuristic solving methods.',
+    tags: ['Optimization']
   }
 ];
 
@@ -82,8 +82,8 @@ export default function Home() {
             Exploring the intersection of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Artificial Intelligence</span>, <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Operations Research</span>, and <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-red-600">Combinatorial Optimization</span>.
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-            I'm a scientist and engineer focused on <strong>Reinforcement Learning</strong> and <strong>Operations Research</strong> methods to solve <strong>Combinatorial Optimization</strong> problems. 
-            Currently working as a researcher at <a href="https://www.inesc-id.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">INESC-ID</a> and 
+            I'm a scientist and engineer focused on <strong>Deep Reinforcement Learning</strong> and <strong>Operations Research</strong> methods to solve <strong>Combinatorial Optimization</strong> problems.
+            Currently working as a researcher at <a href="https://www.inesc-id.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">INESC-ID</a> and
             teaching at <a href="https://tecnico.ulisboa.pt/" className="text-blue-600 hover:underline decoration-blue-300 underline-offset-4">IST</a>.
           </p>
           <div className="flex gap-4 pt-2">
@@ -105,7 +105,7 @@ export default function Home() {
             View all <ArrowRight size={14} />
           </a>
         </div>
-        
+
         <div className="grid gap-6">
           {BLOG_POSTS.map((post) => (
             <GlassCard key={post.id} className="group hover:border-blue-500/30 transition-colors">
@@ -123,12 +123,12 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-2 items-center justify-between mt-auto">
                   <div className="flex gap-2">
-                      {post.tags.map(tag => (
+                    {post.tags.map(tag => (
                       <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
-                      ))}
+                    ))}
                   </div>
                   <a href={`/github-pages/content/posts/${post.id}`} className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Read more <ArrowRight size={14} />
+                    Read more <ArrowRight size={14} />
                   </a>
                 </div>
               </div>
@@ -163,8 +163,8 @@ export default function Home() {
                 </p>
                 <div className="flex items-center gap-4 text-sm mt-auto">
                   {project.links && project.links.map((link, idx) => (
-                    <a 
-                      key={idx} 
+                    <a
+                      key={idx}
                       href={link.url}
                       className="inline-flex items-center text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors"
                     >
