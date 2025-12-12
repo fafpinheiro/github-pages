@@ -16,6 +16,7 @@ const REPORTS = [
   { id: 'strategic', title: 'Strategic Generative Pipeline', category: 'Strategy' },
   { id: 'timeseries', title: 'Time Series Forecasting', category: 'Data Science' },
   { id: 'vrp', title: 'Vehicle Routing Problem', category: 'Optimization' },
+  { id: 'pcvrp', title: 'Periodic Capacitated Vehicle Routing Problem', category: 'Optimization' },
   { id: 'audio-signal-proc', title: 'Audio Signal Processing', category: 'Deep Learning' },
   { id: 'waste-logistics-architecture', title: 'Waste Logistics Architecture', category: 'Optimization' },
 ];
@@ -25,8 +26,8 @@ export default function ReportsIndexPage() {
     <div className="space-y-10 animate-in fade-in duration-500">
       <div className="flex justify-center mb-8">
         <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-            {/* Note: Ensure this image path is correct in your public folder */}
-          <img 
+          {/* Note: Ensure this image path is correct in your public folder */}
+          <img
             src={pageImage.src}
             alt="Jinx from Arcane"
             className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
@@ -46,11 +47,11 @@ export default function ReportsIndexPage() {
             <Link key={report.id} href={`/content/reports/${report.id}`} className="group">
               <GlassCard className="p-6 h-full hover:border-blue-500/50 transition-colors cursor-pointer">
                 <div className="flex justify-between items-start">
-                    <div>
-                        <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">{report.category}</span>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1 group-hover:text-blue-500 transition-colors">{report.title}</h3>
-                    </div>
-                    <ExternalLink size={18} className="text-slate-400 group-hover:text-blue-500" />
+                  <div>
+                    <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">{report.category}</span>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1 group-hover:text-blue-500 transition-colors">{report.title}</h3>
+                  </div>
+                  <ExternalLink size={18} className="text-slate-400 group-hover:text-blue-500" />
                 </div>
                 <p className="text-sm text-slate-500 mt-4">Click to view full HTML report.</p>
               </GlassCard>
