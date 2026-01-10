@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FileText, ExternalLink } from 'lucide-react';
 import SectionHeading from '@/src/components/ui/SectionHeading';
 import GlassCard from '@/src/components/ui/GlassCard';
-import pageImage from '@/assets/images/Jinx-League-of-Legends-League-of-Legends-arcane-Netflix-TV-Series-tv-series-video-game-characters-2233556.jpg';
+import pageImage from '@/assets/images/GcxP4GkXMAAX7az.jpeg';
 
 const OTHER_ITEMS = [
     { id: 'math-curriculum', title: 'Mathematics Curriculum', category: 'Education' },
@@ -26,12 +26,12 @@ export default function OtherIndexPage() {
             </div>
 
             <div className="text-center mb-12">
-                <h1 className="text-4xl font-display font-bold text-slate-900 dark:text-white">Other Projects</h1>
+                <h1 className="text-4xl font-display font-bold text-slate-900 dark:text-white">Other Stuff</h1>
                 <p className="text-slate-600 dark:text-slate-400 mt-2">Miscellaneous ramblings and roadmaps.</p>
             </div>
 
             <section>
-                <SectionHeading title="Available Projects" icon={<FileText className="text-blue-500" />} />
+                <SectionHeading title="Available Stuff" icon={<FileText className="text-blue-500" />} />
                 <div className="grid md:grid-cols-2 gap-6">
                     {OTHER_ITEMS.map((item) => (
                         <Link key={item.id} href={`/content/other/${item.id}`} className="group">
