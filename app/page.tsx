@@ -79,7 +79,7 @@ export default function Home() {
             Available for Research Collaboration
           </Badge>
           <h1 className="text-5xl font-display font-bold text-slate-900 dark:text-white leading-tight">
-            Exploring the intersection of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Artificial Intelligence</span>, <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Operations Research</span>, and <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-red-600">Combinatorial Optimization</span>.
+            Exploring the combination of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Artificial Intelligence</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Operations Research</span> for <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-red-600">Combinatorial Optimization</span>.
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
             I'm a scientist and engineer focused on <strong>Deep Reinforcement Learning</strong> and <strong>Operations Research</strong> methods to solve <strong>Combinatorial Optimization</strong> problems.

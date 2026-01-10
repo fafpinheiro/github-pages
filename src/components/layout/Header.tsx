@@ -12,6 +12,7 @@ import {
   Tv,
   FileText,
   PenTool,
+  Folder,
   Menu, // Import Menu icon for the closed state
   X,    // Import X icon for the open state
   Sun,
@@ -26,6 +27,7 @@ const NAV_ITEMS = [
   { label: 'Tools', href: '/content/tools', icon: Wrench },
   { label: 'Posts', href: '/content/posts', icon: PenTool },
   { label: 'Media', href: '/content/media', icon: Tv },
+  { label: 'Other', href: '/content/other', icon: Folder },
 ];
 
 interface HeaderProps {

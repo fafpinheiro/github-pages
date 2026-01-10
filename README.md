@@ -22,8 +22,9 @@ My own personal [github pages blog](https://acfharbinger.github.io/github-pages/
 - [HTML - HyperText Markup Language](https://html.com/)
 - [CSS - Cascading Style Sheets](https://www.w3.org/Style/CSS/Overview.en.html)
 - [TypeScript Programming Language](https://www.typescriptlang.org/)
+- [JavaScript Programming Language](https://www.javascript.com/)
 - [Tailwind CSS Framework](https://tailwindcss.com/)
-- [React TypeScript Framework](https://react.dev/)
+- [React JavaScript/TypeScript Framework](https://react.dev/)
 - [Next.JS React Framework](https://nextjs.org/)
 
 <footer>
