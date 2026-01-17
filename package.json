@@ -1,9 +1,9 @@
 {
-  "name": "acfharbinger-personal-website",
+  "name": "faf.pinheiro-personal-website",
   "version": "1.0.0",
   "private": true,
   "description": "A personal website and knowledge base built with Next.js, React, and TypeScript.",
-  "author": "ACFHarbinger",
+  "author": "fafpinheiro",
   "keywords": [
     "nextjs",
     "react",
@@ -20,7 +20,7 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
-  "homepage": "https://acfharbinger.github.io/github-pages",
+  "homepage": "https://fafpinheiro.github.io/github-pages",
   "dependencies": {
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.383.0",

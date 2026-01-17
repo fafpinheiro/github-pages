@@ -75,7 +75,7 @@ export default function ProjectsPage() {
                         <BookOpen className="w-4 h-4 mr-1" /> Dissertation PDF
                     </Link>
                     <Link 
-                        href="https://github.com/ACFHarbinger/rgmc" 
+                  href="https://github.com/fafpinheiro/FluidSimulation-MasterThesis" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className={linkStyles}
@@ -129,7 +129,7 @@ export default function ProjectsPage() {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Personal Website</h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">The website you are looking at right now, showcasing my blog posts and projects. Built with Next.js, React, and Tailwind CSS for modern design.</p>
             <Link 
-                href="https://github.com/ACFHarbinger/github-pages" 
+                href="https://github.com/fafpinheiro/github-pages" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={linkStyles}

@@ -49,10 +49,10 @@ const PROJECTS: Project[] = [
   {
     id: 'p2',
     title: 'CSE Master of Science (MSc) Dissertation',
-    description: 'Thesis: "Leveraging Deep Unsupervised Models Towards Learning Robust Multimodal Representations". Developed and compared new Multimodal Deep Unsupervised Models.',
+    description: 'Thesis: "Real-Time Fluid Simulation using Hard-Spheres Based Model". Devoloped and tested a real-time fluid simulation solution for videogames.',
     links: [
       { label: 'Dissertation PDF', url: '/github-pages/docs/IST_UL___MEIC_Thesis___Dissertacao_final__Copy_.pdf', icon: <BookOpen size={14} className="w-4 h-4 mr-1" /> },
-      { label: 'GitHub Repository', url: 'https://github.com/ACFHarbinger/rgmc', icon: <Code size={14} className="w-4 h-4 mr-1" /> }
+      { label: 'GitHub Repository', url: 'https://github.com/fafpinheiro/FluidSimulation-MasterThesis', icon: <Code size={14} className="w-4 h-4 mr-1" /> }
     ],
     stats: 'GNN',
     icon: undefined,

@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DEVELOPMENT\\github-pages\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\app\\content\\projects\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\content\\projects\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\app\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\page.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\components\\layout\\Sidebar.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\layout\\Sidebar.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\components\\layout\\Footer.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\layout\\Footer.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "deploy.yml",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\.github\\workflows\\deploy.yml",
+              "RelativeDocumentMoniker": ".github\\workflows\\deploy.yml",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\.github\\workflows\\deploy.yml",
+              "RelativeToolTip": ".github\\workflows\\deploy.yml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2026-01-17T22:58:51.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "page.tsx",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\app\\page.tsx",
+              "RelativeDocumentMoniker": "app\\page.tsx",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\app\\page.tsx",
+              "RelativeToolTip": "app\\page.tsx",
+              "ViewState": "AgIAAEsAAAAAAAAAAAArwDIAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T22:08:13.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Sidebar.tsx",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\components\\layout\\Sidebar.tsx",
+              "RelativeDocumentMoniker": "src\\components\\layout\\Sidebar.tsx",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\components\\layout\\Sidebar.tsx",
+              "RelativeToolTip": "src\\components\\layout\\Sidebar.tsx",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAjwGkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T22:06:49.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Footer.tsx",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\components\\layout\\Footer.tsx",
+              "RelativeDocumentMoniker": "src\\components\\layout\\Footer.tsx",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\components\\layout\\Footer.tsx",
+              "RelativeToolTip": "src\\components\\layout\\Footer.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T22:06:31.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "package.json",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-17T22:05:58.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\package-lock.json",
+              "RelativeDocumentMoniker": "package-lock.json",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\package-lock.json",
+              "RelativeToolTip": "package-lock.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-17T22:05:37.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "page.tsx",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\app\\content\\projects\\page.tsx",
+              "RelativeDocumentMoniker": "app\\content\\projects\\page.tsx",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\app\\content\\projects\\page.tsx",
+              "RelativeToolTip": "app\\content\\projects\\page.tsx",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAjwHUAAACXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T22:05:01.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "README.md",
+              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-01-17T22:03:03.678Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
