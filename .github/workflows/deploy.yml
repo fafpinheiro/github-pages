@@ -46,6 +46,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITPAGE_TOKEN }}
           # The directory created by 'next build' when output: 'export' is used
           publish_dir: ./out
