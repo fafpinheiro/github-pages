@@ -71,8 +71,8 @@ const Sidebar: React.FC<SidebarProps> = ({
           {!isCollapsed && (
             <>
               <Link href="/" className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="text-blue-500">ACF</span>
-                <span>Harbinger</span>
+                <span className="text-blue-500">Frederico</span>
+                <span>Pinheiro</span>
               </Link>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium dark:text-white">Scientist & Engineer</p>
               <p className="text-xs text-slate-400 mt-2 uppercase tracking-wider dark:text-white">CSE & Math</p>

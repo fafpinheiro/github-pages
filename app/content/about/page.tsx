@@ -22,7 +22,7 @@ export default function AboutPage() {
 
       <div className="space-y-2 text-center mb-12">
         <h1 className="text-4xl font-display font-bold text-slate-900 dark:text-white">About Me</h1>
-        <p className="text-slate-600 dark:text-slate-400">Researcher, Developer, and Multimedia Enthusiast</p>
+        <p className="text-slate-600 dark:text-slate-400">Software Engineer, Game Developer, and Multimedia Enthusiast</p>
       </div>
 
       {/* Current Work */}
@@ -30,12 +30,10 @@ export default function AboutPage() {
         <SectionHeading title="Current Work" icon={<Briefcase className="text-blue-500" />} />
         <GlassCard className="p-6">
           <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-            I'm currently a <strong>Doctoral Researcher</strong> at <a href="https://www.inesc-id.pt/" className="text-blue-600 dark:text-blue-400 hover:underline">INESC-ID</a> 
-            — where I'm developing new Deep Reinforcement Learning and Operations Research methods to solve Combinatorial Optimization tasks — and an <strong>Invited Assistant Professor</strong> at the Computer Science and Engineering 
-            department of <a href="https://tecnico.ulisboa.pt/en/" className="text-blue-600 dark:text-blue-400 hover:underline">IST</a>, where I teach courses 
-            about <a href="https://fenix.tecnico.ulisboa.pt/cursos/leic-t/disciplina-curricular/1408903891910867" className="text-blue-600 dark:text-blue-400 hover:underline">Distributed Systems</a>
-            , <a href="https://fenix.tecnico.ulisboa.pt/cursos/meic-t/disciplina-curricular/1127428915200223" className="text-blue-600 dark:text-blue-400 hover:underline">Cloud Computing and Virtualization</a>
-            ,and <a href="https://fenix.tecnico.ulisboa.pt/cursos/leic-t/disciplina-curricular/1971853845332781" className="text-blue-600 dark:text-blue-400 hover:underline">Computer Organization</a>.
+            I'm currently a <strong>Lead Software Developer</strong> at <a href="https://www.eti.pt/" className="text-blue-600 dark:text-blue-400 hover:underline">EMPORDEF Tecnologias de Informação SA</a> 
+            — where I'm developing new training solution for the defence and aviation industry, primarily working with Unreal Engine and C++ —
+            Alongside this, I work as an independent game developer, designing and building interactive experiences
+            with a strong focus on systems, performance, and player-driven design.
           </p>
         </GlassCard>
       </section>
@@ -72,22 +70,13 @@ export default function AboutPage() {
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Education</h3>
             <ul className="space-y-3 text-slate-700 dark:text-slate-300">
               <li>
-                <div className="font-semibold">PhD in Computer Science and Engineering</div>
-                <div className="text-sm text-slate-500">IST (2024 - Ongoing)</div>
-              </li>
-              <li>
-                <div className="font-semibold">MSc Exchange Program</div>
-                <div className="text-sm text-slate-500">POSTECH (2022 - 2023)</div>
-                <div className="text-xs text-slate-400 mt-1">Specialization: AI & Mathematics</div>
-              </li>
-              <li>
                 <div className="font-semibold">MSc in Computer Science and Engineering</div>
-                <div className="text-sm text-slate-500">IST (2021 - 2023)</div>
-                <div className="text-xs text-slate-400 mt-1">Specialization: AI & Cybersecurity</div>
+                <div className="text-sm text-slate-500">NOVA School of Science and Technology (2020 - 2023)</div>
+                <div className="text-xs text-slate-400 mt-1">Specialization: Computer Graphics & Simulation</div>
               </li>
               <li>
                 <div className="font-semibold">BSc in Computer Science and Engineering</div>
-                <div className="text-sm text-slate-500">IST (2018 - 2022)</div>
+                <div className="text-sm text-slate-500">NOVA School of Science and Technology (2017 - 2020)</div>
               </li>
             </ul>
           </GlassCard>
@@ -95,14 +84,9 @@ export default function AboutPage() {
           <GlassCard className="p-6">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Extracurriculars</h3>
             <ul className="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-300 text-sm">
-              <li>Eigenvalues (IST)</li>
-              <li>Machine Learning, Math & Ethics: Hands-on (IST)</li>
-              <li>Markov Matrices (IST)</li>
-              <li>Mathematics for Machine Learning (IST)</li>
+              <li>Advanced Unreal Engine Developer (ArCan Studios)</li>
+              <li>Multiplayer in Unreal Engine (ArCan Studios)</li>
               <li>Introduction to Computer Science (Harvard)</li>
-              <li>Christianity Through Its Scriptures (Harvard)</li>
-              <li>Machine Learning (Stanford)</li>
-              <li>Advanced Compilers (Cornell)</li>
             </ul>
           </GlassCard>
         </div>
@@ -116,13 +100,12 @@ export default function AboutPage() {
                 <div>
                     <h3 className="font-bold text-lg mb-3 dark:text-white">Interests</h3>
                     <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
-                        <li>Politics & History</li>
+                        <li>Game Development</li>
                         <li>Cinema & TV Series</li>
-                        <li>Anime & Manga</li>
+                        <li>Anime</li>
                         <li>Tabletop & Video Games</li>
-                        <li>Art & Design</li>
                         <li>Science & Tech</li>
-                        <li>Entrepreneurship & Marketing</li>
+                        <li>Entrepreneurship</li>
                     </ul>
                 </div>
                 <div>

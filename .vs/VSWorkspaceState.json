@@ -3,11 +3,14 @@
     "",
     "\\.github",
     "\\.github\\workflows",
+    "\\app",
+    "\\app\\content",
+    "\\app\\content\\about",
+    "\\app\\content\\media",
     "\\public",
-    "\\public\\docs",
-    "\\src",
-    "\\src\\components",
-    "\\src\\styles"
+    "\\public\\images\\workshop_posters",
+    "\\public\\reports\\css"
   ],
+  "SelectedNode": "\\app\\content\\about\\page.tsx",
   "PreviewInSolutionExplorer": false
 }

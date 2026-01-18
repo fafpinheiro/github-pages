@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 const basePath = nextConfig.basePath || ''; 
 
 export const metadata: Metadata = {
-  title: 'ACF | Harbinger',
+  title: 'Frederico | Pinheiro',
   description: 'Personal blog and portfolio.',
   icons: {
     icon: `${basePath}/favicon.ico`

@@ -12,8 +12,8 @@ describe('Header', () => {
 
     it('renders logo and navigation items', () => {
         render(<Header darkMode={false} toggleTheme={mockToggleTheme} />);
-        expect(screen.getByText('ACF')).toBeInTheDocument();
-        expect(screen.getByText('Harbinger')).toBeInTheDocument();
+        expect(screen.getByText('Frederico')).toBeInTheDocument();
+        expect(screen.getByText('Pinheiro')).toBeInTheDocument();
     });
 
     it('toggles mobile menu', () => {
