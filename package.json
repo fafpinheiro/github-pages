@@ -1,53 +1,29 @@
 {
-  "name": "faf.pinheiro-personal-website",
-  "version": "1.0.0",
+  "name": "portfolio",
+  "version": "0.1.0",
   "private": true,
-  "description": "A personal website and knowledge base built with Next.js, React, and TypeScript.",
-  "author": "fafpinheiro",
-  "keywords": [
-    "nextjs",
-    "react",
-    "typescript",
-    "tailwind",
-    "portfolio"
-  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "npx serve@latest out",
-    "lint": "next lint",
-    "deploy": "next build && touch out/.nojekyll",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "homepage": "https://fafpinheiro.github.io/github-pages",
   "dependencies": {
-    "gray-matter": "^4.0.3",
-    "lucide-react": "^0.383.0",
-    "next": "^14.2.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "serve": "^14.2.5"
+    "vue": "^2.6.11",
+    "vue-router": "^3.4.3"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.2.3",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.1",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^20.12.12",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.19",
-    "cypress": "^15.8.2",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.3",
-    "jest": "^30.2.0",
-    "jest-environment-jsdom": "^30.2.0",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "ts-jest": "^29.4.6",
-    "typescript": "^5.4.5"
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "^4.5.6",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
+    "typescript": "~3.9.3",
+    "vue-template-compiler": "^2.6.11"
   }
 }
