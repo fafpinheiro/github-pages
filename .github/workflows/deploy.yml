@@ -40,7 +40,7 @@ jobs:
       # 5. Add .nojekyll file to prevent GitHub from running Jekyll processing
       # The .nojekyll file must be present in the deployment folder (out/)
       - name: Add .nojekyll
-        run: touch out/.nojekyll
+        run: touch dist/.nojekyll
 
       # 6. Deploy the static content to the gh-pages branch
       - name: Deploy to GitHub Pages
