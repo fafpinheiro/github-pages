@@ -1,40 +1,46 @@
-<header>
+# What is this ?
+This is a portfolio template that you can use to showcase your work, especially if it's comprised of projects that should be shown in a very visual way.
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+Looking for a game developer job, I needed a portfolio to present my work to recruiters. I found a lot of custom made portfolios, but no easy to use template unless I used Wordpress. Which was overkill to me because a static HTML/JS website would do fine.
 
-# Github Pages
+So i created my own using VueJS, keeping in mind that I wanted it to be easily customisable so other people can use this as a base to make their own. It's very simple, static, fast and responsive.
 
-My own personal [github pages blog](https://fafpinheiro.github.io/github-pages/)!
+For a real world use case, check my portfolio: https://schouffy.github.io
 
-</header>
 
-<!--
-  <<< Author notes: Finish >>>
-  Review what we learned, ask for feedback, provide next steps.
--->
+# How to use
 
-## Tech Stack
-- [HTML - HyperText Markup Language](https://html.com/)
-- [CSS - Cascading Style Sheets](https://www.w3.org/Style/CSS/Overview.en.html)
-- [TypeScript Programming Language](https://www.typescriptlang.org/)
-- [JavaScript Programming Language](https://www.javascript.com/)
-- [Tailwind CSS Framework](https://tailwindcss.com/)
-- [React JavaScript/TypeScript Framework](https://react.dev/)
-- [Next.JS React Framework](https://nextjs.org/)
+1. Install
 
-<footer>
+    - Fork or duplicate the repository
+    - npm install
+    - npm run serve
+    - If any issue with serve, please read this: https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported For Windows Powershell, you can fix with `$env:NODE_OPTIONS = '--openssl-legacy-provider'` then `npm run serve`
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+2. Customize
+* For the content
+    - Except for the projects pages, everything is static HTML that you can edit directly in the views and components files
+    - For the projects pages, the page is dynamically populated at runtime using data stored in Typescript files (data/GameProjectsData.ts and data/OtherProjectsData.ts). Make the changes directly in these .ts files
+    - Static files (images, icons, downloadables,..) should be placed in /public folder.
+    - Make the necessary changes in the .env file (this is mostly the site metadata). You need to "npm run serve" again when updating this file.
 
----
+* For the style
+    - The basic colors can be edited in the css/variables.less file.
+    - The rest of the CSS can be edited, if need be, directly inside each view and component.
+    - If you place custom CSS in your projects HTML data (that will be displayed in an overlay dialog), you must add the definition for this CSS in the css/projects.less file
 
-Get help: [Post in github's discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-</footer>
+* Additional info & optimizations
+    - Images will be loaded on-demand when you switch tabs. It means if you have big images or animated gifs, you may want to preload them so the user sees them faster when they change tabs. To do this, you can call Helpers.preloadImages in app.vue to preload heavy images.
+
+3. Deploy
+
+    - npm run build
+    - copy the content of the "dist" folder (created by "npm run build") to the publish location.
+    - Check this example if you want to deploy to GitHub pages or some other major static content host: https://cli.vuejs.org/guide/deployment.html#github-pages
+
+
+# License
+
+This is GNU LGPL, check the LICENSE file.
+
+Please consider keeping the link to this repository at the bottom of your portfolio, so other people can find and use this template too. Of course it's not mandatory though.
