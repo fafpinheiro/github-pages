@@ -1,8 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public"
+    "\\public",
+    "\\public\\img",
+    "\\public\\img\\projects",
+    "\\src",
+    "\\src\\css",
+    "\\src\\data",
+    "\\src\\router",
+    "\\src\\views"
   ],
-  "SelectedNode": "\\public",
+  "SelectedNode": "\\public\\img\\TTSTrailer.mp4",
   "PreviewInSolutionExplorer": false
 }
