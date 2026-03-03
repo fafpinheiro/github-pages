@@ -72,7 +72,7 @@ export default [
 
 
     `, "#23bd69", true),
-    new ProjectData("project-2", "Through the Storm", "img/projects/project-2-icon.png", `
+    new ProjectData("project-2", "Through the Storm", "img/projects/ThroughTheStormBanner.png", `
     
 
     <div class="paragraph">
@@ -127,12 +127,7 @@ export default [
         </ul>
     </div>
 
-    <div class="paragraph">
-    <div class="notice">
-        Windows build available on <a href="https://some.where/nice" target="_blank">itch.io</a>.
-        Source code is available on <a href="https://github.com/yourself" target="_blank">GitHub</a>.
-    </div>
-    </div>
+
 
     <div class="paragraph">
         <p>
@@ -152,11 +147,18 @@ export default [
             </div>
         </p>
 
-        <strong>Notebooks:</strong>This feature adds an in-game notebook that the player can access at any time. It stores all the story notes and clues the player has discovered, allowing them to review important information whenever needed. The notebook also shows the current objective, helping players stay on track and follow the story without getting lost.
+        <strong>Notebook:</strong>This feature adds an in-game notebook that the player can access at any time. It stores all the story notes and clues the player has discovered, allowing them to review important information whenever needed. The notebook also shows the current objective, helping players stay on track and follow the story without getting lost.
+    </div>
+
+     <div class="paragraph">
+    <div class="notice">
+        Windows build available on <a href="https://some.where/nice" target="_blank">itch.io</a>.
+        Source code is available on <a href="https://github.com/yourself" target="_blank">GitHub</a>.
+    </div>
     </div>
 
     `, "#5a78af"),
-    new ProjectData("project-3", "Drawing Overload", "img/projects/project-3-icon.png", `
+    new ProjectData("project-3", "Drawing Overload", "img/projects/trafficDemo.png", `
     <div class="paragraph">
         <strong>Drawing Overload</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
         <br/>Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@miphotography">Miesha Maiden</a>.

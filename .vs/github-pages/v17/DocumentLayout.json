@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\data\\GameProjectsData.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\views\\About.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\views\\About.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\views\\GameProjects.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\views\\GameProjects.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\views\\About.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\views\\About.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -86,7 +86,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "About.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\views\\About.vue",
               "RelativeDocumentMoniker": "src\\views\\About.vue",
@@ -104,20 +104,20 @@
               "RelativeDocumentMoniker": "src\\data\\GameProjectsData.ts",
               "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\data\\GameProjectsData.ts",
               "RelativeToolTip": "src\\data\\GameProjectsData.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2026-03-01T18:08:26.973Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GameProjects.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\views\\GameProjects.vue",
               "RelativeDocumentMoniker": "src\\views\\GameProjects.vue",
               "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\views\\GameProjects.vue",
               "RelativeToolTip": "src\\views\\GameProjects.vue",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
               "WhenOpened": "2026-03-01T18:07:02.145Z"
             },
