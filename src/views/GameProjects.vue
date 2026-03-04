@@ -3,7 +3,7 @@
     <h1>Games and Simulation Projects</h1>
 
     <div style="margin-bottom: 30px;">
-      The following are some projects I've made or heavily contributed to.
+        These projects showcase my work in game development and simulation, highlighting system design, real-time interaction, and technical problem solving.
     </div>
 
     <ProjectsList v-bind:projects="projects" />

@@ -3,13 +3,13 @@
     "",
     "\\public",
     "\\public\\img",
-    "\\public\\img\\projects",
     "\\src",
+    "\\src\\components",
     "\\src\\css",
     "\\src\\data",
     "\\src\\router",
     "\\src\\views"
   ],
-  "SelectedNode": "\\public",
+  "SelectedNode": "\\public\\img\\me.jpg",
   "PreviewInSolutionExplorer": false
 }

@@ -76,16 +76,25 @@ export default [
     
 
     <div class="paragraph">
-        <p>
-            <strong>Gameplay and Main Mechanics</strong>
-            </br>
-            In the first part of the game, the player will be placed near the investigation station, where he must go and explore the surroundings. In the station the player will have to solve some mini puzzles and find clues to find out what happened. Also there, the player will face the enemies for the first time, having the option to try to sneak through it, or fight them head on. After leaving the station, the player will have to explore the wilds for more clues, face more enemies and a bit of sledging through the snow along the ways.
-        </p>
-
+        <div class="paragraph center">
+            <p>
+                <strong>Game's Premise</strong>
+        </div>
+                This project is a third person narrative driven survival game set in a frozen, isolated environment.
+                The core design is around player choice: investigate, sneak, or fight, with each system deeply integrated
+                into gameplay.
+                </br>
+                </br>
+                The game starts near an abandoned investigation station, where the player begins investigating what happened through
+                environmental storytelling, puzzles, and notes. From there, the experience expands into open snowy environments,
+                combining exploration, stealth mechanics, combat, and a sledging sequence.
+            </p>
+        
         <div class="paragraph center">
             <video controls width="600">
             <source src="img/TTSTrailer.mp4" type="video/mp4">
         </video>
+        </div>
 
         <ul>
             <li><strong>Investigation:</strong> While exploring the player can find some written notes to read, and an occasional radio log to listen.</li>
@@ -97,6 +106,72 @@ export default [
             <li><strong>Sledging:</strong> In a moment of the game the player will have to sledge through a snow hill, having to dodge various obstacles until the player arrives at the bottom of the hill.</li>
             
         </ul>
+    </div>
+
+    <div class="paragraph">
+        <div class="paragraph center">
+            <p>
+                <strong>Core Gameplay Systems</strong>
+        </div>
+                <strong>Investigation & Environmental Storytelling:</strong>
+                </br>
+                The first gameplay layer focuses on exploration and narrative discovery.
+                <ul>
+                    <li>Collectible written notes.</li>
+
+                    <li>Interactive radio logs with voice acting.</li>
+
+                    <li>Logbook-style UI system.</li>
+
+                    <li>Environmental clues tied to progression</li>
+                </ul>
+                The goal was to make story feel organic rather than cutscene-driven.
+            </p>
+    </div>
+
+    <div class="paragraph">
+        <div class="paragraph center">
+            <p>
+                <strong>Stealth System</strong>
+        </div>
+                <strong>Implemented features:</strong>
+                </br>
+                <ul>
+                    <li>Line-of-sight detection using multiple raycasts.</li>
+
+                    <li>Field-of-view checks with angle calculations.</li>
+
+                    <li>Cover-based movement mechanics.</li>
+
+                    <li>AI states.</li>
+                </ul>
+                Enemies use A* pathfinding for navigation, allowing dynamic pursuit across the map. Coroutines are used to manage AI state transitions and timed behaviors.
+            </p>
+    </div>
+
+    <div class="paragraph">
+        <div class="paragraph center">
+            <p>
+                <strong>Combat System (Melee-Based)</strong>
+                </br>
+                
+        </div>
+        If stealth fails, or the player chooses aggression, combat becomes active.
+                <strong>Features include:</strong>
+                </br>
+                <ul>
+                    <li>Melee attack system.</li>
+
+                    <li>Enemy attack patterns.</li>
+
+                    <li>Hit detection and damage system.</li>
+
+                    <li>Health management.</li>
+
+                    <li>Animation driven attack timing.</li>
+                </ul>
+                This reinforced my understanding of animation state machines and gameplay synchronization.
+                </p>
     </div>
 
     <div class="paragraph">
@@ -158,7 +233,7 @@ export default [
     </div>
 
     `, "#5a78af"),
-    new ProjectData("project-3", "Drawing Overload", "img/projects/trafficDemo.png", `
+    new ProjectData("project-3", "Traffic Demo", "img/projects/trafficDemo.png", `
     <div class="paragraph">
         <strong>Drawing Overload</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
         <br/>Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@miphotography">Miesha Maiden</a>.
@@ -191,59 +266,107 @@ export default [
         <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Drawing Overload Screenshot" />
     </div>
     `, "#383838"),
-    new ProjectData("project-4", "Eugeneable", "img/projects/project-4-icon.png", `
+    new ProjectData("project-4", "Galactic Hunter", "img/projects/GalacticHunterBanner.png", `
     <div class="paragraph">
-    <strong>Eugeneable</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
-    <br/>Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@neo8iam">NEOSiAM 2020</a>.
-    </div>
-    
-    <div class="paragraph">
-        Main features :
-        <ul>
-        <li>Some stuff</li>
-        <li>Some great stuff</li>
-        <li>More awesome stuff</li>
-        <li>And then some</li>
-        </ul>
-    </div>
-
-    <div class="paragraph">
-        <div class="notice">
-        Windows build available on <a href="https://some.where/nice" target="_blank">itch.io</a>.
-        </div>
+    This project was my first game developed in Unity, and the main goal wasn’t just to make something playable,
+    but to understand the core architecture of the engine and how everything connects under the hood.
+    </br>
+    For the visual direction, I used Ratchet & Clank as a reference. I was inspired by its stylized sci-fi aesthetic,
+    colorful environments, and third-person action gameplay.
     </div>
 
     <div class="paragraph center">
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Eugeneable Screenshot" />
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Eugeneable Screenshot" />
+            <video controls width="600">
+            <source src="img/projects/GalacticHunterTrailer.mp4" type="video/mp4">
+        </video>
+        </div>
+
+    <div class="paragraph">
+        <div class="paragraph center">
+            <p>
+                <strong>Main Objectives</strong>
+        </div>
+                <strong>The primary objective of the project was to learn:</strong>
+                </br>
+                <ul>
+                    <li>How Unity’s component-based architecture works.</li>
+
+                    <li>Scripting gameplay systems in C#.</li>
+
+                    <li>Structuring a small but scalable game architecture.</li>
+                </ul>
+                This project was essentially my foundation for understanding how gameplay systems communicate and how to organize code in a clean and modular way.
+            </p>
+    </div>
+
+    <div class="paragraph">
+        <div class="paragraph center">
+            <p>
+                <strong>Combat</strong>
+        </div>
+                <strong>Both the player and enemies can attack. I implemented:</strong>
+                </br>
+                <ul>
+                    <li>Hit detection.</li>
+
+                    <li>Damage logic.</li>
+
+                    <li>Attack triggers tied to animations.</li>
+
+                    <li>Basic health system.</li>
+
+                    <li>Enemy AI with Pathfinding</li>
+                </ul>
+                This required synchronizing gameplay logic with animation timing.
+            </p>
+    </div>
+
+    <div class="paragraph">
+        <div class="paragraph center">
+            <p>
+                <strong>Animations & Animation Blending</strong>
+        </div>
+                I worked with Unity’s Animator Controller to implement animation states and transitions
+                </br>
+                <ul>
+                    <li>Idle, walk, strafe, jump, and run animations.</li>
+
+                    <li>Attack triggers tied to animations.</li>
+
+                    <li>Animation blending for smooth transitions</li>
+
+                     <li>Enemy AI with Pathfinding</li>
+                </ul>
+                This helped me understand state machines and animation parameters.
+            </p>
     </div>
     `, "#e80fb7"),
-    new ProjectData("project-5", "Cloud Drew Land", "img/projects/project-5-icon.png", `
-    <div class="paragraph">
-        <strong>Cloud Drew Land</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
-        <br/>Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@cottonbro">cottonbro</a>.
-    </div>
-    
-    <div class="paragraph">
-        Main features :
-        <ul>
-        <li>Some stuff</li>
-        <li>Some great stuff</li>
-        <li>More awesome stuff</li>
-        <li>And then some</li>
-        </ul>
-    </div>
-
-    <div class="paragraph">
-        <div class="notice">
-        Windows build available on <a href="https://some.where/nice" target="_blank">itch.io</a>.
-        Source code available on <a href="https://github.com/yourself" target="_blank">GitHub</a>.
-        </div>
-    </div>
-
-    <div class="paragraph center">
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Cloud Drew Land Screenshot" />
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Cloud Drew Land Screenshot" />
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Cloud Drew Land Screenshot" />
-    </div>`, "#e48246")
+    //new ProjectData("project-5", "Cloud Drew Land", "img/projects/project-5-icon.png", `
+    //<div class="paragraph">
+    //    <strong>Cloud Drew Land</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
+    //    <br/>Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@cottonbro">cottonbro</a>.
+    //</div>
+    //
+    //<div class="paragraph">
+    //    Main features :
+    //    <ul>
+    //    <li>Some stuff</li>
+    //    <li>Some great stuff</li>
+    //    <li>More awesome stuff</li>
+    //    <li>And then some</li>
+    //    </ul>
+    //</div>
+    //
+    //<div class="paragraph">
+    //    <div class="notice">
+    //    Windows build available on <a href="https://some.where/nice" target="_blank">itch.io</a>.
+    //    Source code available on <a href="https://github.com/yourself" target="_blank">GitHub</a>.
+    //    </div>
+    //</div>
+    //
+    //<div class="paragraph center">
+    //    <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Cloud Drew Land Screenshot" />
+    //    <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Cloud Drew Land Screenshot" />
+    //    <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Cloud Drew Land Screenshot" />
+    //</div>`, "#e48246")
 ];

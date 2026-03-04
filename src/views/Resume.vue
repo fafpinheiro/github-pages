@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Resume</h1>
+    <h1><strong>Resume</strong></h1>
 
     <div class="paragraph">
         I'm <strong>Frederico Pinheiro</strong>, a software developer with 3+ years of experience in the aerospace industry, currently focused on building
@@ -21,15 +21,15 @@
         </div>
     </div>
     <div class="photo">
-      <img src="img/resume-photo.png" alt="Photo of John" />
+      <img src="img/me.jpg" alt="Photo of Fred" />
     </div>
 
     <div style="clear:both"></div>
 
     <div class="full-content">
-        <h2>Work experience</h2>
+        <h2><strong>Work experience</strong></h2>
 
-        <h3><strong>Software Developer</strong> - Empordef Tecnologias de Informação, S.A</h3>\href{https://eti.pt/}
+        <h3><strong>Software Developer</strong> - <a href="https://eti.pt/" target="_blank">Empordef Tecnologias de Informação, S.A</a></h3>
         <h4>December 2022 - Now</h4>
 
         <ul id="myList">
@@ -60,9 +60,9 @@
 
     <div class="tech-stack">Firearms, knives, grenades, Hummer vehicle, parachute,...</div>-->
 
-        <h2>Skills</h2>
+        <!--<h2>Skills</h2>-->
 
-        <div class="skill-set">
+        <!--<div class="skill-set">
             <h3>Lethal</h3>
             <SkillRate name="Handguns" :rate="5" />
             <SkillRate name="Rifles" :rate="5" />
@@ -72,17 +72,29 @@
             <SkillRate name="Knives" :rate="5" />
             <SkillRate name="Hand to hand combat" :rate="5" />
         </div>
-
+       
         <div class="skill-set">
             <h3>Non-lethal</h3>
             <SkillRate name="Sneaking" :rate="1" />
             <SkillRate name="Negotiation" :rate="1" />
             <SkillRate name="Seduction" :rate="1" />
             <SkillRate name="Sense of humor" :rate="2" />
-        </div>
-        <div style="clear:both" />
+        </div>-->
+       <!-- <div style="clear:both" />-->
 
-        <h2>Education</h2>
+        <div class="section">
+            <h3><strong>Technical Skills</strong> &amp; <strong>Soft Skills</strong></h3>
+
+            <p><strong>Languages:</strong> C++, C#, OpenGL, Java</p>
+            <p><strong>Frameworks:</strong> Unreal Engine 5, VBS4, Unity, Angular</p>
+            <p><strong>Developer Tools:</strong> GitHub, GitLab, TortoiseSVN</p>
+            <p><strong>Modeling Systems:</strong> UML, StarUML</p>
+            <p><strong>Soft Skills:</strong> Team work, Problem solving, Creative, Ambitious, Resilient, Self-motivated</p>
+
+        </div>
+
+
+        <h2><strong>Education</strong></h2>
 
         <h3>NOVA School of Science and Technology (FCT NOVA) - 2020 - 2023</h3>
         <h4>Master’s degree in Computer science and Engineering</h4>
@@ -102,17 +114,17 @@
 
         <h2>Besides...</h2>
         <div>
-            <h3>I ❤️ Violence</h3>
-            <div>I find it really soothing to just shoot at bad guys</div>
+            <h3>I ❤️ Creative Writing</h3>
+           <!-- <div>Currently developing the narrative concept for a dream game project of mine.</div>-->
 
-            <h3>I 🧡 Sports</h3>
-            <div>I used to be thin but then I ingested 10 kilos of steroids and proteins a day while doing 1000 push-ups.</div>
+            <h3>I 🧡 Astronomy</h3>
+           <!-- <div>Always watching the stars.</div>-->
 
-            <h3>I 💛 Politics</h3>
-            <div>I hope I can have a career here someday but I might have temper issues.</div>
+            <h3>I 💛 Reading</h3>
+           <!-- <div>Big fan of Lord of The Rings.</div>-->
 
-            <h3>I 💚 Flowers</h3>
-            <div>Especially the big ones, with the trunk and leaves.</div>
+            <h3>I 💚 Board Games</h3>
+           <!-- <div>Game nights with my friends.</div>-->
 
         </div>
     </div>
@@ -121,12 +133,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import SkillRate from "@/components/SkillRate.vue";
+//import SkillRate from "@/components/SkillRate.vue";
 
 export default Vue.extend({
   name: "Resume",
   components: {
-    SkillRate,
+    //SkillRate,
   },
 });
 </script>

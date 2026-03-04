@@ -14,7 +14,8 @@
       <!--<div style="margin-top: 20px;">I've worked on  <router-link to="/game-projects">stuff</router-link>, on <router-link to="/other-projects">other stuff</router-link>, and took part in <router-link to="/resume">a few things</router-link> as well.</div>-->
 
         <div style="margin-top: 40px;">
-            I'm <strong>currently looking to</strong> combine my passion, with my experience in interactive 3D simulations by pursuing a position in the Video Games Industry. <br/> You can reach me at <a href="mailto:johnmatrix@deltaforce.us">johnmatrix@deltaforce.us</a> or <router-link to="/contact">through here</router-link>.
+            I'm <strong>currently looking to</strong> combine my passion, with my experience in interactive 3D simulations by pursuing a position in the Video Games Industry.
+            <br /> You can reach me <router-link to="/contact">through here</router-link>.
         </div>
     </div>
 
