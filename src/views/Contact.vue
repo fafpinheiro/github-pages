@@ -3,12 +3,12 @@
     
     <h1>Let's get in touch</h1>
 
-    <div style="margin-bottom:40px;">I'm looking for a job !<br/>Feel free to contact me about any opportunity, or just to chat about cooking, kittens or anything else.</div>
+    <div style="margin-bottom:40px;">I'm looking for a job in the Game Development Industry<br/>Feel free to contact me about any opportunity, or just to chat about cooking, kittens or anything else.</div>
 
     <ul>
         <li>
             <i class="fa fa-user-circle-o fa-lg fa-fw"></i>
-            <a href="https://fafpinheiro.github.io/github-pages/#/" target="_blank">https://mywebsite.com</a>
+            <a href="https://fafpinheiro.github.io/github-pages/#/" target="_blank">https://frederico_pinheiro.com</a>
         </li>
         <li>
             <i class="fa fa-envelope-o fa-lg fa-fw"></i>
