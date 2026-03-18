@@ -3,6 +3,7 @@
     "",
     "\\public",
     "\\public\\img",
+    "\\public\\img\\projects",
     "\\src",
     "\\src\\components",
     "\\src\\css",
@@ -10,5 +11,6 @@
     "\\src\\router",
     "\\src\\views"
   ],
+  "SelectedNode": "\\public",
   "PreviewInSolutionExplorer": false
 }

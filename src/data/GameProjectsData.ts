@@ -235,21 +235,110 @@ export default [
     `, "#5a78af"),
     new ProjectData("project-3", "Traffic Demo", "img/projects/trafficDemo.png", `
     <div class="paragraph">
-        <strong>Drawing Overload</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
-        <br/>Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@miphotography">Miesha Maiden</a>.
+        
+
+        This project is a 3D isometric city-building simulation developed in Unity. The playable area consists of a 30x30 unit grid-based
+        city where the player can place structures and modify the environment to create a more habitable urban space.
+
+        What makes this project unique is the inclusion of a special object: a black hole. Once placed, it generates a gravitational
+        field that pulls nearby objects toward it, eventually absorbing them and dynamically altering the city.
+
+        The project focuses heavily on system architecture, grid management, input handling, shader work, and physics simulation.
     </div>
     <div class="paragraph center">
-        <iframe class="youtube" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <video controls width="600">
+        <source src="img/projects/TrafficDemoTrailer.mp4" type="video/mp4">
+    </video>
     </div>
 
     <div class="paragraph">
-        Main features :
-        <ul>
-        <li>Some stuff</li>
-        <li>Some great stuff</li>
-        <li>More awesome stuff</li>
-        <li>And then some</li>
-        </ul>
+        <div class="paragraph center">
+            <p>
+                <strong>Core Gameplay Loop</strong>
+        </div>
+                The game starts with a preloaded board containing vegetation, buildings, and roads. The player uses a UI panel to select objects and place them on available grid cells.
+                </br>
+                <strong>Main interactions:</strong>
+                <ul>
+                    <li>Select object from UI.</li>
+
+                    <li>Preview placement in 3D space.</li>
+
+                    <li>Place object on a valid grid cell.</li>
+
+                    <li>Optionally deploy a black hole and observe its physical impact</li>
+                </ul>
+                The goal was to make story feel organic rather than cutscene-driven.
+            </p>
+    </div>
+
+    <div class="paragraph">
+        <div class="paragraph center">
+            <p>
+                <strong>Implemented Systems</strong>
+        </div>
+                <strong>Grid & Data Architecture</strong>
+                </br>
+                At the core of the project is a custom grid data system built on top of Unity’s Grid component.
+                <ul>
+                    <li>30x30 grid-based board.</li>
+
+                    <li>Cell occupation tracking.</li>
+
+                    <li>Data mapping per cell.</li>
+
+                    <li>Database like structure for storing placed object information.-</li>
+                </ul>
+
+                </p>
+
+                <strong>Object Placement System</strong>
+                </br>
+                The placement system is modular and event-driven. This required:
+                <ul>
+                    <li>Mouse to world coordinate conversion.</li>
+
+                    <li>Grid snapping logic</li>
+
+                    <li>Object instantiation with persistent state storage.</li>
+                </ul>
+
+                </p>
+
+                <strong>Shader Work & Visual Feedback</strong>
+                </br>
+                Several custom Unlit Shader Graph (for performance) implementations were created:
+                <ul>
+                    <li>Grid bounds toggle shader to visualize valid placement areas.</li>
+
+                    <li>UI to 3D transition shader for smooth object preview effects.</li>
+
+                    <li>Black hole shader simulating distortion and visual pull.</li>
+                </ul>
+                The black hole shader creates a stylized distortion effect on surrounding geometry to enhance the sense of gravitational force.
+
+                </p>
+
+                <strong>Gravitational Physics System</strong>
+                </br>
+                When placed:
+                <ul>
+                    <li>It calculates gravitational attraction forces.</li>
+
+                    <li>Applies physics-based pull to nearby objects.</li>
+
+                    <li>Simulates absorption behavior.</li>
+                </ul>
+                This required:
+                <ul>
+                    <li>Custom force calculations.</li>
+
+                    <li>Rigidbody manipulation.</li>
+
+                    <li>Controlled physics interactions to prevent instability.</li>
+                </ul>
+                The result is a dynamic destruction mechanic that directly interacts with the city building system.
+                </p>
     </div>
 
     <div class="paragraph">
@@ -259,12 +348,7 @@ export default [
         </div>
     </div>
 
-    <div class="paragraph center">
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Drawing Overload Screenshot" />
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Drawing Overload Screenshot" />
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Drawing Overload Screenshot" />
-        <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Drawing Overload Screenshot" />
-    </div>
+
     `, "#383838"),
     new ProjectData("project-4", "Galactic Hunter", "img/projects/GalacticHunterBanner.png", `
     <div class="paragraph">
