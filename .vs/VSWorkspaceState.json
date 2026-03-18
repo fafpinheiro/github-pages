@@ -1,14 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\dist\\d",
-    "\\dist\\img",
     "\\src",
     "\\src\\css",
     "\\src\\data",
     "\\src\\router",
     "\\src\\views"
   ],
-  "SelectedNode": "\\src\\views\\Resume.vue",
   "PreviewInSolutionExplorer": false
 }

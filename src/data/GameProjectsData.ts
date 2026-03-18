@@ -225,7 +225,6 @@ export default [
         <strong>Notebook:</strong>This feature adds an in-game notebook that the player can access at any time. It stores all the story notes and clues the player has discovered, allowing them to review important information whenever needed. The notebook also shows the current objective, helping players stay on track and follow the story without getting lost.
     </div>
 
-
     `, "#5a78af"),
     new ProjectData("project-3", "Traffic Demo", "img/projects/trafficDemo.png", `
     <div class="paragraph">
@@ -237,6 +236,7 @@ export default [
         field that pulls nearby objects toward it, eventually absorbing them and dynamically altering the city.
 
         The project focuses heavily on system architecture, grid management, input handling, shader work, and physics simulation.
+
     </div>
     <div class="paragraph center">
         <video controls width="600">
@@ -333,8 +333,6 @@ export default [
                 The result is a dynamic destruction mechanic that directly interacts with the city building system.
                 </p>
     </div>
-
-
 
     `, "#383838"),
     new ProjectData("project-4", "Galactic Hunter", "img/projects/GalacticHunterBanner.png", `
