@@ -235,7 +235,6 @@ export default [
     `, "#5a78af"),
     new ProjectData("project-3", "Traffic Demo", "img/projects/trafficDemo.png", `
     <div class="paragraph">
-        
 
         This project is a 3D isometric city-building simulation developed in Unity. The playable area consists of a 30x30 unit grid-based
         city where the player can place structures and modify the environment to create a more habitable urban space.
