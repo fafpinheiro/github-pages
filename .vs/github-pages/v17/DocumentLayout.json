@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\data\\GameProjectsData.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\views\\Resume.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\views\\Resume.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\data\\ProjectData.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\data\\ProjectData.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
@@ -15,40 +23,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\views\\Contact.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\css\\projects.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\css\\projects.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\public\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:public\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\dist\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dist\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\App.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\components\\SkillRate.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\SkillRate.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\css\\variables.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\css\\variables.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\views\\Resume.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\views\\Resume.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEVELOPMENT\\github-pages\\src\\views\\About.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -122,71 +102,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SkillRate.vue",
-              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\components\\SkillRate.vue",
-              "RelativeDocumentMoniker": "src\\components\\SkillRate.vue",
-              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\components\\SkillRate.vue",
-              "RelativeToolTip": "src\\components\\SkillRate.vue",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-04T00:14:29.969Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "index.html",
-              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\public\\index.html",
-              "RelativeDocumentMoniker": "public\\index.html",
-              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\public\\index.html",
-              "RelativeToolTip": "public\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-03-04T00:21:35.348Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "index.html",
-              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\dist\\index.html",
-              "RelativeDocumentMoniker": "dist\\index.html",
-              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\dist\\index.html",
-              "RelativeToolTip": "dist\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAADiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-03-04T00:14:54.176Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.vue",
-              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\App.vue",
-              "RelativeDocumentMoniker": "src\\App.vue",
-              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\App.vue",
-              "RelativeToolTip": "src\\App.vue",
-              "ViewState": "AgIAABEAAAAAAAAAAAAuwCAAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-04T00:14:35.189Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "projects.less",
-              "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\css\\projects.less",
-              "RelativeDocumentMoniker": "src\\css\\projects.less",
-              "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\css\\projects.less",
-              "RelativeToolTip": "src\\css\\projects.less",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001682|",
-              "WhenOpened": "2026-03-04T00:14:25.3Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "variables.less",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\css\\variables.less",
               "RelativeDocumentMoniker": "src\\css\\variables.less",
@@ -198,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
               "Title": ".env",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\.env",
               "RelativeDocumentMoniker": ".env",
@@ -210,19 +130,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "Resume.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\views\\Resume.vue",
               "RelativeDocumentMoniker": "src\\views\\Resume.vue",
               "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\views\\Resume.vue",
               "RelativeToolTip": "src\\views\\Resume.vue",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAACHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-03T23:21:57.052Z"
+              "WhenOpened": "2026-03-03T23:21:57.052Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Contact.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\views\\Contact.vue",
               "RelativeDocumentMoniker": "src\\views\\Contact.vue",
@@ -234,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 9,
               "Title": "Header.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\components\\Header.vue",
               "RelativeDocumentMoniker": "src\\components\\Header.vue",
@@ -246,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ProjectData.ts",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\data\\ProjectData.ts",
               "RelativeDocumentMoniker": "src\\data\\ProjectData.ts",
@@ -258,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "About.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\views\\About.vue",
               "RelativeDocumentMoniker": "src\\views\\About.vue",
@@ -276,14 +197,14 @@
               "RelativeDocumentMoniker": "src\\data\\GameProjectsData.ts",
               "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\data\\GameProjectsData.ts",
               "RelativeToolTip": "src\\data\\GameProjectsData.ts",
-              "ViewState": "AgIAAN8AAAAAAAAAAAAuwO0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAAAOIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2026-03-01T18:08:26.973Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 10,
               "Title": "GameProjects.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\views\\GameProjects.vue",
               "RelativeDocumentMoniker": "src\\views\\GameProjects.vue",
@@ -295,19 +216,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "index.ts",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\router\\index.ts",
               "RelativeDocumentMoniker": "src\\router\\index.ts",
               "ToolTip": "D:\\DEVELOPMENT\\github-pages\\src\\router\\index.ts",
               "RelativeToolTip": "src\\router\\index.ts",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACwAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2026-03-01T16:27:46.51Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "Footer.vue",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\components\\Footer.vue",
               "RelativeDocumentMoniker": "src\\components\\Footer.vue",
@@ -319,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 18,
               "Title": "absorbing_state.png",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\public\\images\\literature\\absorbing_state.png",
               "RelativeDocumentMoniker": "public\\images\\literature\\absorbing_state.png",
@@ -330,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 20,
               "Title": "layout.tsx",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\app\\layout.tsx",
               "RelativeDocumentMoniker": "app\\layout.tsx",
@@ -342,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 13,
               "Title": "deploy.yml",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\.github\\workflows\\deploy.yml",
               "RelativeDocumentMoniker": ".github\\workflows\\deploy.yml",
@@ -354,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 15,
               "Title": "page.tsx",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\app\\page.tsx",
               "RelativeDocumentMoniker": "app\\page.tsx",
@@ -365,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 19,
               "Title": "Sidebar.tsx",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\src\\components\\layout\\Sidebar.tsx",
               "RelativeDocumentMoniker": "src\\components\\layout\\Sidebar.tsx",
@@ -377,7 +298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 11,
               "Title": "README.md",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\README.md",
               "RelativeDocumentMoniker": "README.md",
@@ -389,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 17,
               "Title": "workshop-poster.png",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\public\\images\\workshop_posters\\workshop-poster.png",
               "RelativeDocumentMoniker": "public\\images\\workshop_posters\\workshop-poster.png",
@@ -400,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 12,
               "Title": "package-lock.json",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\package-lock.json",
               "RelativeDocumentMoniker": "package-lock.json",
@@ -412,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 16,
               "Title": "page.tsx",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\app\\content\\about\\page.tsx",
               "RelativeDocumentMoniker": "app\\content\\about\\page.tsx",
@@ -424,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 14,
               "Title": "app.5b1f1881.js.map",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\dist\\js\\app.5b1f1881.js.map",
               "RelativeDocumentMoniker": "dist\\js\\app.5b1f1881.js.map",
@@ -436,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 22,
               "Title": "package.json",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\package.json",
               "RelativeDocumentMoniker": "package.json",
@@ -448,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 21,
               "Title": "page.tsx",
               "DocumentMoniker": "D:\\DEVELOPMENT\\github-pages\\app\\content\\projects\\page.tsx",
               "RelativeDocumentMoniker": "app\\content\\projects\\page.tsx",

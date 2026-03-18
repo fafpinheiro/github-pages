@@ -225,12 +225,6 @@ export default [
         <strong>Notebook:</strong>This feature adds an in-game notebook that the player can access at any time. It stores all the story notes and clues the player has discovered, allowing them to review important information whenever needed. The notebook also shows the current objective, helping players stay on track and follow the story without getting lost.
     </div>
 
-     <div class="paragraph">
-    <div class="notice">
-        Windows build available on <a href="https://some.where/nice" target="_blank">itch.io</a>.
-        Source code is available on <a href="https://github.com/yourself" target="_blank">GitHub</a>.
-    </div>
-    </div>
 
     `, "#5a78af"),
     new ProjectData("project-3", "Traffic Demo", "img/projects/trafficDemo.png", `
@@ -340,12 +334,6 @@ export default [
                 </p>
     </div>
 
-    <div class="paragraph">
-        <div class="notice">
-        Playable in the browser (WebGL) on <a href="https://some.where/nice" target="_blank">itch.io</a>.
-        Source code is available on <a href="https://github.com/yourself" target="_blank">GitHub</a>.
-        </div>
-    </div>
 
 
     `, "#383838"),
@@ -453,3 +441,10 @@ export default [
     //    <img class="pc-screenshot" src="https://fakeimg.pl/534x300/" alt="Cloud Drew Land Screenshot" />
     //</div>`, "#e48246")
 ];
+
+//<div class="paragraph" >
+//    <div class="notice" >
+ //       Playable in the browser(WebGL) on < a href = "https://some.where/nice" target = "_blank" > itch.io < /a>.
+ //       Source code is available on < a href = "https://github.com/yourself" target = "_blank" > GitHub < /a>.
+ //   < /div>
+ //   < /div>
